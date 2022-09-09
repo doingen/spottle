@@ -18,7 +18,7 @@ class CreateSpotsTable extends Migration
             $table->string('name',10);
             $table->double('length',3,1)->unsigned();
             $table->double('width',3,1)->unsigned();
-            $table->boolean('accept_jet')->default('false');
+            $table->boolean('accept_jet')->default(false);
             $table->double('max_size_of_helicopter',3,1)->unsigned()->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
