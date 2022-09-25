@@ -1,0 +1,129 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1rem 3rem 1.1rem 2rem;
+  background-color: #008282;
+}
+
+header h1 {
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  display: inline-block;
+  margin-left: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #eef4d2;
+  color: #008282;
+}
+
+
+.main__outer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 3rem
+}
+
+.main__title-block {
+  position: relative;
+  margin-right: 50px;
+  width: 45%;
+}
+
+.main__title-block img {
+  width: 100%;
+}
+
+.main__title {
+  position: absolute;
+  top: 35%;
+  left: 2rem;
+  color: #008282;
+  text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+      -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+      0px 1px 0 #FFF, 0-1px 0 #FFF,
+      -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+
+.main__title h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.main__title p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.8rem;
+}
+
+.main__title a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background-color: #f38630;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 2px gray;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.main__info {
+  padding: 1rem;
+  background-color: #eef4d2;
+  width: 30%;
+}
+
+.main__info--title {
+  display: inline-block;
+  margin: 1.5rem 0 1.2rem 0.5rem;
+  border-bottom: 2px dotted #008282;
+  font-size: 1.2rem;
+  color: #008282;
+}
+
+.main__info--contents {
+  margin-top: 1.3rem;
+}
+
+.main__info--item span {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  background-color: #F0C080;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.main__info--item p {
+  display: inline-block;
+  margin-left: 0.7rem;
+  margin-bottom: 2.7rem;
+  padding: 0.3rem 0;
+  width: 60%;
+  border-bottom: 1px solid #F0C080;
+}
+
+.main__info--item i {
+  color: #F0C080;
+}
