@@ -16,57 +16,33 @@ class AircraftsTableSeeder extends Seeder
     {
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'セスナ525C',
-            'length' => 16.26,
-            'width' => 15.49,
-            'jet' => true,
-            'helicopter' => false
+            'name' => 'セスナ525C'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([12, 13, 14, 16, 17]);
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'セスナ680',
-            'length' => 19.37,
-            'width' => 19.24,
-            'jet' => true,
-            'helicopter' => false
+            'name' => 'セスナ680'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([12, 13, 14, 16, 17]);
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'パイパーPA-28-181',
-            'length' => 7.25,
-            'width' => 10.67,
-            'jet' => false,
-            'helicopter' => false
+            'name' => 'パイパーPA-28-181'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'セスナ172N',
-            'length' => 8.20,
-            'width' => 10.92,
-            'jet' => false,
-            'helicopter' => false
+            'name' => 'セスナ172N'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'ベル206B',
-            'length' => 11.82,
-            'width' => 10.16,
-            'jet' => false,
-            'helicopter' => true
+            'name' => 'ベル206B'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
         $param = [
             'airport_admin_id' => 0,
-            'name' => 'エアバスヘリコプターズAS332',
-            'length' => 18.70,
-            'width' => 15.60,
-            'jet' => false,
-            'helicopter' => true
+            'name' => 'エアバスヘリコプターズAS332'
         ];
-        Aircraft::create($param);
+        Aircraft::create($param)->spots()->attach([13, 14, 16, 17]);
     }
 }

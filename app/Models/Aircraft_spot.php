@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Spot extends Model
+class Spot_aircraft extends Model
 {
     use HasFactory;
-
-    public function aircraft()
-    {
-        return $this->belongsToMany(Aircraft::class)->withTimestamps();
-    }
 }

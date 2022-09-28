@@ -16,74 +16,38 @@ class SpotsTableSeeder extends Seeder
     {
         $param = [
             'name' => '8',
-            'length' => 17.0,
-            'width' => 14.5,
-            'accept_jet' => false,
-            'max_size_of_helicopter' => 14.5
         ];
         Spot::create($param);
         $param = [
-            'name' => '9',
-            'length' => 17.0,
-            'width' => 18.0,
-            'accept_jet' => false,
-            'max_size_of_helicopter' => 14.5
+            'name' => '9'
         ];
         Spot::create($param);
         $param = [
-            'name' => '10',
-            'length' => 17.0,
-            'width' => 18.0,
-            'accept_jet' => false,
-            'max_size_of_helicopter' => 14.5
+            'name' => '10'
         ];
         Spot::create($param);
         $param = [
-            'name' => '11',
-            'length' => 17.0,
-            'width' => 18.0,
-            'accept_jet' => false,
-            'max_size_of_helicopter' => 14.5
+            'name' => '11'
         ];
         Spot::create($param);
         $param = [
-            'name' => '12',
-            'length' => 19.0,
-            'width' => 18.0,
-            'accept_jet' => true,
-            'max_size_of_helicopter' => 16.5
+            'name' => '12'
         ];
         Spot::create($param);
         $param = [
-            'name' => '13',
-            'length' => 27.5,
-            'width' => 20.0,
-            'accept_jet' => true,
-            'max_size_of_helicopter' => 17.0
+            'name' => '13'
         ];
         Spot::create($param);
         $param = [
-            'name' => '14',
-            'length' => 27.5,
-            'width' => 20.0,
-            'accept_jet' => true,
-            'max_size_of_helicopter' => 17.0
+            'name' => '14'
         ];
         Spot::create($param);
         $param = [
-            'name' => '16',
-            'length' => 27.5,
-            'width' => 20.0,
-            'accept_jet' => true,
-            'max_size_of_helicopter' => 17.0
+            'name' => '16'
         ];
         Spot::create($param);
         $param = [
-            'name' => '17',
-            'length' => 27.5,
-            'width' => 20.0,
-            'accept_jet' => true,
-            'max_size_of_helicopter' => 17.0
+            'name' => '17'
         ];
         Spot::create($param);
     }

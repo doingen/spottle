@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpotAircraftTable extends Migration
+class CreateAircraftSpotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSpotAircraftTable extends Migration
      */
     public function up()
     {
-        Schema::create('spot_aircraft', function (Blueprint $table) {
+        Schema::create('aircraft_spot', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('spot_id');
-            $table->foreignId('aircraft_id');
+            $table->foreignId('aircraft_id')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('spot_id')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateSpotAircraftTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spot_aircraft');
+        Schema::dropIfExists('aircraft_spot');
     }
 }

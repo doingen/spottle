@@ -17,10 +17,6 @@ class CreateAircraftTable extends Migration
             $table->id();
             $table->foreignId('airport_admin_id');
             $table->string('name',191);
-            $table->double('length',4,2)->unsigned();
-            $table->double('width',4,2)->unsigned();
-            $table->boolean('jet')->default(false);
-            $table->boolean('helicopter')->default(false);
             $table->timestamps();
         });
     }
