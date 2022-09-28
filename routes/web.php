@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ReserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,5 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('main.index');
-
-
+Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+Route::get('/reserve/first_search', [ReserveController::class, 'first_search'])->name('reserve.first_search');
