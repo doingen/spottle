@@ -4,23 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aircraft;
-use App\Models\Spot;
 
 class ReserveController extends Controller
 {
     public function index(){
+        $selected = 0;
         $aircraft = Aircraft::all();
-        return view('reserve', ['aircraft' => $aircraft]);
+
+        return view('reserve', ['selected' => $selected, 'aircraft' => $aircraft]);
     }
 
     public function first_search(Request $request){
-        $aircraft = Aircraft::where('id', $request->aircraft_id)
+        $selected = $request->aircraft_id;
+        $aircraft = Aircraft::all();
+        $spots = Aircraft::where('id', $request->aircraft_id)
+                        ->with('spots')
                         ->get();
         
-        foreach($aircraft as $aircraft){
-            if($aircraft->helicopter = 0){
-                
-            };
-        }
+        return view('reserve', ['selected' => $selected, 'aircraft' => $aircraft, 'spots' => $spots]);
     }
 }

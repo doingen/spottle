@@ -18,31 +18,31 @@ class AircraftsTableSeeder extends Seeder
             'airport_admin_id' => 0,
             'name' => 'セスナ525C'
         ];
-        Aircraft::create($param)->spots()->attach([12, 13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([5, 6, 7, 8, 9]);
         $param = [
             'airport_admin_id' => 0,
             'name' => 'セスナ680'
         ];
-        Aircraft::create($param)->spots()->attach([12, 13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([5, 6, 7, 8, 9]);
         $param = [
             'airport_admin_id' => 0,
             'name' => 'パイパーPA-28-181'
         ];
-        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         $param = [
             'airport_admin_id' => 0,
             'name' => 'セスナ172N'
         ];
-        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         $param = [
             'airport_admin_id' => 0,
             'name' => 'ベル206B'
         ];
-        Aircraft::create($param)->spots()->attach([8, 9, 10, 11, 12, 13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         $param = [
             'airport_admin_id' => 0,
             'name' => 'エアバスヘリコプターズAS332'
         ];
-        Aircraft::create($param)->spots()->attach([13, 14, 16, 17]);
+        Aircraft::create($param)->spots()->attach([6, 7, 8, 9]);
     }
 }
