@@ -1,5 +1,5 @@
 * {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 a {
@@ -19,9 +19,12 @@ header {
 
 header h1 {
   display: inline-block;
-  color: white;
   font-size: 1.5rem;
   line-height: 1.5;
+}
+
+.app-name {
+  color: white;
 }
 
 nav {

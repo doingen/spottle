@@ -15,7 +15,8 @@
         </select>
         <button>決定</button>
       </form>
-      <form method="get" action="">
+      <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected])}}">
+        {{$selected}}
         @csrf
         <p>&#9313;駐機スポットを選択し検索ボタンを押してください</p>
         <select name="spot_id">

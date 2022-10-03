@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="{{asset('css/reset.css')}}">
   <link rel="stylesheet" href="{{asset('css/layout.css')}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>スポっとる</h1>
+    <h1><a href="{{route('main.index')}}" class="app-name">スポっとる</a></h1>
     <nav>
       @if(Auth::check())
         <a href="">マイページ</a>
