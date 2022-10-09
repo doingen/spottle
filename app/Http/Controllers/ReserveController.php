@@ -40,37 +40,10 @@ class ReserveController extends Controller
                         ->get();
         $reserved = Reservation::where('spot_id', $selected_s)->get();
 
-        $dt = new Carbon;
-        $calender_array = [];
-        for($i=$start_hour; $i<$end_hour; $i++) {
-            for($j=0; $j<=45; $j=$j+15){
-                for($k=0; $k<$open_days; $k++){
-                    $td = $dt->today()->addDay($k)->addHour($i)->addMinutes($j);
-                    $calender_array[] = $td;
-                }
-            }
-        }
-        $last_key = array_key_last($calender_array);
+        $reservation_model = new Reservation;
+        list($calendar_row, $last_key) = $reservation_model->getCalendarArray($start_hour, $end_hour, $open_days);
+        $reserved_date = $reservation_model->getCalenderKey($start_hour, $end_hour, $open_days, $reserved);
         
-        $time_array = [];
-        for($i=0; $i<$open_days; $i++){
-            $start_time = $dt->today()->addDay($i)->addHour($start_hour);
-            $end_time = $dt->today()->addDay($i)->addHour($end_hour);
-            $period = CarbonPeriod::create($start_time, $end_time)->minute(15);
-            $time_array[] = $period;
-        }
-
-        $arr = [];
-        foreach($time_array as $time){
-            foreach($time as $time){
-                $date = $time->format('Y-m-d H:i:s');
-                $result = $reserved->where('start_at','<=',$date)->where('end_at','>',$date);
-                if($result->isNotEmpty()){
-                    $arr[] = $date;
-                }
-            }
-        }
-
-        return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calender_array','last_key', 'arr'));
+        return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calendar_row', 'last_key', 'reserved_date'));
     }
 }

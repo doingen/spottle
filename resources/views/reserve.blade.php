@@ -29,20 +29,20 @@
         </select>
         <button>検索</button>
       </form>
-      @isset($calender_array)
-      <div class="reserve__calender">
+      @isset($calendar_row)
+      <div class="reserve__calendar">
         <table>
           <tr>
             <th></th>
             @for($i=0; $i<$open_days; $i++)
-              <th>{{$calender_array[$i]->format("m/d")}}</th>
+              <th>{{$calendar_row[$i]->format("m/d")}}</th>
             @endfor
           </tr>
           @for($i=0; $i<=$last_key; $i=$i+$open_days)
             <tr>
-              <td>{{$calender_array[$i]->format("H:i")}}</td>
+              <td>{{$calendar_row[$i]->format("H:i")}}</td>
               @for($j=$i; $j<$i+$open_days; $j++)
-                @if(in_array($calender_array[$j], $arr)) 
+                @if(in_array($calendar_row[$j], $reserved_date)) 
                   <td>✕</td>
                 @else
                   <td>◎</td>
@@ -53,6 +53,71 @@
         </table>
       </div>
       @endisset
+      <div class="reserve__time-imput">
+        <form method="post" action="">
+          @csrf
+          <div class="reserve__start-time">
+            <select name="year">
+              <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
+              @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
+                <option value="{{$calendar_row[$last_key]->year}}">{{$calendar_row[$last_key]->year}}</option>
+              @endif
+            </select>
+            <select name="month">
+              <option value="{{$calendar_row[0]->month}}">{{$calendar_row[0]->month}}</option>
+              @if($calendar_row[0]->month != $calendar_row[$last_key]->month)
+                <option value="{{$calendar_row[$last_key]->month}}">{{$calendar_row[$last_key]->month}}</option>
+              @endif
+            </select>
+            <select name="day">
+              @for($i=0; $i<=$open_days-1; $i++)
+                <option value="{{$calendar_row[$i]->day}}">{{$calendar_row[$i]->day}}</option>
+              @endfor
+            </select>
+            <select name="hour">
+              @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
+                <option value="{{$calendar_row[$i]->hour}}">{{$calendar_row[$i]->hour}}</option>
+              @endfor
+            </select>
+            <select name="minutes">
+              <option value="00">00</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+            </select>
+          </div>
+          <div class="reserve__end-time">
+            <select name="year">
+              <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
+              @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
+                <option value="{{$calendar_row[$last_key]->year}}">{{$calendar_row[$last_key]->year}}</option>
+              @endif
+            </select>
+            <select name="month">
+              <option value="{{$calendar_row[0]->month}}">{{$calendar_row[0]->month}}</option>
+              @if($calendar_row[0]->month != $calendar_row[$last_key]->month)
+                <option value="{{$calendar_row[$last_key]->month}}">{{$calendar_row[$last_key]->month}}</option>
+              @endif
+            </select>
+            <select name="day">
+              @for($i=0; $i<=$open_days-1; $i++)
+                <option value="{{$calendar_row[$i]->day}}">{{$calendar_row[$i]->day}}</option>
+              @endfor
+            </select>
+            <select name="hour">
+              @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
+                <option value="{{$calendar_row[$i]->hour}}">{{$calendar_row[$i]->hour}}</option>
+              @endfor
+            </select>
+            <select name="minutes">
+              <option value="00">00</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+            </select>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </main>
