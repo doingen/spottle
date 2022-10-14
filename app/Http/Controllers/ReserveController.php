@@ -46,4 +46,26 @@ class ReserveController extends Controller
         
         return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calendar_row', 'last_key', 'reserved_date'));
     }
+
+    public function create(Request $request){
+        $requests = $request->all();
+        $reservation = new Reservation;
+        $reservation = $reservation->prepareForCreate($requests);
+        
+        $r = Reservation::where('spot_id', $reservation["spot_id"])->get();
+        $reserved_a = Reservation::where('spot_id', $reservation["spot_id"])->where('end_at', "<=", $reservation["start_at"])->get();
+        $reserved_b = Reservation::where('spot_id', $reservation["spot_id"])->where('start_at', ">", $reservation["end_at"])->get();
+        
+        $diff = $r->diff($reserved_a)->diff($reserved_b);
+        
+        if($diff->isNotEmpty()){
+            return back()->with('error', 'スケジュールが重複します')
+                        ->withInput();
+        }
+        else{
+            Reservation::create($reservation);
+        }
+        
+    }
+
 }
