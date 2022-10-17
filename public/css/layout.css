@@ -10,6 +10,10 @@ a:hover {
   cursor: pointer;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -40,7 +44,6 @@ nav a {
   background-color: #eef4d2;
   color: #008282;
 }
-
 
 .main__outer {
   display: flex;
@@ -133,4 +136,90 @@ nav a {
 
 .main__info--item i {
   color: #F0C080;
+}
+
+.reserve__wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  height: 85vh;
+}
+
+.reserve__block {
+  margin-right: 9rem;
+}
+
+.resreve__block button{
+  color: #f38630;
+}
+
+.reserve__first-search, .reserve__second-search, .reserve__time-imput {
+  margin: 2rem;
+}
+
+.reserve__search--title {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.reserve__search--box {
+  margin-left: 6rem;
+}
+
+.reserve__step {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #f38630;
+  color: #eef4d2;
+}
+
+.reserve__calendar {
+  margin-top: 1rem;
+  width: 35%;
+}
+
+.reserve__calendar i {
+  margin-top: 1px;
+  vertical-align: top;
+  color: #f38630;
+}
+
+.reserve__calendar--notice {
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 90%;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+.reserve__calendar--table {
+  height: 85%;
+  overflow: scroll;
+}
+
+.reserve__calendar table {
+  text-align: center;
+  border: none;
+}
+
+.reserve__calendar th, .reserve__calendar td {
+  padding: 6px;
+  border: 1px solid gray;
+}
+
+.reserve__calendar th {
+  background-color: #f0f3e3;
+}
+
+.reserve__calendar tr:nth-child(4n+5) {
+  border-bottom: 2px solid rgb(94, 93, 93);
+}
+
+.reserve__calendar--date {
+  background-color: #f0f3e3;
+}
+
+.reserve__unable {
+  background-color: rgb(236, 234, 234);
 }

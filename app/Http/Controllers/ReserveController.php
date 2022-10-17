@@ -10,11 +10,25 @@ use Carbon\Carbon;
 
 class ReserveController extends Controller
 {
+    protected $start_hour = 7;
+    protected $end_hour = 22;
+    protected $open_days = 14;
+
+    protected function getCalendarArray(){
+        $reservation_model = new Reservation;
+        $date= $reservation_model->getCalendarArray($this->start_hour, $this->end_hour, $this->open_days);
+
+        return $date;
+    }
+
     public function index(){
         $selected_a = 0;
+        $selected_s = 0;
         $aircraft = Aircraft::all();
+        list($calendar_row, $last_key) = $this->getCalendarArray();
+        $open_days = $this->open_days;
 
-        return view('reserve', compact('selected_a', 'aircraft'));
+        return view('reserve', compact('selected_a', 'selected_s', 'aircraft', 'calendar_row', 'last_key', 'open_days'));
     }
 
     public function first_search(Request $request){
@@ -24,14 +38,13 @@ class ReserveController extends Controller
         $spots = Aircraft::where('id', $request->aircraft_id)
                         ->with('spots')
                         ->get();
-        return view('reserve', compact('selected_a', 'selected_s', 'aircraft', 'spots'));
+        list($calendar_row, $last_key) = $this->getCalendarArray();
+        $open_days = $this->open_days;
+        return view('reserve', compact('selected_a', 'selected_s', 'aircraft', 'spots', 'calendar_row', 'last_key', 'open_days'));
     }
 
     public function second_search(Request $request, $aircraft_id){
-        $start_hour = 7;
-        $end_hour = 22;
-        $open_days = 14;
-
+        $open_days = $this->open_days;
         $aircraft = Aircraft::all();
         $selected_a = $aircraft_id;
         $selected_s = $request->spot_id;
@@ -39,10 +52,10 @@ class ReserveController extends Controller
                         ->with('spots')
                         ->get();
         $reserved = Reservation::where('spot_id', $selected_s)->get();
+        list($calendar_row, $last_key) = $this->getCalendarArray();
 
         $reservation_model = new Reservation;
-        list($calendar_row, $last_key) = $reservation_model->getCalendarArray($start_hour, $end_hour, $open_days);
-        $reserved_date = $reservation_model->getCalenderKey($start_hour, $end_hour, $open_days, $reserved);
+        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $reserved);
         
         return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calendar_row', 'last_key', 'reserved_date'));
     }
@@ -50,17 +63,10 @@ class ReserveController extends Controller
     public function create(Request $request){
         $requests = $request->all();
         $reservation = new Reservation;
-        $reservation = $reservation->prepareForCreate($requests);
-        
-        $r = Reservation::where('spot_id', $reservation["spot_id"])->get();
-        $reserved_a = Reservation::where('spot_id', $reservation["spot_id"])->where('end_at', "<=", $reservation["start_at"])->get();
-        $reserved_b = Reservation::where('spot_id', $reservation["spot_id"])->where('start_at', ">", $reservation["end_at"])->get();
-        
-        $diff = $r->diff($reserved_a)->diff($reserved_b);
+        list($reservation, $diff) = $reservation->prepareForCreate($requests);
         
         if($diff->isNotEmpty()){
-            return back()->with('error', 'スケジュールが重複します')
-                        ->withInput();
+            return back()->with('error', 'スケジュールが重複します');
         }
         else{
             Reservation::create($reservation);

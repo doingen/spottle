@@ -28,7 +28,7 @@ class Reservation extends Model
         return array($calendar_row, $last_key);
     }
 
-    public function getCalenderKey($start_hour, $end_hour, $open_days, $reserved){
+    public function getReservedDate($start_hour, $end_hour, $open_days, $reserved){
         $dt = new Carbon;
         $time_array = [];
         for($i=0; $i<$open_days; $i++){
@@ -79,6 +79,12 @@ class Reservation extends Model
         $reservation["user_id"] = 1;
         $reservation["tel"] = "123456789";
 
-        return $reservation;
-    }
+        $r = Reservation::where('spot_id', $reservation["spot_id"])->get();
+        $reserved_a = Reservation::where('spot_id', $reservation["spot_id"])->where('end_at', "<=", $reservation["start_at"])->get();
+        $reserved_b = Reservation::where('spot_id', $reservation["spot_id"])->where('start_at', ">", $reservation["end_at"])->get();
+        
+        $diff = $r->diff($reserved_a)->diff($reserved_b);
+
+        return array($reservation, $diff);
+        }
 }
