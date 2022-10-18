@@ -19,4 +19,5 @@ Route::get('/', [MainController::class, 'index'])->name('main.index');
 Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
 Route::get('/reserve/first_search', [ReserveController::class, 'first_search'])->name('reserve.first_search');
 Route::get('/reserve/second_search/{aircraft_id}', [ReserveController::class, 'second_search'])->name('reserve.second_search');
-Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
+Route::get('/reserve/confirm', [ReserveController::class, 'confirm'])->name('reserve.confirm');
+Route::get('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');

@@ -10,6 +10,10 @@ a:hover {
   cursor: pointer;
 }
 
+select {
+  outline: none;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -138,44 +142,94 @@ nav a {
   color: #F0C080;
 }
 
+
+/* reserveのCSS */
+
 .reserve__wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 2rem;
   height: 85vh;
 }
 
 .reserve__block {
-  margin-right: 9rem;
+  margin-left: 5rem;
 }
 
-.resreve__block button{
-  color: #f38630;
-}
-
-.reserve__first-search, .reserve__second-search, .reserve__time-imput {
+.reserve__first-search,
+.reserve__second-search,
+.reserve__time-input {
   margin: 2rem;
+}
+
+.reserve__input {
+  padding: 0.2rem 0.5rem;
+  width: 70%;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+
+.reserve__block button{
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #fa9549;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.reserve__alert {
+  margin-left: 6rem;
 }
 
 .reserve__search--title {
   display: inline-block;
   margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reserve__step {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #008282;
+  border-radius: 5px;
+  background-color: #eef4d2;
+  color: #008282;
 }
 
 .reserve__search--box {
   margin-left: 6rem;
 }
 
-.reserve__step {
+.reserve__alert {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  background-color: #f38630;
-  color: #eef4d2;
+  margin: 0 0 0.9rem 6rem;
+  padding: 0.4rem 1rem;
+  border-radius: 3px;
+  background-color: rgb(247, 195, 195);
+  color: red;
+  font-size: 0.9rem;
+}
+
+.reserve__start-time, .reserve__end-time {
+  margin-bottom: 1rem;
+}
+
+.reserve__time-input select{
+  padding: 0.2rem 0.5rem;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+
+.reserve__button {
+  margin-top: 1rem;
+  width: 90%;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
 .reserve__calendar {
   margin-top: 1rem;
+  margin-right: 5rem;
   width: 35%;
 }
 

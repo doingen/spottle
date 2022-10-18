@@ -12,7 +12,7 @@
         <div class="reserve__search--box">
           <form method="get" action="{{route('reserve.first_search')}}">
             @csrf
-            <select name="aircraft_id">
+            <select name="aircraft_id" class="reserve__input">
               @foreach($aircraft as $aircraft)
                 <option value="{{$aircraft->id}}" @if($selected_a == $aircraft->id) selected @endif>{{$aircraft->name}}</option>
               @endforeach
@@ -21,13 +21,14 @@
           </form>
         </div>
       </div>
+      @isset($selected_s)
       <div class="reserve__second-search">
         <span class="reserve__step">Step 2</span>
         <h2 class="reserve__search--title">駐機スポット</h2>
         <div class="reserve__search--box">
           <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected_a])}}">
             @csrf
-            <select name="spot_id">
+            <select name="spot_id" class="reserve__input">
               @isset($spots)
                 @foreach($spots as $spots)
                   @foreach($spots->spots as $spot)
@@ -40,15 +41,22 @@
           </form>
         </div>
       </div>
+      @endisset
       @isset($reserved_date)
-      <div class="reserve__time-imput">
+      <div class="reserve__time-input">
         <span class="reserve__step">Step 3</span>
-        <h2 class="reserve__search--title">◎から予約したい時間をお選びください</h2>
-        <p>{{session('error')}}</p>
+        <h2 class="reserve__search--title">◎から予約したい時間をお選びください</h2><br>
+        @if(session('reserve_error') !== null)
+          <p class="reserve__alert">{{session('reserve_error')}}</p>
+        @endif
+        @if(session('date_error') !== null)
+          <p class="reserve__alert">{{session('date_error')}}</p>
+        @endif
         <div class="reserve__search--box">
-          <form method="post" action="{{route('reserve.create')}}">
+          <form method="get" action="{{route('reserve.confirm')}}">
             @csrf
             <div class="reserve__start-time">
+              <span>開始：</span>
               <select name="start_year">
                 <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
                 @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
@@ -73,6 +81,7 @@
               </select>
             </div>
             <div class="reserve__end-time">
+              <span>終了：</span>
               <select name="end_year">
                 <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
                 @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
@@ -98,19 +107,21 @@
             </div>
             <input type="hidden" name="aircraft_id" value="{{$selected_a}}">
             <input type="hidden" name="spot_id" value="{{$selected_s}}">
-            <button>予約する</button>
+            <button class="reserve__button">予約する</button>
           </form>
         </div>
       </div>
       @endisset
     </div>
     <div class="reserve__calendar">
-      @empty($reserved_date)
+      @empty($selected_s)
         <i class="fa-solid fa-circle-exclamation"></i>
-        <p class="reserve__calendar--notice">使用機材・駐機スポットを決定するとカレンダーが表示されます</p>
+        <p class="reserve__calendar--notice">使用機材・駐機スポットを決定するとカレンダーが表示されます</p><br>
       @endempty
-      <i class="fa-solid fa-circle-exclamation"></i>
-      <p class="reserve__calendar--notice">使用機材・駐機スポットを変更する場合は、<strong>再度決定ボタンをクリック</strong>するとカレンダーが更新されます</p>
+      @if(!empty($selected_s))
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p class="reserve__calendar--notice">使用機材・駐機スポットを変更する場合は、<strong>再度決定ボタンをクリック</strong>するとカレンダーが更新されます</p>
+      @endif
       <div class="reserve__calendar--table">
         <table>
           <tr>
