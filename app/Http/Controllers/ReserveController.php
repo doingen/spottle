@@ -97,8 +97,8 @@ class ReserveController extends Controller
                 
                 $spot = Spot::find($request->spot_id);
                 $reservation["spot_name"] = $spot->name;
+
                 return view('confirm', ['reservation' => $reservation]);
-                // Reservation::create($reservation);
             }
             else{
                 return back()->with('reserve_error', 'すでに予約された日時が含まれています')
@@ -112,6 +112,16 @@ class ReserveController extends Controller
         }
     }
 
-    
+    public function create(Request $request){
+
+        $reservation = $request->reservation;
+
+        unset($reservation["aircraft_name"]);
+        unset($reservation["spot_name"]);
+
+        Reservation::create($reservation);
+
+        return view('thanks');
+    }
 
 }

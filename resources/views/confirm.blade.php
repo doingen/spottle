@@ -4,7 +4,7 @@
 <title>予約内容確認</title>
 <main>
   <div class="confirm__wrapper">
-    <h2>予約内容確認</h2>
+    <h2>予約内容</h2>
     <div class="confirm__contents">
       <span class="confirm__list">使用機材</span>
       <p>{{$reservation["aircraft_name"]}}</p>
