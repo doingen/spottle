@@ -24,7 +24,10 @@
     </div>
     <div class="confirm__button">
       <a class="confirm__button--back" onclick="history.back(); return false;">戻る</a>
-      <a class="confirm__button--reserve" href="{{route('reserve.create', ['reservation' => $reservation])}}">予約確定</a>
+      <form method="post" action="{{route('reserve.create', ['reservation' => $reservation])}}" class="confirm__button--reserve">
+      @csrf
+        <button>予約確定</button>
+      </form>
     </div>
   </div>
 </main>
