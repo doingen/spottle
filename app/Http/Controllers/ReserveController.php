@@ -118,7 +118,7 @@ class ReserveController extends Controller
 
         unset($reservation["aircraft_name"]);
         unset($reservation["spot_name"]);
-
+        
         Reservation::create($reservation);
 
         return view('thanks');

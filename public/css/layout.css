@@ -277,3 +277,102 @@ nav a {
 .reserve__unable {
   background-color: rgb(236, 234, 234);
 }
+
+
+/* confirmのCSS */
+
+.confirm__wrapper {
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.confirm__wrapper h2 {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 0.4px solid #008282;
+}
+
+.confirm__contents {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 3rem auto;
+  padding-top: 2rem;
+  width: 35%;
+  text-align: left;
+  background-color: #f1f7f1;
+}
+
+.confirm__contents p {
+  margin-bottom: 2rem;
+}
+
+.confirm__contents--left {
+  margin-right: 4rem;
+}
+
+.confirm__contents--left p {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #008282;
+  box-sizing: border-box;
+  background-color: #eef4d2;
+  color: #008282;
+}
+
+.confirm__contents--right p{
+  padding: 0.5rem 0;
+}
+
+.confirm__button--back {
+  display: inline-block;
+  margin-right: 3rem;
+  text-decoration: underline;
+  text-decoration-color: #345151;
+}
+
+.confirm__button--reserve {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #008282;
+  color: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+
+/* thanksのCSS */
+
+.thanks__wrapper {
+  text-align: center;
+  padding-top: 6rem;
+}
+
+.thanks__contents {
+  display: inline-block;
+  padding: 5rem 7rem;
+  border-radius: 5px;
+  background-color: #f1f7f1;
+}
+
+.thanks__contents p {
+  display: inline-block;
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 0.4px solid #008282;
+}
+
+.thanks__contents a {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #008282;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.thanks__contents--top {
+  margin-right: 3rem;
+}
