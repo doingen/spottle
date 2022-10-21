@@ -8,6 +8,8 @@ use App\Models\Reservation;
 use App\Models\Spot;
 use Carbon\CarbonPeriod;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReserveRequest;
 
 class ReserveController extends Controller
 {
@@ -79,37 +81,14 @@ class ReserveController extends Controller
         return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calendar_row', 'last_key', 'reserved_date'));
     }
 
-    public function confirm(Request $request){
+    public function confirm(ReserveRequest $request){
 
         $requests = $request->all();
-        
-        $reservation = new Reservation;
 
-        $create_info = $reservation->prepareForCreate($requests);
+        $r = new Reservation;
+        $reservation = $r->prepareForCreate($requests);
 
-        if($create_info != null){
-
-            list($reservation, $diff) = $create_info;
-
-            if($diff->isEmpty()){
-                $aircraft = Aircraft::find($request->aircraft_id);
-                $reservation["aircraft_name"] = $aircraft->name;
-                
-                $spot = Spot::find($request->spot_id);
-                $reservation["spot_name"] = $spot->name;
-
-                return view('confirm', ['reservation' => $reservation]);
-            }
-            else{
-                return back()->with('reserve_error', 'すでに予約された日時が含まれています')
-                            ->withInput();
-            }
-        }
-
-        else{
-            return back()->with('date_error', '入力された日時が正しくありません')
-                        ->withInput();
-        }
+        return view('confirm', ['reservation' => $reservation]);
     }
 
     public function create(Request $request){
@@ -122,6 +101,11 @@ class ReserveController extends Controller
         Reservation::create($reservation);
 
         return view('thanks');
+    }
+
+    public function show(){
+
+
     }
 
 }

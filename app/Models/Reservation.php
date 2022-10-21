@@ -70,54 +70,24 @@ class Reservation extends Model
 
     public function prepareForCreate($requests){
 
-        $reservation = [];
-        $reservation["spot_id"] = $requests["spot_id"];
-        $reservation["aircraft_id"] = $requests["aircraft_id"];
+        $requests_original = $requests;
+
+        unset($requests["aircraft_id"]);
+        unset($requests["spot_id"]);
+        unset($requests["start_at"]);
+        unset($requests["end_at"]);
+
+        $reservation = array_diff_assoc($requests_original, $requests);
+
         $reservation["user_id"] = 1;
         $reservation["tel"] = "123456789";
-
-        $start_month = substr($requests["start_date"], 0 ,2);
-        $start_day = substr($requests["start_date"], 3 ,2);
-        $end_month = substr($requests["end_date"], 0 ,2);
-        $end_day = substr($requests["end_date"], 3 ,2);
-
-        $dt = new Carbon;
-
-        $reservation["start_at"] = $dt->create(
-                                    $requests["start_year"], 
-                                    $start_month,
-                                    $start_day,
-                                    $requests["start_hour"], 
-                                    $requests["start_minutes"], 
-                                    00)->toDateTimeString();
-
-        $reservation["end_at"] = $dt->create(
-                                    $requests["end_year"], 
-                                    $end_month,
-                                    $end_day,
-                                    $requests["end_hour"], 
-                                    $requests["end_minutes"], 
-                                    00)->toDateTimeString();
-
-        if($reservation["start_at"] >= $reservation["end_at"]){
-            return null;
-        }
-
-        else{
-        $r = Reservation::where('spot_id', $reservation["spot_id"])
-                        ->get();
-
-        $reserved_a = Reservation::where('spot_id', $reservation["spot_id"])
-                                ->where('end_at', "<=", $reservation["start_at"])
-                                ->get();
-
-        $reserved_b = Reservation::where('spot_id', $reservation["spot_id"])
-                                ->where('start_at', ">", $reservation["end_at"])
-                                ->get();
         
-        $diff = $r->diff($reserved_a)->diff($reserved_b);
+        $aircraft = Aircraft::find($reservation["aircraft_id"]);
+        $reservation["aircraft_name"] = $aircraft->name;
+        
+        $spot = Spot::find($reservation["spot_id"]);
+        $reservation["spot_name"] = $spot->name;
 
-        return array($reservation, $diff);
-        }
+        return $reservation;
     }
 }

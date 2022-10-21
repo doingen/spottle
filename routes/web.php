@@ -21,3 +21,4 @@ Route::get('/reserve/first_search', [ReserveController::class, 'first_search'])-
 Route::get('/reserve/second_search/{aircraft_id}', [ReserveController::class, 'second_search'])->name('reserve.second_search');
 Route::get('/reserve/confirm', [ReserveController::class, 'confirm'])->name('reserve.confirm');
 Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
+Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');

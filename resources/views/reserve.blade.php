@@ -46,12 +46,12 @@
       <div class="reserve__time-input">
         <span class="reserve__step">Step 3</span>
         <h2 class="reserve__search--title">◎から予約したい時間をお選びください</h2><br>
-        @if(session('reserve_error') !== null)
-          <p class="reserve__alert">{{session('reserve_error')}}</p>
-        @endif
-        @if(session('date_error') !== null)
-          <p class="reserve__alert">{{session('date_error')}}</p>
-        @endif
+        @error('reserved')
+          <p class="reserve__alert">{{$message}}</p>
+        @enderror
+        @error('date')
+          <p class="reserve__alert">{{$message}}</p>
+        @enderror
         <div class="reserve__search--box">
           <form method="get" action="{{route('reserve.confirm')}}">
             @csrf
@@ -120,7 +120,7 @@
       @endempty
       @if(!empty($selected_s))
         <i class="fa-solid fa-circle-exclamation"></i>
-        <p class="reserve__calendar--notice">使用機材・駐機スポットを変更する場合は、<strong>再度決定ボタンをクリック</strong>するとカレンダーが更新されます</p>
+        <p class="reserve__calendar--notice">使用機材・駐機スポットを変更する場合は、<strong>再度必ず決定ボタンをクリック</strong>し、カレンダーを更新してください</p>
       @endif
       <div class="reserve__calendar--table">
         <table>
