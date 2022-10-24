@@ -16,22 +16,19 @@
     <div class="main__info">
       <h3 class="main__info--title">INFORMATION&#127818;</h3>
       <div class="main__info--contents">
+        @foreach($info as $info)
+        @php
+          $created = substr($info->created_at, 0, 10);
+          $date = str_replace('-', ".", $created);
+        @endphp
         <div class="main__info--item">
-          <span>2022.9.19</span>
-          <p>テスト</p>
-          <a href=""><i class="fas fa-arrow-right"></i></a>
+          <span>{{$date}}</span>
+          <a href="{{route('info.show', ['info_id' => $info->id])}}">
+            <p>{{$info->title}}</p>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="main__info--item">
-          <span>2022.9.19</span>
-          <p>テスト</p>
-          <a href=""><i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="main__info--item">
-          <span>2022.9.19</span>
-          <p>テスト</p>
-          <a href=""><i class="fas fa-arrow-right"></i></a>
-        </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>

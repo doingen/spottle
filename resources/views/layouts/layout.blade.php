@@ -12,7 +12,9 @@
 </head>
 <body>
   <header>
-    <h1><a href="{{route('main.index')}}" class="app-name">スポっとる</a></h1>
+    <a href="{{route('main.index')}}" class="app-name">
+      <h1>スポっとる<i class="fa-regular fa-paper-plane fa-xs"></i></h1>
+    </a>
     <nav>
       @if(Auth::check())
         <a href="">マイページ</a>

@@ -31,6 +31,10 @@ header h1 {
   line-height: 1.5;
 }
 
+header i {
+  margin-left: 0.4rem;
+}
+
 .app-name {
   color: white;
 }
@@ -71,7 +75,7 @@ nav a {
   top: 35%;
   left: 2rem;
   color: #008282;
-  text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  text-shadow: 3px 3px 0 #FFF, -1px -1px 0 #FFF,
       -1px 1px 0 #FFF, 1px -1px 0 #FFF,
       0px 1px 0 #FFF, 0-1px 0 #FFF,
       -1px 0 0 #FFF, 1px 0 0 #FFF;
@@ -136,6 +140,7 @@ nav a {
   padding: 0.3rem 0;
   width: 60%;
   border-bottom: 1px solid #F0C080;
+  color: black;
 }
 
 .main__info--item i {
@@ -389,4 +394,45 @@ nav a {
   border: 1px solid #008282;
   background-color: #eef4d2;
   color: #008282;
+}
+
+
+/* infoのCSS */
+
+.info__wrapper {
+  padding: 3rem 4rem 0 3rem;
+}
+
+.info__title h2 {
+  display: inline-block;
+  padding-bottom: 1.3rem;
+  border-bottom: 0.4px solid #F0C080;
+  font-size: 1.5rem;
+}
+
+.info__title span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  background-color: #F0C080;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.info__contents {
+  margin: 1.5rem 1.5rem 3rem 1.5rem;
+}
+
+.info__button {
+  text-align: center;
+}
+
+.info__button a {
+  display: inline-block;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #f38630;
+  color: white;
 }

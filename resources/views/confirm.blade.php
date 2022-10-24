@@ -2,8 +2,8 @@
 
 @section('contents')
 @php
-  $start_at = substr($reservation["start_at"], 0,16);
-  $end_at = substr($reservation["end_at"], 0,16);
+  $start_at = substr($reservation["start_at"], 0, 16);
+  $end_at = substr($reservation["end_at"], 0, 16);
 @endphp
 <title>予約内容確認</title>
 <main>

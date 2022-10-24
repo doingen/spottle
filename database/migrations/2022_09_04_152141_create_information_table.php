@@ -16,7 +16,7 @@ class CreateInformationTable extends Migration
         Schema::create('information', function (Blueprint $table) {
             $table->id();
             $table->foreignId('airport_admin_id');
-            $table->string('title, 50');
+            $table->string('title', 50);
             $table->text('text');
             $table->timestamps();
         });

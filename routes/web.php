@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\InfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('/reserve/second_search/{aircraft_id}', [ReserveController::class, 's
 Route::get('/reserve/confirm', [ReserveController::class, 'confirm'])->name('reserve.confirm');
 Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
 Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');
+Route::get('/information/{info_id}', [InfoController::class, 'show'])->name('info.show');
