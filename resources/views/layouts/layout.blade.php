@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/99288424cc.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -25,6 +26,8 @@
       @endif
     </nav>
   </header>
-  @yield('contents')
+  <main>
+    @yield('contents')
+  </main>
 </body>
 </html>

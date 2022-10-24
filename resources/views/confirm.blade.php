@@ -2,12 +2,13 @@
 
 @section('contents')
 @php
-  $start_at = substr($reservation["start_at"], 0, 16);
-  $end_at = substr($reservation["end_at"], 0, 16);
+  $s = substr($reservation["start_at"], 0, 16);
+  $e = substr($reservation["end_at"], 0, 16);
+  $start_at = str_replace('-', "/", $s);
+  $end_at = str_replace('-', "/", $e);
 @endphp
 <title>予約内容確認</title>
-<main>
-  <div class="confirm__wrapper">
+<div class="confirm__wrapper">
     <h2>予約内容</h2>
     <div class="confirm__contents">
       <div class="confirm__contents--left">
@@ -29,6 +30,5 @@
         <button>予約確定</button>
       </form>
     </div>
-  </div>
-</main>
+</div>
 @endsection

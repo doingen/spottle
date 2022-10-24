@@ -24,3 +24,9 @@ Route::get('/reserve/confirm', [ReserveController::class, 'confirm'])->name('res
 Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
 Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');
 Route::get('/information/{info_id}', [InfoController::class, 'show'])->name('info.show');
+Route::get('/login', function(){
+  return view('login');
+});
+Route::get('/register', function(){
+  return view('register');
+});
