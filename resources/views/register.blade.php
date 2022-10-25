@@ -27,6 +27,7 @@
             <p class="alert_notice">{{$message}}</p><br>
           @enderror
           <i class="fa-solid fa-phone"></i><input type="text" name="tel" value="{{old('tel')}}" placeholder="電話番号">
+          <p>※ハイフン「-」なし</p>
         </div>
         <div class="auth__input">
           @error('password')

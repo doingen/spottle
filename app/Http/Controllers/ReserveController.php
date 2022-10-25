@@ -88,7 +88,7 @@ class ReserveController extends Controller
         $r = new Reservation;
         $reservation = $r->prepareForCreate($requests);
 
-        return view('confirm', ['reservation' => $reservation]);
+        return view('reserve_confirm', ['reservation' => $reservation]);
     }
 
     public function create(Request $request){

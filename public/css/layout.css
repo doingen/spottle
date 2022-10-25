@@ -440,7 +440,7 @@ nav a {
 /* authのCSS */
 
 .auth__box {
-  margin: 8em auto;
+  margin: 8rem auto;
   width: 35%;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -448,10 +448,10 @@ nav a {
 }
 
 .auth__title {
-  padding: 0.8em 0.8em;
+  padding: 0.8rem 0.8rem;
   border: none;
   border-radius: 5px 5px 0 0;
-  font-size: 1.4em;
+  font-size: 1.4rem;
 }
 
 .auth__title h2 {
@@ -465,7 +465,7 @@ nav a {
 .auth__item--inner {
   margin: 0.5rem auto 2rem auto;
   width: 80%;
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 
 .auth__item form {
@@ -473,12 +473,12 @@ nav a {
 }
 
 .auth__input {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .auth__input i {
-  margin-right: 0.5em;
-  width: 1em;
+  margin-right: 0.5rem;
+  width: 1rem;
   color: #008282;
 }
 
@@ -491,9 +491,14 @@ nav a {
   border: none;
 }
 
+.auth__input p {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
 .auth__button {
-  margin-right: 1em;
-  padding: 0.4em 1em;
+  margin-right: 1rem;
+  padding: 0.4rem 1rem;
   border: 1px solid #008282;
   border-radius: 20px;
   background-color: #008282;
@@ -503,8 +508,8 @@ nav a {
 
 .register__button {
   display: block;
-  margin: 0 15% 1.8em auto;
-  padding: 0.4em 1.5em;
+  margin: 0 15% 1.8rem auto;
+  padding: 0.4rem 1.5rem;
 }
 
 .auth__bottom {
@@ -512,7 +517,7 @@ nav a {
 }
 
 .auth__bottom a {
-  margin-right: 2em;
+  margin-right: 2rem;
   font-size: 0.9rem;
   color: rgb(110, 109, 109);
 }

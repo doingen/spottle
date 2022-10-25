@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,4 @@ Route::get('/information/{info_id}', [InfoController::class, 'show'])->name('inf
 Route::get('/login', function(){
   return view('login');
 });
-Route::get('/register', function(){
-  return view('register');
-});
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
