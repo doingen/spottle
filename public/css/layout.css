@@ -390,8 +390,9 @@ nav a {
   display: inline-block;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  font-size: 1.3rem;
   border-bottom: 0.4px solid #008282;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
 }
 
 .thanks__contents a {
@@ -403,12 +404,12 @@ nav a {
 }
 
 .thanks__contents--top {
-  margin-right: 3rem;
   background-color: #008282;
   color: white;
 }
 
 .thanks__contents--mypage {
+  margin-left: 3rem;
   border: 1px solid #008282;
   background-color: #eef4d2;
   color: #008282;
