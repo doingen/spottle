@@ -379,15 +379,16 @@ nav a {
 }
 
 .thanks__contents {
-  display: inline-block;
-  padding: 5rem 7rem;
+  margin: 0 auto;
+  padding: 3.5rem 7rem;
+  width: 40%;
   border-radius: 5px;
   background-color: #f1f7f1;
 }
 
 .thanks__contents p {
   display: inline-block;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   font-size: 1.3rem;
   border-bottom: 0.4px solid #008282;
@@ -395,6 +396,7 @@ nav a {
 
 .thanks__contents a {
   display: inline-block;
+  margin-top: 3rem;
   padding: 0.8rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
