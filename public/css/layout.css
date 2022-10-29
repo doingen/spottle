@@ -74,6 +74,9 @@ nav a {
   position: absolute;
   top: 35%;
   left: 2rem;
+}
+
+.main__title--item {
   color: #008282;
   text-shadow: 3px 3px 0 #FFF, -1px -1px 0 #FFF,
       -1px 1px 0 #FFF, 1px -1px 0 #FFF,
@@ -81,12 +84,12 @@ nav a {
       -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
-.main__title h2 {
+.main__title--item h2 {
   margin-bottom: 1rem;
   font-size: 3.5rem;
 }
 
-.main__title p {
+.main__title--item p {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.8rem;
@@ -102,6 +105,12 @@ nav a {
   color: white;
   font-size: 1.5rem;
   text-shadow: none;
+}
+
+.main__title--notice {
+  margin-top: 0.7rem;
+  margin-left: 1rem;
+  color: #333;
 }
 
 .main__info {
@@ -127,7 +136,7 @@ nav a {
   vertical-align: top;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  background-color: #F0C080;
+  background-color: #f38630;
   color: white;
   font-size: 0.9rem;
 }
@@ -139,7 +148,7 @@ nav a {
   padding: 0.3rem 0;
   width: 60%;
   border-bottom: 1px solid #F0C080;
-  color: black;
+  color: #333;
 }
 
 .main__info--item i {
@@ -158,6 +167,14 @@ nav a {
 
 .reserve__block {
   margin-left: 5rem;
+}
+
+.reserve__block h2 {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.4px solid #F0C080;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 .reserve__first-search,
@@ -325,10 +342,10 @@ nav a {
 }
 
 .confirm__contents--right p{
-  padding: 0.5rem 0;
+  padding: 0.55em 0;
 }
 
-.confirm__contents--right p:nth-child(3) {
+.reserve__confirm p:nth-child(3) {
   margin-bottom: 0.2rem;
 }
 
@@ -407,20 +424,22 @@ nav a {
   padding-bottom: 1.3rem;
   border-bottom: 0.4px solid #F0C080;
   font-size: 1.5rem;
+  color: #333;
 }
 
 .info__title span {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   background-color: #F0C080;
-  color: white;
+  color: rgb(69, 69, 69);
   font-size: 0.9rem;
 }
 
 .info__contents {
   margin: 1.5rem 1.5rem 3rem 1.5rem;
+  color: #333;
 }
 
 .info__button {
@@ -429,11 +448,19 @@ nav a {
 
 .info__button a {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 1rem 1rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  background-color: #f38630;
   color: white;
+}
+
+.info__button--article a {
+  background-color: #f38630;
+}
+
+.info__button--top a {
+  background-color: #F0C080;
+  color: rgb(69, 69, 69);
 }
 
 
@@ -452,6 +479,7 @@ nav a {
   border: none;
   border-radius: 5px 5px 0 0;
   font-size: 1.4rem;
+  color: #333;
 }
 
 .auth__title h2 {
@@ -484,6 +512,7 @@ nav a {
 
 .auth__input input {
   padding: 0.3rem;
+  margin-left: 0.7rem;
   width: 85%;
   border-bottom: 1px solid gray;
   background-color: #eef4d2;
@@ -492,7 +521,7 @@ nav a {
 }
 
 .auth__input p {
-  margin-left: 1rem;
+  margin-left: 2.2rem;
   font-size: 0.9rem;
 }
 
@@ -520,4 +549,11 @@ nav a {
   margin-right: 2rem;
   font-size: 0.9rem;
   color: rgb(110, 109, 109);
+}
+
+.alert__notice {
+  display: inline-block;
+  padding: 0.3em 1em;
+  /* background-color: rgb(243, 231, 231); */
+  color: red;
 }

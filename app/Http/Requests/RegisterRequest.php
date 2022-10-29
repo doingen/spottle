@@ -38,7 +38,7 @@ class RegisterRequest extends FormRequest
             'name.max' => '50文字以内で入力してください',
             'email' => 'メールアドレス形式で入力してくだい',
             'unique' => 'この:attributeはすでに利用されています',
-            'numeric' => '半角数字で入力してください',
+            'numeric' => 'ハイフンなしの半角数字で入力してください',
             'digits_between' => '半角数字10文字から11文字以内で入力してください',
             'password.min' => '半角英数字8文字以上で入力してください',
             'password.max' => '半角英数字191文字以内で入力してください'

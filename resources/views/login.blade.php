@@ -28,7 +28,7 @@
           @enderror
         </div>
         <div class="auth__bottom">
-          <a href="">会員登録がまだの方はこちら</a>
+          <a href="{{route('register.show')}}">会員登録がまだの方はこちら</a>
           <button class="auth__button">ログイン</button>
         </div>
       </div>

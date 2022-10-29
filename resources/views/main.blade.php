@@ -6,9 +6,12 @@
   <div class="main__title-block">
     <img src="{{asset('img/トップ背景.jpeg')}}">
     <div class="main__title">
-      <h2>松山空港</h2>
-      <p>小型機スポット<br>予約サイト</p>
+      <div class="main__title--item">
+        <h2>松山空港</h2>
+        <p>小型機スポット<br>予約サイト</p>
+      </div>
       <a href="{{route('reserve.index')}}">予約する</a>
+      <p class="main__title--notice">&#127818;要会員登録&#127818;</p>
     </div>
   </div>
   <div class="main__info">

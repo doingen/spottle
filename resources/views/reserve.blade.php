@@ -4,9 +4,10 @@
 <title>予約する</title>
 <div class="reserve__wrapper">
   <div class="reserve__block">
+    <h2>スポット予約</h2>
     <div class="reserve__first-search">
       <span class="reserve__step">Step 1</span>
-      <h2 class="reserve__search--title">使用機材</h2>
+      <h3 class="reserve__search--title">使用機材</h3>
       <div class="reserve__search--box">
         <form method="get" action="{{route('reserve.first_search')}}">
           @csrf
@@ -22,7 +23,7 @@
     @isset($selected_s)
     <div class="reserve__second-search">
       <span class="reserve__step">Step 2</span>
-      <h2 class="reserve__search--title">駐機スポット</h2>
+      <h3 class="reserve__search--title">駐機スポット</h3>
       <div class="reserve__search--box">
         <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected_a])}}">
           @csrf
@@ -43,7 +44,7 @@
     @isset($reserved_date)
     <div class="reserve__time-input">
       <span class="reserve__step">Step 3</span>
-      <h2 class="reserve__search--title">◎から予約したい時間をお選びください</h2><br>
+      <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
       @error('reserved')
         <p class="reserve__alert">{{$message}}</p>
       @enderror
