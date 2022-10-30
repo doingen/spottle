@@ -371,7 +371,7 @@ nav a {
 }
 
 
-/* thanksのCSS */
+/* thanks, verifyのCSS */
 
 .thanks__wrapper {
   text-align: center;
@@ -391,16 +391,17 @@ nav a {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 0.4px solid #008282;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.6rem;
 }
 
-.thanks__contents a {
+.thanks__contents a, .thanks__contents button {
   display: inline-block;
-  margin-top: 3rem;
+  margin-top: 1rem;
   padding: 0.8rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
 .thanks__contents--top {
@@ -413,6 +414,12 @@ nav a {
   border: 1px solid #008282;
   background-color: #eef4d2;
   color: #008282;
+}
+
+.thanks__contents button {
+  background-color: #008282;
+  border: none;
+  color: white;
 }
 
 
