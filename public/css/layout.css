@@ -381,9 +381,9 @@ nav a {
 .thanks__contents {
   margin: 0 auto;
   padding: 3.5rem 7rem;
-  width: 40%;
+  width: 32rem;
   border-radius: 5px;
-  background-color: #e3f6e3;
+  background-color: #eef7ee;
 }
 
 .thanks__contents p {

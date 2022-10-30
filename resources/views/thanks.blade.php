@@ -9,7 +9,7 @@
       <a href="" class="thanks__contents--mypage">マイページ</a>
     @elseif(Request::routeIs('register.create'))
       <p>ご登録ありがとうございます。</p>
-      <p>ご登録いただいたメールアドレスへ認証メールを送信しましたので、<br>
+      <p>ご登録いただいたメールアドレスへ認証メールを送信しましたので、
       確認をお願いいたします。</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
     @elseif(Request::routeIs('logout'))
