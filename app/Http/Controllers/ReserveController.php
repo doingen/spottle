@@ -71,6 +71,7 @@ class ReserveController extends Controller
                         ->get();
 
         $reserved = Reservation::where('spot_id', $selected_s)->get();
+        
         list($calendar_row, $last_key) = $this->getCalendarArray();
 
         $reservation_model = new Reservation;

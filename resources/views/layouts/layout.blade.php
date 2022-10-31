@@ -18,7 +18,7 @@
     </a>
     <nav>
       @if(Auth::check())
-        <a href="">マイページ</a>
+        <a href="{{route('user.index')}}">マイページ</a>
         <a href="{{route('logout')}}">ログアウト</a>
       @else
         <a href="{{route('login')}}">ログイン</a>

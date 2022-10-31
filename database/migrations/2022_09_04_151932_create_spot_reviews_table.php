@@ -15,8 +15,7 @@ class CreateSpotReviewsTable extends Migration
     {
         Schema::create('spot_reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('spot_id');
+            $table->foreignId('reservation_id');
             $table->tinyInteger('stars');
             $table->string('comment',191);
             $table->timestamps();

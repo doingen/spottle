@@ -14,6 +14,19 @@ class Reservation extends Model
 
     protected $guarded = ['id'];
 
+    public function aircraft(){
+        return $this->belongsTo('App\Models\Aircraft');
+    }
+
+    public function spot(){
+        return $this->belongsTo('App\Models\Spot');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+
     public function getCalendarArray($start_hour, $end_hour, $open_days){
 
         $dt = new Carbon;

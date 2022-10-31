@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ReserveController;
+
 use App\Http\Controllers\InfoController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -64,4 +67,6 @@ Route::middleware(['auth', 'verified'])->group(function() {
   Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
   
   Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');
+
+  Route::get('/mypage', [UserController::class, 'index'])->name('user.index');
 });
