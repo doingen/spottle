@@ -8,7 +8,6 @@ use App\Models\Reservation;
 use App\Models\Spot;
 use Carbon\CarbonPeriod;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReserveRequest;
 
 class ReserveController extends Controller

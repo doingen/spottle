@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function (){
   Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::middleware('verified')->group(function() {
+Route::middleware(['auth', 'verified'])->group(function() {
   Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
 
   Route::get('/reserve/first_search', [ReserveController::class, 'first_search'])->name('reserve.first_search');

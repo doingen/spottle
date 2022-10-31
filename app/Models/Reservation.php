@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\CarbonPeriod;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class Reservation extends Model
 {
@@ -79,11 +80,10 @@ class Reservation extends Model
 
         $reservation = array_diff_assoc($requests_original, $requests);
 
-        $reservation["user_id"] = 1;
-        $reservation["tel"] = "123456789";
+        $reservation["user_id"] = Auth::id();
+        $reservation["tel"] = Auth::user()->tel;
         
-        $aircraft = Aircraft::find($reservation["aircraft_id"]);
-        $reservation["aircraft_name"] = $aircraft->name;
+        $reservation["aircraft_name"] = Aircraft::find($reservation["aircraft_id"])->name;
         
         $spot = Spot::find($reservation["spot_id"]);
         $reservation["spot_name"] = $spot->name;
