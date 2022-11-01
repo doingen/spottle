@@ -1,12 +1,7 @@
 @extends('layouts.layout')
 
 @section('contents')
-@php
-  $s = substr($reservation["start_at"], 0, 16);
-  $e = substr($reservation["end_at"], 0, 16);
-  $start_at = str_replace('-', "/", $s);
-  $end_at = str_replace('-', "/", $e);
-@endphp
+
 <title>予約内容確認</title>
 <div class="confirm__wrapper">
   <h2>予約内容</h2>
@@ -19,8 +14,8 @@
     <div class="confirm__contents--right reserve__confirm">
       <p>{{$reservation["aircraft_name"]}}</p>        
       <p>{{$reservation["spot_name"]}}</p>
-      <p>開始：{{$start_at}}</p>
-      <p>終了：{{$end_at}}</p>
+      <p>開始：{{\App\Models\Reservation::dateReform($reservation["start_at"])}}</p>
+      <p>終了：{{\App\Models\Reservation::dateReform($reservation["end_at"])}}</p>
     </div>
   </div>
   <div class="confirm__button">

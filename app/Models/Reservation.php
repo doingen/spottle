@@ -103,4 +103,9 @@ class Reservation extends Model
 
         return $reservation;
     }
+    
+    static function dateReform($date){
+        $d = substr($date, 0, 16);
+        return str_replace('-', "/", $d);
+    }
 }

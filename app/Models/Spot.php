@@ -13,4 +13,9 @@ class Spot extends Model
     {
         return $this->belongsToMany(Aircraft::class)->withTimestamps();
     }
+
+    public function reservations()
+    {
+        return $this->hasMany('App\Models\Reservation');
+    }
 }

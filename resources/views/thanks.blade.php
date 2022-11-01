@@ -6,7 +6,7 @@
     @if(Request::routeIs('reserve.create'))
       <p>ご予約ありがとうございます</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
-      <a href="" class="thanks__contents--mypage">マイページ</a>
+      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
     @elseif(Request::routeIs('register.create'))
       <p>ご登録ありがとうございます。</p>
       <p>ご登録いただいたメールアドレスへ認証メールを送信しましたので、
