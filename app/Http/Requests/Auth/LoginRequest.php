@@ -34,6 +34,22 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return[
+            'required' => ':attributeを入力してください',
+            'email' => 'メールアドレス形式で入力してくだい'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'email' => 'メールアドレス',
+            'password' => 'パスワード'
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -49,7 +65,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'login_error' => 'メールアドレスまたはパスワードが間違っています',
             ]);
         }
 

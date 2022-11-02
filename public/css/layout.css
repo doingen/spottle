@@ -18,6 +18,14 @@ button:hover {
   cursor: pointer;
 }
 
+.page-title {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.4px solid #F0C080;
+  font-size: 1.5rem;
+  color: #333;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -167,14 +175,6 @@ nav a {
 
 .reserve__block {
   margin-left: 5rem;
-}
-
-.reserve__block h2 {
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.4px solid #F0C080;
-  font-size: 1.5rem;
-  color: #333;
 }
 
 .reserve__first-search,
@@ -564,6 +564,11 @@ nav a {
 .alert__notice {
   display: inline-block;
   padding: 0.3em 1em;
+  font-size: 0.9rem;
   color: red;
+}
+
+.login-error {
+  margin-left: 2rem;
 }
 

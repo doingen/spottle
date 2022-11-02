@@ -10,14 +10,13 @@ use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
-    public function create()
+    public function show()
     {
         return view('login');
     }
 
     public function login(LoginRequest $request)
     {
-        
         $request->authenticate();
 
         $request->session()->regenerate();

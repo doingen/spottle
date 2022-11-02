@@ -11,13 +11,21 @@ class Usercontroller extends Controller
 {
     public function index(){
 
-        $user = Reservation::where('user_id', Auth::id())
+        $reserve = Reservation::where('user_id', Auth::id())
                     ->where('start_at', '>=', date("Y-m-d H:i:s"))
                     ->orderBy('start_at', 'asc')
                     ->with('aircraft')
                     ->with('spot')
                     ->get();
-                    
-        return view('mypage', ['user' => $user]);
+
+        $review = Reservation::where('user_id', Auth::id())
+                    ->where('end_at', '<=', date("Y-m-d H:i:s"))
+                    ->orderBy('end_at', 'desc')
+                    ->with('aircraft')
+                    ->with('spot')
+                    ->take(3)
+                    ->get();
+
+        return view('mypage', compact('reserve', 'review'));
     }
 }

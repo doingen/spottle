@@ -21,7 +21,7 @@
         <a href="{{route('user.index')}}">マイページ</a>
         <a href="{{route('logout')}}">ログアウト</a>
       @else
-        <a href="{{route('login')}}">ログイン</a>
+        <a href="{{route('login.show')}}">ログイン</a>
         <a href="{{route('register.show')}}">会員登録</a>
       @endif
     </nav>
