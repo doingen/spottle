@@ -175,12 +175,13 @@ nav a {
 
 .reserve__block {
   margin-left: 5rem;
+  width: 30%;
 }
 
 .reserve__first-search,
 .reserve__second-search,
 .reserve__time-input {
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 .reserve__input {
@@ -221,6 +222,11 @@ nav a {
 .reserve__search--box {
   margin-left: 6rem;
 }
+/* 
+.reserve__search--box form:not(.step3){
+  display: flex;
+  justify-content: space-between;
+} */
 
 .reserve__alert {
   display: inline-block;
@@ -243,8 +249,8 @@ nav a {
 }
 
 .reserve__button {
-  margin-top: 1rem;
-  width: 90%;
+  display: block;
+  width: 22rem;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 

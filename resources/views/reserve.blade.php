@@ -52,7 +52,7 @@
         <p class="reserve__alert">{{$message}}</p>
       @enderror
       <div class="reserve__search--box">
-        <form method="get" action="{{route('reserve.confirm')}}">
+        <form method="get" action="{{route('reserve.confirm')}}" class="step3">
           @csrf
           <div class="reserve__start-time">
             <span>開始：</span>

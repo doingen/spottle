@@ -72,8 +72,10 @@ class Reservation extends Model
                 $date = $time->format('Y-m-d H:i:s');
                 $result = $reserved->where('start_at','<=',$date)
                                     ->where('end_at','>',$date);
+                
+                $now = date("Y-m-d H:i:s");
 
-                if($result->isNotEmpty()){
+                if($date <= $now || $result->isNotEmpty()){
                     $reserved_date[] = $date;
                 }
             }

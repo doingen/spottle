@@ -54,6 +54,9 @@ class ReserveRequest extends FormRequest
             if($this->input('start_at') >= $this->input('end_at')){
                 $validator->errors()->add('date', '入力された日時が正しくありません');
             }
+            elseif($this->input('start_at') <= date("Y-m-d H:i:s")){
+                $validator->errors()->add('date', '過去の日時は入力できません');
+            }
             else{
                 $r = Reservation::where('spot_id', $this->input('spot_id'))
                                 ->get();
