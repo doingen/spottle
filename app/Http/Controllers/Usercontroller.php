@@ -12,7 +12,7 @@ class Usercontroller extends Controller
     public function index(){
 
         $reserve = Reservation::where('user_id', Auth::id())
-                    ->where('start_at', '>=', date("Y-m-d H:i:s"))
+                    ->where('end_at', '>', date("Y-m-d H:i:s"))
                     ->orderBy('start_at', 'asc')
                     ->with('aircraft')
                     ->with('spot')

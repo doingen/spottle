@@ -2,6 +2,10 @@
   font-family: 'Sawarabi Gothic', sans-serif;
 }
 
+h2, h3, span, p, th, td{
+  color: #333;
+}
+
 a {
   text-decoration: none;
 }
@@ -23,7 +27,6 @@ button:hover {
   padding-bottom: 0.5rem;
   border-bottom: 0.4px solid #F0C080;
   font-size: 1.5rem;
-  color: #333;
 }
 
 header {
@@ -85,7 +88,6 @@ nav a {
 }
 
 .main__title--item {
-  color: #008282;
   text-shadow: 3px 3px 0 #FFF, -1px -1px 0 #FFF,
       -1px 1px 0 #FFF, 1px -1px 0 #FFF,
       0px 1px 0 #FFF, 0-1px 0 #FFF,
@@ -95,12 +97,14 @@ nav a {
 .main__title--item h2 {
   margin-bottom: 1rem;
   font-size: 3.5rem;
+  color: #008282;
 }
 
 .main__title--item p {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.8rem;
+  color: #008282;
 }
 
 .main__title a {
@@ -118,7 +122,6 @@ nav a {
 .main__title--notice {
   margin-top: 0.7rem;
   margin-left: 1rem;
-  color: #333;
 }
 
 .main__info {
@@ -156,7 +159,6 @@ nav a {
   padding: 0.3rem 0;
   width: 60%;
   border-bottom: 1px solid #F0C080;
-  color: #333;
 }
 
 .main__info--item i {
@@ -213,7 +215,7 @@ nav a {
 .reserve__step {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid #008282;
+  border: 2px solid #008282;
   border-radius: 5px;
   background-color: #eef4d2;
   color: #008282;
@@ -222,11 +224,6 @@ nav a {
 .reserve__search--box {
   margin-left: 6rem;
 }
-/* 
-.reserve__search--box form:not(.step3){
-  display: flex;
-  justify-content: space-between;
-} */
 
 .reserve__alert {
   display: inline-block;
@@ -341,7 +338,7 @@ nav a {
 .confirm__contents--left p {
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  border: 1px solid #008282;
+  border: 2px solid #008282;
   box-sizing: border-box;
   background-color: white;
   color: #008282;
@@ -417,7 +414,7 @@ nav a {
 
 .thanks__contents--mypage {
   margin-left: 3rem;
-  border: 1px solid #008282;
+  border: 2px solid #008282;
   background-color: #eef4d2;
   color: #008282;
 }
@@ -440,7 +437,6 @@ nav a {
   padding-bottom: 1.3rem;
   border-bottom: 0.4px solid #F0C080;
   font-size: 1.5rem;
-  color: #333;
 }
 
 .info__title span {
@@ -455,7 +451,6 @@ nav a {
 
 .info__contents {
   margin: 1.5rem 1.5rem 3rem 1.5rem;
-  color: #333;
 }
 
 .info__button {
@@ -480,7 +475,7 @@ nav a {
 }
 
 
-/* authのCSS */
+/* register,loginのCSS */
 
 .auth__box {
   margin: 8rem auto;
@@ -495,7 +490,6 @@ nav a {
   border: none;
   border-radius: 5px 5px 0 0;
   font-size: 1.4rem;
-  color: #333;
 }
 
 .auth__title h2 {
@@ -544,7 +538,6 @@ nav a {
 .auth__button {
   margin-right: 1rem;
   padding: 0.4rem 1rem;
-  border: 1px solid #008282;
   border-radius: 20px;
   background-color: #008282;
   color: white;
@@ -578,3 +571,88 @@ nav a {
   margin-left: 2rem;
 }
 
+
+/* mypageのCSS */
+
+.mypage__outer {
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.mypage__inner {
+  margin: 0 auto;
+}
+
+.mypage__contents {
+  margin: 2rem 2rem 0 2rem;
+}
+
+.mypage__contents h3 {
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px dotted #008282;
+}
+
+.mypage__contents--inner {
+  margin: 1rem 0 0 2rem;
+}
+
+.mypage__contents--inner table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.mypage__contents--inner th, 
+.mypage__contents--inner td {
+  padding: 1rem 2.5rem;
+  /* border-bottom: 1px solid #008282; */
+}
+
+.mypage__contents--inner th {
+  background-color: #008282;
+  color: white;
+  font-weight: 100;
+}
+
+.mypage__contents--inner td:first-child {
+  border-right: 1px solid white;
+}
+
+.mypage__contents--inner th:not(:last-child) {
+  border-right: 1px solid white;
+}
+
+.mypage__contents--inner tr:nth-child(2n):not(th) {
+  background-color: #eef4d2;
+  color: #008282;
+}
+
+.mypage__contents 
+
+.mypage__contents--inner td:last-child {
+  border: none;
+  background-color: white;
+  text-align: left;
+}
+
+.mypage__reserve a, .mypage__review a{
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+.mypage__reserve a {
+  background-color: #008282;
+  color: white;
+}
+
+.mypage__review a {
+  border: 2px solid #008282;
+  background-color: #eef4d2;
+  color: #008282;
+}

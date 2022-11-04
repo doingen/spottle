@@ -103,9 +103,8 @@ class ReserveController extends Controller
         return view('thanks');
     }
 
-    public function show(){
-
-
+    public function show(Request $request){
+        dd($request->reserve_id);
     }
 
 }
