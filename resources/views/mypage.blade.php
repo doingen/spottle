@@ -4,7 +4,7 @@
 <title>マイページ</title>
 <div class="mypage__wrapper">
   <div class="mypage__outer">
-    <h2 class="page-title">マイページ</h2>
+    <x-title title="マイページ" />
     <div class="mypage__inner">
       <section class="mypage__contents">
         <h3>予約一覧</h3>

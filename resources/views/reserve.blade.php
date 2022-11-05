@@ -4,7 +4,7 @@
 <title>予約する</title>
 <div class="reserve__wrapper">
   <div class="reserve__block">
-    <h2 class="page-title">スポット予約</h2>
+    <x-title title="スポット予約" />
     <div class="reserve__first-search">
       <span class="reserve__step">Step 1</span>
       <h3 class="reserve__search--title">使用機材</h3>
