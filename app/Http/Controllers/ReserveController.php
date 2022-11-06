@@ -69,14 +69,12 @@ class ReserveController extends Controller
         $spots = Aircraft::where('id', $aircraft_id)
                         ->with('spots')
                         ->get();
-
-        $reserved = Reservation::where('spot_id', $selected_s)->get();
         
         list($calendar_row, $last_key) = $this->getCalendarArray();
 
         $reservation_model = new Reservation;
 
-        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $reserved);
+        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $selected_s);
         
         return view('reserve', compact('open_days', 'aircraft', 'selected_a', 'selected_s', 'spots', 'calendar_row', 'last_key', 'reserved_date'));
     }
@@ -104,7 +102,42 @@ class ReserveController extends Controller
     }
 
     public function show(Request $request){
-        dd($request->reserve_id);
+
+        $reservation = Reservation::where('id', $request->reserve_id)
+                                ->get();
+
+        $open_days = $this->open_days;
+
+        $aircraft = Aircraft::all();
+
+        foreach($reservation as $reservation) {
+
+            $a = Aircraft::where('id', $reservation->aircraft_id)->get('name');
+
+            foreach($a as $a){
+                $selected_a = $a->name;
+            }
+
+            $s = Spot::where('id', $reservation->spot_id)->get('name');
+            
+            foreach($s as $s){
+                $selected_s =$s->name;
+            }
+        }
+
+        $spots = Aircraft::where('id', $selected_a)
+                        ->with('spots')
+                        ->get();
+        
+        list($calendar_row, $last_key) = $this->getCalendarArray();
+
+        $reservation_model = new Reservation;
+        
+        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $selected_s);
+
+        $reserving = $reservation_model->getUserReservation($reservation);
+
+        return view('reserve', compact('open_days', 'selected_a', 'selected_s', 'calendar_row', 'last_key', 'reserved_date', 'reserving'));
     }
 
 }

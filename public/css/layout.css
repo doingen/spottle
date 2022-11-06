@@ -206,12 +206,6 @@ nav a {
   margin-left: 6rem;
 }
 
-.reserve__search--title {
-  display: inline-block;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-}
-
 .reserve__step {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -219,6 +213,18 @@ nav a {
   border-radius: 5px;
   background-color: #eef4d2;
   color: #008282;
+}
+
+.reserve__search--title {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.reserve__change {
+  margin-left: 6rem;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  text-decoration-color:#f38630;
 }
 
 .reserve__search--box {
@@ -233,6 +239,19 @@ nav a {
   background-color: rgb(247, 195, 195);
   color: red;
   font-size: 0.9rem;
+}
+
+.reserve__reserved {
+  margin-left: 2rem;
+}
+
+.reserve__reserved--notice {
+  margin: 1rem 0 1rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #eef4d2;
+  font-size: 0.95rem;
+  line-height: 1.2rem;
 }
 
 .reserve__start-time, .reserve__end-time {

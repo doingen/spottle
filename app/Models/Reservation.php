@@ -47,7 +47,7 @@ class Reservation extends Model
         return array($calendar_row, $last_key);
     }
 
-    public function getReservedDate($start_hour, $end_hour, $open_days, $reserved){
+    public function getReservedDate($start_hour, $end_hour, $open_days, $selected_s){
 
         $dt = new Carbon;
 
@@ -66,6 +66,8 @@ class Reservation extends Model
         }
 
         $reserved_date = [];
+        
+        $reserved = Reservation::where('spot_id', $selected_s)->get();
 
         foreach($time_array as $time){
             foreach($time as $time){
@@ -109,5 +111,20 @@ class Reservation extends Model
     static function dateReform($date){
         $d = substr($date, 0, 16);
         return str_replace('-', "/", $d);
+    }
+
+    public function getUserReservation($reservation){
+
+        $period = CarbonPeriod::create($reservation->start_at, $reservation->end_at)
+                                ->minute(15)->toArray();
+        
+        $reserving = [];
+        
+        foreach($period as $period){
+            $r = $period->format('Y-m-d H:i:s');
+            $reserving[] = $r;
+        }
+        
+        return $reserving;
     }
 }

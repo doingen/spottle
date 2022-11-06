@@ -4,20 +4,29 @@
 <title>予約する</title>
 <div class="reserve__wrapper">
   <div class="reserve__block">
-    <x-title title="スポット予約" />
+    @if(Request::is('reserve'))
+      <x-title title="スポット予約" />
+    @else
+      <x-title title="予約変更" />
+      <p class="reserve__reserved--notice">使用機材または使用スポットの変更は、お手数ですが一旦予約をキャンセルしてから、新しく予約をお願いいたします。</p>
+    @endif
     <div class="reserve__first-search">
       <span class="reserve__step">Step 1</span>
       <h3 class="reserve__search--title">使用機材</h3>
       <div class="reserve__search--box">
-        <form method="get" action="{{route('reserve.first_search')}}">
-          @csrf
-          <select name="aircraft_id" class="reserve__input">
-            @foreach($aircraft as $aircraft)
-              <option value="{{$aircraft->id}}" @if($selected_a == $aircraft->id) selected @endif>{{$aircraft->name}}</option>
-            @endforeach
-          </select>
-          <button>決定</button>
-        </form>
+        @if(Request::is('reserve'))
+          <form method="get" action="{{route('reserve.first_search')}}">
+            @csrf
+            <select name="aircraft_id" class="reserve__input">
+              @foreach($aircraft as $aircraft)
+                <option value="{{$aircraft->id}}" @if($selected_a == $aircraft->id) selected @endif>{{$aircraft->name}}</option>
+              @endforeach
+            </select>
+            <button>決定</button>
+          </form>
+        @else
+            <p class="reserve__reserved">{{$selected_a}}</p>
+        @endif
       </div>
     </div>
     @isset($selected_s)
@@ -25,26 +34,35 @@
       <span class="reserve__step">Step 2</span>
       <h3 class="reserve__search--title">駐機スポット</h3>
       <div class="reserve__search--box">
-        <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected_a])}}">
-          @csrf
-          <select name="spot_id" class="reserve__input">
-            @isset($spots)
-              @foreach($spots as $spots)
-                @foreach($spots->spots as $spot)
-                  <option value="{{$spot->id}}" @if($selected_s == $spot->id) selected @endif>{{$spot->name}}</option>
+        @if(Request::is('reserve'))
+          <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected_a])}}">
+            @csrf
+            <select name="spot_id" class="reserve__input">
+              @isset($spots)
+                @foreach($spots as $spots)
+                  @foreach($spots->spots as $spot)
+                    <option value="{{$spot->id}}" @if($selected_s == $spot->id) selected @endif>{{$spot->name}}</option>
+                  @endforeach
                 @endforeach
-              @endforeach
-            @endisset
-          </select>
-          <button>決定</button>
-        </form>
+              @endisset
+            </select>
+            <button>決定</button>
+          </form>
+        @else
+          <p class="reserve__reserved">{{$selected_s}}</p>
+        @endif
       </div>
     </div>
     @endisset
     @isset($reserved_date)
     <div class="reserve__time-input">
       <span class="reserve__step">Step 3</span>
-      <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
+      @if(Request::is('reserve'))
+        <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
+      @else
+        <h3 class="reserve__search--title">変更後の時間をお選びください</h3><br>
+        <p class="reserve__change">&#127818;は変更前の予約時間です</p>
+      @endif
       @error('reserved')
         <p class="reserve__alert">{{$message}}</p>
       @enderror
@@ -106,7 +124,11 @@
           </div>
           <input type="hidden" name="aircraft_id" value="{{$selected_a}}">
           <input type="hidden" name="spot_id" value="{{$selected_s}}">
-          <button class="reserve__button">予約する</button>
+          @if(Request::is('reserve'))
+            <button class="reserve__button">予約する</button>
+          @else
+            <button class="reserve__button">予約変更する</button>
+          @endif
         </form>
       </div>
     </div>
@@ -134,11 +156,21 @@
             <td class="reserve__calendar--date">{{$calendar_row[$i]->format("H:i")}}</td>
             @isset($reserved_date)
               @for($j=$i; $j<$i+$open_days; $j++)
-                @if(in_array($calendar_row[$j], $reserved_date)) 
-                  <td class="reserve__unable">✕</td>
+                @if(isset($reserving))
+                  @if(in_array($calendar_row[$j], $reserving))
+                    <td>&#127818;</td>
+                  @elseif(in_array($calendar_row[$j], $reserved_date)) 
+                    <td class="reserve__unable">✕</td>
+                  @else
+                    <td>◎</td>
+                  @endif
                 @else
-                  <td>◎</td>
-                @endif
+                  @if(in_array($calendar_row[$j], $reserved_date)) 
+                    <td class="reserve__unable">✕</td>
+                  @else
+                    <td>◎</td>
+                  @endif
+                @endisset
               @endfor
               <td class="reserve__calendar--date">{{$calendar_row[$i]->format("H:i")}}</td>
             @endisset
