@@ -108,8 +108,6 @@ class ReserveController extends Controller
 
         $open_days = $this->open_days;
 
-        $aircraft = Aircraft::all();
-
         foreach($reservation as $reservation) {
 
             $a = Aircraft::where('id', $reservation->aircraft_id)->get('name');
@@ -119,15 +117,11 @@ class ReserveController extends Controller
             }
 
             $s = Spot::where('id', $reservation->spot_id)->get('name');
-            
+
             foreach($s as $s){
-                $selected_s =$s->name;
+                $selected_s = $s->name;
             }
         }
-
-        $spots = Aircraft::where('id', $selected_a)
-                        ->with('spots')
-                        ->get();
         
         list($calendar_row, $last_key) = $this->getCalendarArray();
 
