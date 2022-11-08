@@ -9,6 +9,9 @@
       <section class="mypage__contents">
         <h3>予約一覧</h3>
         <div class="mypage__contents--inner">
+        @if($reserve->isEmpty())
+          <p class="mypage__nothing">予約情報はありません</p>
+        @else
           <table>
             <tr>
               <th>予約番号</th>
@@ -32,11 +35,15 @@
             </tr>
             @endforeach
           </table>
+        @endif
         </div>
       </section>
       <section class="mypage__contents">
         <h3>過去の利用履歴（直近３件）</h3>
         <div class="mypage__contents--inner">
+        @if($review->isEmpty())
+          <p class="mypage__nothing">利用履歴はありません</p>
+        @else
           <table>
             <tr>
               <th>予約番号</th>
@@ -56,6 +63,7 @@
             </tr>
             @endforeach
           </table>
+        @endif
         </div>
       </section>
     </div>

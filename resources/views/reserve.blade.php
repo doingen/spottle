@@ -4,17 +4,19 @@
 <title>予約する</title>
 <div class="reserve__wrapper">
   <div class="reserve__block">
-    @if(Request::is('reserve'))
-      <x-title title="スポット予約" />
-    @else
+    @if(Request::is('reserve/show'))
       <x-title title="予約変更" />
       <p class="reserve__reserved--notice">使用機材または使用スポットの変更は、お手数ですが一旦予約をキャンセルしてから、新しく予約をお願いいたします。</p>
+    @else
+      <x-title title="スポット予約" />
     @endif
     <div class="reserve__first-search">
       <span class="reserve__step">Step 1</span>
       <h3 class="reserve__search--title">使用機材</h3>
       <div class="reserve__search--box">
-        @if(Request::is('reserve'))
+        @if(Request::is('reserve/show'))
+          <p class="reserve__reserved">{{$selected_a->name}}</p>
+        @else
           <form method="get" action="{{route('reserve.first_search')}}">
             @csrf
             <select name="aircraft_id" class="reserve__input">
@@ -24,8 +26,6 @@
             </select>
             <button>決定</button>
           </form>
-        @else
-            <p class="reserve__reserved">{{$selected_a}}</p>
         @endif
       </div>
     </div>
@@ -34,7 +34,9 @@
       <span class="reserve__step">Step 2</span>
       <h3 class="reserve__search--title">駐機スポット</h3>
       <div class="reserve__search--box">
-        @if(Request::is('reserve'))
+        @if(Request::is('reserve/show'))
+          <p class="reserve__reserved">{{$selected_s->name}}</p>
+        @else
           <form method="get" action="{{route('reserve.second_search', ['aircraft_id' => $selected_a])}}">
             @csrf
             <select name="spot_id" class="reserve__input">
@@ -48,8 +50,6 @@
             </select>
             <button>決定</button>
           </form>
-        @else
-          <p class="reserve__reserved">{{$selected_s}}</p>
         @endif
       </div>
     </div>
@@ -57,11 +57,11 @@
     @isset($reserved_date)
     <div class="reserve__time-input">
       <span class="reserve__step">Step 3</span>
-      @if(Request::is('reserve'))
-        <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
-      @else
+      @if(Request::is('reserve/show'))
         <h3 class="reserve__search--title">変更後の時間をお選びください</h3><br>
         <p class="reserve__change">&#127818;は変更前の予約時間です</p>
+      @else
+        <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
       @endif
       @error('reserved')
         <p class="reserve__alert">{{$message}}</p>
@@ -70,7 +70,11 @@
         <p class="reserve__alert">{{$message}}</p>
       @enderror
       <div class="reserve__search--box">
-        <form method="get" action="{{route('reserve.confirm')}}" class="step3">
+        @if(Request::is('reserve/show'))
+          <form method="get" action="{{route('reserve.update_confirm')}}" class="step3">
+        @else
+          <form method="get" action="{{route('reserve.confirm')}}" class="step3">
+        @endif
           @csrf
           <div class="reserve__start-time">
             <span>開始：</span>
@@ -122,12 +126,15 @@
               <option value="45" @if(45 == old('end_minutes')) selected @endif>45</option>
             </select>
           </div>
-          <input type="hidden" name="aircraft_id" value="{{$selected_a}}">
-          <input type="hidden" name="spot_id" value="{{$selected_s}}">
-          @if(Request::is('reserve'))
-            <button class="reserve__button">予約する</button>
-          @else
+          @if(Request::is('reserve/show'))
+            <input type="hidden" name="aircraft_id" value="{{$selected_a->id}}">
+            <input type="hidden" name="spot_id" value="{{$selected_s->id}}">
+            <input type="hidden" name="reservation_id" value="{{$reservation_id}}">
             <button class="reserve__button">予約変更する</button>
+          @else
+            <input type="hidden" name="aircraft_id" value="{{$selected_a}}">
+            <input type="hidden" name="spot_id" value="{{$selected_s}}">
+            <button class="reserve__button">予約する</button>
           @endif
         </form>
       </div>

@@ -68,6 +68,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
   
   Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');
 
+  Route::get('/reserve/update', [ReserveController::class, 'updateConfirm'])->name('reserve.update_confirm');
+
   Route::post('/reserve/update', [ReserveController::class, 'update'])->name('reserve.update');
 
   Route::get('/mypage', [UserController::class, 'index'])->name('user.index');

@@ -102,8 +102,7 @@ class Reservation extends Model
         
         $reservation["aircraft_name"] = Aircraft::find($reservation["aircraft_id"])->name;
         
-        $spot = Spot::find($reservation["spot_id"]);
-        $reservation["spot_name"] = $spot->name;
+        $reservation["spot_name"] = Spot::find($reservation["spot_id"])->name;
 
         return $reservation;
     }

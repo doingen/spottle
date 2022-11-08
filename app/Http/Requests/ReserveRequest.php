@@ -70,9 +70,15 @@ class ReserveRequest extends FormRequest
                                         ->get();
         
                 $diff = $r->diff($reserved_a)->diff($reserved_b);
-
+                
                 if($diff->isNotEmpty()){
-                    $validator->errors()->add('reserved', 'すでに予約された日時が含まれています');
+                
+                foreach($diff as $diff){
+                    $user_reserved = $diff->id;
+                }
+                    if($this->input('reservation_id') != $user_reserved){
+                        $validator->errors()->add('reserved', 'すでに予約された日時が含まれています');
+                    }
                 }
             }
         });

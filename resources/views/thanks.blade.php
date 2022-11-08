@@ -16,6 +16,10 @@
       <p>ログアウトしました。<br>
       ご利用ありがとうございます。</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
+    @elseif(Request::routeIs('reserve.update'))
+      <p>予約変更が完了しました</p><br>
+      <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
+      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
     @endif
   </div>
 </div>

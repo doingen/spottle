@@ -103,24 +103,19 @@ class ReserveController extends Controller
 
     public function show(Request $request){
 
-        $reservation = Reservation::where('id', $request->reserve_id)
+        $reservation_id = $request -> reserve_id;
+
+        $reservation = Reservation::where('id', $reservation_id)
                                 ->get();
 
         $open_days = $this->open_days;
 
         foreach($reservation as $reservation) {
 
-            $a = Aircraft::where('id', $reservation->aircraft_id)->get('name');
+            $selected_a = Aircraft::find($reservation->aircraft_id);
 
-            foreach($a as $a){
-                $selected_a = $a->name;
-            }
+            $selected_s = Spot::find($reservation->spot_id);
 
-            $s = Spot::where('id', $reservation->spot_id)->get('name');
-
-            foreach($s as $s){
-                $selected_s = $s->name;
-            }
         }
         
         list($calendar_row, $last_key) = $this->getCalendarArray();
@@ -131,7 +126,33 @@ class ReserveController extends Controller
 
         $reserving = $reservation_model->getUserReservation($reservation);
 
-        return view('reserve', compact('open_days', 'selected_a', 'selected_s', 'calendar_row', 'last_key', 'reserved_date', 'reserving'));
+        return view('reserve', compact('reservation_id', 'open_days', 'selected_a', 'selected_s', 'calendar_row', 'last_key', 'reserved_date', 'reserving'));
+    }
+
+    public function updateConfirm(ReserveRequest $request){
+
+        $update = array_slice($request->all() , 9);
+
+        $update["aircraft_name"] = Aircraft::find($update["aircraft_id"])->name;
+        
+        $update["spot_name"] = Spot::find($update["spot_id"])->name;
+
+        return view('update_confirm', compact('update'));
+    }
+
+    public function update(Request $request){
+
+        $requests = $request->all('update');
+
+        $keys = ['start_at', 'end_at'];
+
+        $update = array_intersect_key($requests['update'], array_flip($keys));
+
+        Reservation::where('id', $requests['update']['reservation_id']) 
+                    ->update($update);
+
+        return view('thanks');
+
     }
 
 }
