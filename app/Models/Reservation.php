@@ -126,4 +126,16 @@ class Reservation extends Model
         
         return $reserving;
     }
+
+    public function reviewedOrNot($id){
+        
+        $review = Spot_review::where('reservation_id', $id)->get();
+        
+        if($review->isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
