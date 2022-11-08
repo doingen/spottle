@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Spot_review extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
 }

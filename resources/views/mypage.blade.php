@@ -59,7 +59,7 @@
               <td>{{$review->aircraft->name}}</td>
               <td>{{$review->dateReform($review->start_at)}}</td>
               <td>{{$review->dateReform($review->end_at)}}</td>
-              <td class="mypage__review"><a href="">レビューを書く</a></td>
+              <td class="mypage__review"><a href="{{route('review.show', ['reservation_id' => $review->id])}}">レビュー作成</a></td>
             </tr>
             @endforeach
           </table>
