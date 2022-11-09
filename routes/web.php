@@ -56,26 +56,36 @@ Route::middleware('auth')->group(function (){
   Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['auth', 'verified'])->group(function() {
-  Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+Route::prefix('reserve')->middleware(['auth', 'verified'])->group(function() {
+  Route::get('/', [ReserveController::class, 'index'])->name('reserve.index');
 
-  Route::get('/reserve/first_search', [ReserveController::class, 'first_search'])->name('reserve.first_search');
+  Route::get('first_search', [ReserveController::class, 'first_search'])->name('reserve.first_search');
 
-  Route::get('/reserve/second_search/{aircraft_id}', [ReserveController::class, 'second_search'])->name('reserve.second_search');
+  Route::get('second_search/{aircraft_id}', [ReserveController::class, 'second_search'])->name('reserve.second_search');
 
-  Route::get('/reserve/confirm', [ReserveController::class, 'confirm'])->name('reserve.confirm');
+  Route::get('confirm', [ReserveController::class, 'confirm'])->name('reserve.confirm');
 
-  Route::post('/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
+  Route::post('create', [ReserveController::class, 'create'])->name('reserve.create');
   
-  Route::get('/reserve/show', [ReserveController::class, 'show'])->name('reserve.show');
+  Route::get('show', [ReserveController::class, 'show'])->name('reserve.show');
 
-  Route::get('/reserve/update', [ReserveController::class, 'updateConfirm'])->name('reserve.update_confirm');
+  Route::get('update', [ReserveController::class, 'updateConfirm'])->name('reserve.update_confirm');
 
-  Route::post('/reserve/update', [ReserveController::class, 'update'])->name('reserve.update');
+  Route::post('update', [ReserveController::class, 'update'])->name('reserve.update');
+});
 
-  Route::get('/mypage', [UserController::class, 'index'])->name('user.index');
+Route::middleware(['auth', 'verified'])->group(function() {
+  Route::get('mypage', [UserController::class, 'index'])->name('user.index');
 
-  Route::get('/review', [ReviewController::class, 'show'])->name('review.show');
+  Route::get('review', [ReviewController::class, 'show'])->name('review.show');
 
-  Route::post('/review', [ReviewController::class, 'create'])->name('review.create');
+  Route::post('review', [ReviewController::class, 'create'])->name('review.create');
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    require __DIR__.'/admin.php';
+});
+
+Route::prefix('airport_admin')->name('airport_admin.')->group(function(){
+    require __DIR__.'/airport_admin.php';
 });
