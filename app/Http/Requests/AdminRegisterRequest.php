@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules;
 
-class RegisterRequest extends FormRequest
+class AdminRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,8 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:50',
-            'email' => 'required|email|unique:users|string|max:191',
-            'tel' => 'required|unique:users|numeric|digits_between:10,11',
-            'password' => 'required|min:8|max:191|regex:/^[a-zA-Z0-9]+$/'
+            'email' => ['required', 'string', 'email', 'max:191', 'unique:admins'],
+            'password' => ['required', 'confirmed', Rules\Password::min(8),'max:191'],
         ];
     }
 
@@ -35,24 +34,18 @@ class RegisterRequest extends FormRequest
     {
         return[
             'required' => ':attributeを入力してください',
-            'name.max' => ':max文字以内で入力してください',
             'email' => 'メールアドレス形式で入力してくだい',
             'unique' => 'この:attributeはすでに利用されています',
-            'numeric' => 'ハイフンなしの半角数字で入力してください',
-            'digits_between' => '半角数字10文字から11文字以内で入力してください',
-            'regex' => '半角英数字8文字以上で入力してください',
             'password.min' => '半角英数字:min文字以上で入力してください',
-            'password.max' => '半角英数字:max文字以内で入力してください'
+            'password.max' => '半角英数字:max文字以内で入力してください',
+            'confirmed' => 'パスワードが一致しません'
         ];
-
     }
 
     public function attributes()
     {
         return [
-            'name' => '名前',
             'email' => 'メールアドレス',
-            'tel' => '電話番号',
             'password' => 'パスワード'
         ];
     }

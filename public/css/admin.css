@@ -1,0 +1,14 @@
+.admin__title {
+  display: inline-block;
+  vertical-align: 10%;
+  margin-left: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  color: #008282;
+}
+
+.auth__input .admin__password-confirm {
+  margin-top: 1rem;
+  margin-left: 2.1rem;
+}

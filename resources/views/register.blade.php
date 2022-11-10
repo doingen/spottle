@@ -33,7 +33,7 @@
           @error('password')
             <p class="alert__notice">{{$message}}</p><br>
           @enderror
-          <i class="fa-solid fa-lock"></i><input type="text" name="password" placeholder="パスワード">
+          <i class="fa-solid fa-lock"></i><input type="password" name="password" placeholder="パスワード">
         </div>
       </div>  
       <button class="auth__button register__button">登録</button>
