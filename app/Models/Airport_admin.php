@@ -18,6 +18,7 @@ class Airport_admin extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'email',
         'password'
     ];

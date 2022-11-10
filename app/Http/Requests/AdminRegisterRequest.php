@@ -25,6 +25,7 @@ class AdminRegisterRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|string|max:50',
             'email' => ['required', 'string', 'email', 'max:191', 'unique:admins'],
             'password' => ['required', 'confirmed', Rules\Password::min(8),'max:191'],
         ];
@@ -33,6 +34,7 @@ class AdminRegisterRequest extends FormRequest
     public function messages()
     {
         return[
+            'name.max' => ':max文字以内で入力してください',
             'required' => ':attributeを入力してください',
             'email' => 'メールアドレス形式で入力してくだい',
             'unique' => 'この:attributeはすでに利用されています',
@@ -45,6 +47,7 @@ class AdminRegisterRequest extends FormRequest
     public function attributes()
     {
         return [
+            'name' => '名前',
             'email' => 'メールアドレス',
             'password' => 'パスワード'
         ];

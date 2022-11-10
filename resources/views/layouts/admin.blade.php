@@ -14,16 +14,16 @@
 </head>
 <body>
   <header>
-    <a href="{{route('main.index')}}" class="app-name">
+    <a href="{{route('admin.index')}}" class="app-name">
       <h1>スポっとる<i class="fa-regular fa-paper-plane fa-xs"></i></h1>
       <span class="admin__title">管理者ページ</span>
     </a>
     <nav>
-      @if(Auth::check())
-        <a href="{{route('logout')}}">ログアウト</a>
+      @if(Auth::guard('admin')->check())
+        <a href="{{route('admin.logout')}}">ログアウト</a>
       @else
-        <a href="{{route('login.show')}}">ログイン</a>
-        <a href="{{route('register.show')}}">会員登録</a>
+        <a href="{{route('admin.login')}}">ログイン</a>
+        <a href="{{route('admin.register')}}">会員登録</a>
       @endif
     </nav>
   </header>

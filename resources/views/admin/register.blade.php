@@ -11,6 +11,12 @@
     @csrf
       <div class="auth__item--inner">
         <div class="auth__input">
+          @error('name')
+            <p class="alert__notice">{{$message}}</p><br>
+          @enderror
+          <i class="fa-solid fa-user"></i><input type="text" name="name" value="{{old('name')}}" placeholder="お名前">
+        </div>
+        <div class="auth__input">
           @error('email')
             <p class="alert__notice">{{$message}}</p><br>
           @enderror  
