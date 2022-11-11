@@ -18,7 +18,6 @@ class CreateAiportAdminsTable extends Migration
             $table->string('name',50);
             $table->string('email',191)->unique('email');
             $table->string('password',191);
-            $table->rememberToken();
             $table->timestamps();
         });
     }

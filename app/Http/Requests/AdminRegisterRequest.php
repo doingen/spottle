@@ -37,6 +37,7 @@ class AdminRegisterRequest extends FormRequest
             'name.max' => ':max文字以内で入力してください',
             'required' => ':attributeを入力してください',
             'email' => 'メールアドレス形式で入力してくだい',
+            'email.max' => ':max文字以内で入力してください',
             'unique' => 'この:attributeはすでに利用されています',
             'password.min' => '半角英数字:min文字以上で入力してください',
             'password.max' => '半角英数字:max文字以内で入力してください',

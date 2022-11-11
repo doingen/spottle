@@ -15,6 +15,7 @@ class CreateSpotsTable extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('airport_admin_id');
             $table->string('name',10);
             $table->timestamps();
         });

@@ -23,7 +23,7 @@
         <a href="{{route('admin.logout')}}">ログアウト</a>
       @else
         <a href="{{route('admin.login')}}">ログイン</a>
-        <a href="{{route('admin.register')}}">会員登録</a>
+        <a href="{{route('admin.register')}}">管理者登録</a>
       @endif
     </nav>
   </header>
