@@ -21,9 +21,6 @@
     <nav>
       @if(Auth::guard('admin')->check())
         <a href="{{route('admin.logout')}}">ログアウト</a>
-      @else
-        <a href="{{route('admin.login')}}">ログイン</a>
-        <a href="{{route('admin.register')}}">管理者登録</a>
       @endif
     </nav>
   </header>
