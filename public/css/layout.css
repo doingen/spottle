@@ -500,8 +500,12 @@ nav a {
 
 /* register,loginのCSS */
 
+.auth__wrapper {
+  padding-top: 7rem;
+}
+
 .auth__box {
-  margin: 8rem auto;
+  margin: 0 auto;
   width: 35%;
   border: 1px solid lightgray;
   border-radius: 5px;

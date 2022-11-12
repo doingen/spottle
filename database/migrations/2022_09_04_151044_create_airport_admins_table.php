@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAiportAdminsTable extends Migration
+class CreateAirportAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAiportAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('aiport_admins', function (Blueprint $table) {
+        Schema::create('airport_admins', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
             $table->string('email',191)->unique('email');
@@ -29,6 +29,6 @@ class CreateAiportAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aiport_admins');
+        Schema::dropIfExists('airport_admins');
     }
 }

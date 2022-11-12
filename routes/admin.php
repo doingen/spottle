@@ -40,6 +40,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])
                 ->name('index');
 
+    Route::post('/', [AdminController::class, 'create'])
+                ->name('create');
+
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 

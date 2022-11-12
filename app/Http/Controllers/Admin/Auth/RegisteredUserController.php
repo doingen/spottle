@@ -41,6 +41,6 @@ class RegisteredUserController extends Controller
 
         Auth::guard('admin')->login($user);
 
-        return redirect('admin');
+        return redirect('admin')->with('result', '登録完了し、ログインしました');
     }
 }

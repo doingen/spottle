@@ -2,6 +2,11 @@
 
 @section('contents')
 <title>管理者ログイン</title>
+@if(session('result'))
+<div class="admin__notice">
+  <p>{{session('result')}}</p>
+</div>
+@endif
 <div class="auth__box">
   <div class="auth__title">
     <h2>管理者ログイン</h2>

@@ -24,7 +24,7 @@
       @endif
     </nav>
   </header>
-  <main>
+  <main class="admin__main">
     @yield('contents')
   </main>
 </body>
