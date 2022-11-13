@@ -69,13 +69,13 @@
   height: 100vh;
 }
 
-.aa_main__wrapper {
+.aa__wrapper {
   margin: 0 auto;
   padding-top: 7rem;
   width: 80%;
 }
 
-.aa_main__wrapper h2 {
+.aa__wrapper h2 {
   display: inline-block;
   padding-bottom: 0.6rem;
   font-size: 1.2rem;
@@ -110,4 +110,42 @@
 
 .aa_main__item i {
   margin-right: 0.8rem;
+}
+
+.aa_add__outer {
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  width: 70%;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+.aa_add__inner {
+  margin: 1.2rem 0;
+}
+
+.aa_add__inner span {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #eef4d2;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.aa_add__inner p {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.aa_add__outer button {
+  display: block;
+  margin: 0 0 0 auto;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #F0C080;
+  box-shadow: 1px 1px 2px gray;
+  font-size: 1rem;
 }

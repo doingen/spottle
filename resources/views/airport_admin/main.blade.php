@@ -1,7 +1,7 @@
 @extends('layouts.airport_admin')
 
 @section('contents')
-<div class="aa_main__wrapper">
+<div class="aa__wrapper">
   <h2>メニュー&#x1f34a;</h2>
   <div class="aa_main__outer">
     <a href="" class="aa_main__item">
