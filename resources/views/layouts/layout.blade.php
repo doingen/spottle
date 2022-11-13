@@ -17,7 +17,10 @@
       <h1>スポっとる<i class="fa-regular fa-paper-plane fa-xs"></i></h1>
     </a>
     <nav>
-      @if(Auth::check())
+      @if(Request::routeIs('user.index'))
+        <a href="{{route('reserve.index')}}" class="header__reserve">予約する</a>
+        <a href="{{route('logout')}}">ログアウト</a>
+      @elseif(Auth::check())
         <a href="{{route('user.index')}}">マイページ</a>
         <a href="{{route('logout')}}">ログアウト</a>
       @else

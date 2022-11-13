@@ -34,9 +34,14 @@ button:hover {
 }
 
 header {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   padding: 1.1rem 3rem 1.1rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
   background-color: #008282;
 }
 
@@ -68,11 +73,21 @@ nav a {
   color: #008282;
 }
 
+.header__reserve {
+  border: 1px solid white;
+  background-color: #f38630;
+  color: white;
+}
+
+main {
+  margin-top: 4.5rem;
+}
+
 .main__outer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 3rem
+  padding-top: 3rem
 }
 
 .main__title-block {
@@ -603,7 +618,8 @@ nav a {
 /* mypageのCSS */
 
 .mypage__outer {
-  margin: 2rem auto;
+  margin: 0 auto;
+  padding-top: 2rem;
   width: 80%;
 }
 
@@ -672,7 +688,7 @@ nav a {
 }
 
 .mypage__reserve a {
-  border: 2px solid #eef4d2;
+  border: 2px solid #008282;
   background-color: #008282;
   color: white;
 }

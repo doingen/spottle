@@ -1,3 +1,5 @@
+/* adminフォルダCSS */
+
 .admin__title {
   display: inline-block;
   vertical-align: 10%;
@@ -50,4 +52,62 @@
   padding: 0.5rem 1rem; 
   border-radius: 5px;
   background-color: rgb(255, 167, 50, 0.4);
+}
+
+
+/* airport_adminフォルダCSS */
+
+.aa__title {
+  border: 1px solid #F0C080;
+  background-color: #F0C080;
+  color: #333;
+}
+
+.aa__main {
+  margin-top: 0;
+  background-color: #ecf0f0;
+  height: 100vh;
+}
+
+.aa_main__wrapper {
+  margin: 0 auto;
+  padding-top: 7rem;
+  width: 80%;
+}
+
+.aa_main__wrapper h2 {
+  display: inline-block;
+  padding-bottom: 0.6rem;
+  font-size: 1.2rem;
+  border-bottom: 2px dotted #008282;
+}
+
+.aa_main__outer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 3rem;
+  margin-top: 2rem;
+}
+
+.aa_main__item {
+  display: block;
+  padding: 5rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 7px lightslategray;
+  text-align: center;
+}
+
+.aa_main__item p {
+  color: #008282;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.aa_main__item i {
+  margin-right: 0.8rem;
 }

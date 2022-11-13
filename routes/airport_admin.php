@@ -8,6 +8,8 @@ use App\Http\Controllers\Airport_admin\Auth\NewPasswordController;
 use App\Http\Controllers\Airport_admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Airport_admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Airport_admin\Auth\VerifyEmailController;
+
+use App\Http\Controllers\Airport_admin\AirportAdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:airport_admin')->group(function () {
@@ -34,7 +36,12 @@ Route::middleware('guest:airport_admin')->group(function () {
                 ->name('password.update');
 });
 
+Route::get('/', [AirportAdminController::class, 'index'])
+                ->name('index');
+
 Route::middleware('auth:airport_admin')->group(function () {
+    
+
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 
