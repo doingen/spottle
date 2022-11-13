@@ -162,7 +162,8 @@ return [
         'name' => '名前',
         'email' => 'メールアドレス',
         'tel' => '電話番号',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'spot_id' => 'スポット'
     ],
 
 ];

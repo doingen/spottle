@@ -69,6 +69,22 @@
   height: 100vh;
 }
 
+.aa__notice {
+  margin: 0 auto 2rem auto;
+  padding: 1rem 2rem;
+  width: 70%;
+  background-color: #eef4d2;
+  border-radius: 10px;
+}
+
+.aa__alert {
+  margin: 0 auto 2rem auto;
+  padding: 1rem 2rem;
+  width: 70%;
+  background-color: rgba(247, 96, 96, 0.3);
+  border-radius: 10px;
+}
+
 .aa__wrapper {
   margin: 0 auto;
   padding-top: 7rem;

@@ -10,8 +10,8 @@ class Aircraft extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'airport_admin_id'
+        'airport_admin_id',
+        'name'
     ];
 
     public function spots()

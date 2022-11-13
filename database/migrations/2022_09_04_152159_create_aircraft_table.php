@@ -16,7 +16,7 @@ class CreateAircraftTable extends Migration
         Schema::create('aircraft', function (Blueprint $table) {
             $table->id();
             $table->foreignId('airport_admin_id');
-            $table->string('name',191);
+            $table->string('name',191)->unique('name');
             $table->timestamps();
         });
     }

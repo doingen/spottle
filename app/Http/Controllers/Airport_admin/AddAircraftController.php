@@ -20,6 +20,11 @@ class AddAircraftController extends Controller
     }
 
     public function create(Request $request){
+
+      $request->validate([
+        'name' => 'required|unique:aircraft|max:191',
+        'spot_id' => 'required'
+      ]);
       
       $create = $request->all();
 
@@ -32,6 +37,9 @@ class AddAircraftController extends Controller
 
       Aircraft::create($create)->spots()->attach($aircraft_spot);
 
-      return view('airport_admin.main');
+      $added_aircraft = $create["name"];
+
+      return redirect('airport_admin/add_aircraft')->with(['success' => 'を追加しました',
+                                                        'added_aircraft' => $added_aircraft]);
     }
 }
