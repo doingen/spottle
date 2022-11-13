@@ -12,6 +12,7 @@ use App\Http\Controllers\Airport_admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Airport_admin\AirportAdminController;
 use App\Http\Controllers\Airport_admin\AddAircraftController;
 use App\Http\Controllers\Airport_admin\AddSpotController;
+use App\Http\Controllers\Airport_admin\AddInfoController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:airport_admin')->group(function () {
@@ -50,6 +51,11 @@ Route::get('add_spot', [AddSpotController::class, 'index'])
                 ->name('add_spot');
 
 Route::post('add_spot', [AddSpotController::class, 'create']);
+
+Route::get('add_info', [AddInfoController::class, 'index'])
+                ->name('add_info');
+
+Route::post('add_info', [AddInfoController::class, 'create']);
 
 Route::middleware('auth:airport_admin')->group(function () {
     
