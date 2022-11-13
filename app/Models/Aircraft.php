@@ -9,6 +9,11 @@ class Aircraft extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'airport_admin_id'
+    ];
+
     public function spots()
     {
         return $this->belongsToMany(Spot::class)->withTimestamps();

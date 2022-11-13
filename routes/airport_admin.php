@@ -10,6 +10,7 @@ use App\Http\Controllers\Airport_admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Airport_admin\Auth\VerifyEmailController;
 
 use App\Http\Controllers\Airport_admin\AirportAdminController;
+use App\Http\Controllers\Airport_admin\AddAircraftController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:airport_admin')->group(function () {
@@ -38,6 +39,12 @@ Route::middleware('guest:airport_admin')->group(function () {
 
 Route::get('/', [AirportAdminController::class, 'index'])
                 ->name('index');
+
+Route::get('add_aircraft', [AddAircraftController::class, 'index'])
+                ->name('add_aircraft');
+
+Route::post('add_aircraft', [AddAircraftController::class, 'create']);
+
 
 Route::middleware('auth:airport_admin')->group(function () {
     

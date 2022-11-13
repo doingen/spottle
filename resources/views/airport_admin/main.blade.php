@@ -7,7 +7,7 @@
     <a href="" class="aa_main__item">
       <p><i class="fa-solid fa-book-bookmark fa-lg"></i>予約確認</p>
     </a>
-    <a href="" class="aa_main__item">
+    <a href="{{route('airport_admin.add_aircraft')}}" class="aa_main__item">
       <p><i class="fa-solid fa-plane fa-lg"></i>航空機追加</p>
     </a>
     <a href="" class="aa_main__item">
