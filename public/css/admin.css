@@ -156,6 +156,10 @@
   font-size: 0.9rem;
 }
 
+.aa_add__inner select {
+  padding: 0.2rem 0.5rem;
+}
+
 .aa_add__input {
   width: 65%;
 }

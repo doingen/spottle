@@ -65,6 +65,11 @@ Route::get('add_info', [AddInfoController::class, 'index'])
 
 Route::post('add_info', [AddInfoController::class, 'create']);
 
+Route::get('change_info', [AddInfoController::class, 'show'])
+                ->name('change_info');
+
+Route::post('change_info', [AddInfoController::class, 'update']);
+
 Route::middleware('auth:airport_admin')->group(function () {
     
 

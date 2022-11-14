@@ -10,7 +10,9 @@ class AddInfoController extends Controller
 {
     public function index(){
 
-        return view('airport_admin.info-add');
+        $info = Information::all();
+
+        return view('airport_admin.info-add', compact('info'));
 
     }
 
@@ -31,5 +33,36 @@ class AddInfoController extends Controller
 
         return redirect('airport_admin/add_info')->with(['success' => '追加完了しました']);
 
+    }
+
+    public function show(Request $request){
+
+        $id = $request->changed_info_id;
+
+        $info = Information::all();
+
+        $selected_info = Information::find($id);
+
+        return view('airport_admin.info-add', compact('info', 'selected_info'));
+    }
+
+    public function update(Request $request){
+
+        $request->validate([
+            'changed_title' => 'required|max:50',
+            'changed_text' => 'required'
+        ]);
+
+        $id = $request->changed_info_id;
+        $title = $request->changed_title;
+        $text = $request->changed_text;
+
+        $data = $request->only(['changed_title', 'changed_text']);
+
+        $update = array_combine(['title', 'text'], $data);
+
+        Information::where('id', $id)->update($update);
+
+        return redirect('airport_admin/change_info')->with(['changed_success' => '変更完了しました']);
     }
 }
