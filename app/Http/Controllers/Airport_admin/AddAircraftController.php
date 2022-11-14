@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Airport_admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Airport_admin\ChangeAircraftRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Spot;
 use App\Models\Aircraft;
@@ -12,10 +13,14 @@ class AddAircraftController extends Controller
     public function index(){
 
       $spots = Spot::all();
+
+      $aircraft = Aircraft::all();
       
       $number = $spots->count();
 
-      return view('airport_admin.aircraft-add', compact('spots', 'number'));
+      $selected = null;
+
+      return view('airport_admin.aircraft-add', compact('spots', 'aircraft', 'number', 'selected'));
         
     }
 
@@ -26,11 +31,10 @@ class AddAircraftController extends Controller
         'spot_id' => 'required'
       ]);
       
-      $create = $request->all();
+      $create = $request->except(['_token']);
 
       $aircraft_spot = $create["spot_id"];
 
-      unset($create["_token"]);
       unset($create["spot_id"]);
 
       $create["airport_admin_id"] = 1;
@@ -41,5 +45,38 @@ class AddAircraftController extends Controller
 
       return redirect('airport_admin/add_aircraft')->with(['success' => 'を追加しました',
                                                         'added_aircraft' => $added_aircraft]);
+    }
+
+    public function show(Request $request){
+
+      $a = [$request->aircraft_id];
+      
+      $spots = Spot::all();
+
+      $aircraft = Aircraft::all();
+
+      $selected = Aircraft::where('id', $a)->first();
+      
+      $selected_spot = Spot::whereHas('aircraft', function($query) use($a)  {
+        $query->where('aircraft_spot.aircraft_id', $a);
+        })->pluck('id')->toArray();
+
+      return view('airport_admin.aircraft-add', compact('spots', 'aircraft', 'selected', 'selected_spot'));
+    }
+
+    public function update(ChangeAircraftRequest $request){
+      
+      $update = $request->except(['_token']);
+      $changed_name = $request->only(['changed_name']);
+
+      $item = array_combine(["name", "spot_id", "aircraft_id"], $update);
+      $name = array_combine(["name"], $changed_name);
+        
+      Aircraft::where('id', $item["aircraft_id"])->update($name);
+
+      Aircraft::find($item["aircraft_id"])->spots()->sync($item["spot_id"]);
+
+      return redirect('airport_admin/add_aircraft')->with('changed_success', '変更しました');
+      
     }
 }

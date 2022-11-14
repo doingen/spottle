@@ -47,6 +47,11 @@ Route::get('add_aircraft', [AddAircraftController::class, 'index'])
 
 Route::post('add_aircraft', [AddAircraftController::class, 'create']);
 
+Route::get('change_aircraft', [AddAircraftController::class, 'show'])
+                ->name('change_aircraft');
+
+Route::post('change_aircraft', [AddAircraftController::class, 'update']);
+
 Route::get('add_spot', [AddSpotController::class, 'index'])
                 ->name('add_spot');
 

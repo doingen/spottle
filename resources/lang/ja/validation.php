@@ -165,7 +165,9 @@ return [
         'password' => 'パスワード',
         'spot_id' => 'スポット',
         'title' => 'タイトル',
-        'text' => 'テキスト'
+        'text' => 'テキスト',
+        'changed_name' => '名前',
+        'changed_spot_id' => 'スポット'
     ],
 
 ];
