@@ -18,7 +18,7 @@
     @csrf
       <div class="aa_add__inner">
         <span>航空機名</span>
-        <input type="text" name="name" value="{{old('name')}}">
+        <input type="text" name="name" value="{{old('name')}}" class="aa_add__input">
       </div>
       <div class="aa_add__inner">
         <span>駐機可能スポット</span>
@@ -54,7 +54,11 @@
         <select name="aircraft_id">
           <option value=""></option>
           @foreach($aircraft as $aircraft)
-            <option value="{{$aircraft->id}}" @isset($selected) @if($selected->id == $aircraft->id) selected @endif @endisset>{{$aircraft->name}}</option>
+            <option value="{{$aircraft->id}}" 
+            @isset($selected) @if($selected->id == $aircraft->id) selected 
+            @endif @endisset>
+              {{$aircraft->name}}
+            </option>
           @endforeach
         </select>
         <button class="aa_change__button">表示</button>
@@ -64,7 +68,7 @@
       @csrf
       <div class="aa_add__inner">
         <span>航空機名</span>
-        <input type="text" name="changed_name"
+        <input type="text" name="changed_name" class="aa_add__input"
         @if (old('changed_name')) value="{{old('changed_name')}}" 
         @elseif ($selected) value="{{$selected->name}}" 
         @endif>
@@ -73,7 +77,9 @@
         <span>駐機可能スポット</span>
         <div class="aa_add__spot">
           @foreach($spots as $key => $spot)
-            <input type="checkbox" name="changed_spot_id[]" id={{$key}} value="{{$spot->id}}" @isset($selected) @if(in_array($spot->id, $selected_spot)) checked @endif @endisset>
+            <input type="checkbox" name="changed_spot_id[]" id={{$key}} value="{{$spot->id}}" 
+            @isset($selected) @if(in_array($spot->id, $selected_spot)) checked 
+            @endif @endisset>
             <label for="{{$key}}">{{$spot->name}}</label>
           @endforeach
           <p>※複数選択可</p>

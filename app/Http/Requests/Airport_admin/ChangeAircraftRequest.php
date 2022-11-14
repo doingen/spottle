@@ -49,11 +49,12 @@ class ChangeAircraftRequest extends FormRequest
                                 $query->where('aircraft_spot.aircraft_id', $a);
                             })->pluck('id')->toArray();
 
-            if(Aircraft::where('name', $this->input('changed_name'))->get()->isNotEmpty() && $this->input('changed_name') != $original_name){
+            if(Aircraft::all()->pluck('name')->contains($this->input('changed_name')) && $this->input('changed_name') != $original_name){
                 $validator->errors()->add('changed_error', 'この名前はすでに使用されています');
             }
             elseif($this->input('changed_spot_id') != null && 
             !array_diff($original_spot, $this->input('changed_spot_id')) && 
+            !array_diff($this->input('changed_spot_id'), $original_spot) &&
             $this->input('changed_name') == $original_name){
                 $validator->errors()->add('changed_error', '変更がありません');
             }

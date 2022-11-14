@@ -81,7 +81,7 @@
   background-color: #eef4d2;
 }
 
-.aa__wrapper {
+.aa_main__wrapper {
   margin: 0 auto;
   padding-top: 7rem;
   width: 80%;
@@ -154,6 +154,10 @@
   display: inline-block;
   margin-top: 0.5rem;
   font-size: 0.9rem;
+}
+
+.aa_add__input {
+  width: 65%;
 }
 
 .aa_add__outer button {

@@ -10,7 +10,9 @@ class AddSpotController extends Controller
 {
     public function index(){
 
-        return view('airport_admin.spot-add');
+        $spots = Spot::all();
+
+        return view('airport_admin.spot-add', compact('spots'));
 
     }
 
@@ -32,5 +34,31 @@ class AddSpotController extends Controller
 
         return redirect('airport_admin/add_spot')->with(['success' => 'を追加しました',
                                                         'added_spot' => $added_spot]);
+    }
+
+    public function update(Request $request){
+
+        $id = $request->changed_spot_id;
+        $name = $request->changed_name;
+
+        $spot = Spot::find($id)->name;
+
+        if($spot == $name){
+            return redirect('airport_admin/add_spot')->with(['changed_error' => '変更されていません', 
+                                                            'input' => $name]);
+        }
+        elseif(Spot::all()->pluck('name')->contains($name)){
+            return redirect('airport_admin/add_spot')->with(['changed_error' => 'この名前はすでに使用されています', 
+                                                            'input' => $name]);
+        }
+
+        $request->validate([
+            'changed_name' => 'required|max:10'
+        ]);
+
+        Spot::where('id', $id)->update(["name" => $name]);
+
+        return redirect('airport_admin/add_spot')->with('changed_success', '変更しました');
+
     }
 }

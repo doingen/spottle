@@ -57,6 +57,9 @@ Route::get('add_spot', [AddSpotController::class, 'index'])
 
 Route::post('add_spot', [AddSpotController::class, 'create']);
 
+Route::post('change_spot', [AddSpotController::class, 'update'])
+                ->name('change_spot');
+
 Route::get('add_info', [AddInfoController::class, 'index'])
                 ->name('add_info');
 

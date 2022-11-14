@@ -2,7 +2,7 @@
 
 @section('contents')
 <title>空港管理者ページ</title>
-<div class="aa__wrapper">
+<div class="aa_main__wrapper">
   <h2>メニュー&#x1f34a;</h2>
   <div class="aa_main__outer">
     <a href="" class="aa_main__item">
