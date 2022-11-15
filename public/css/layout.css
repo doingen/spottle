@@ -620,7 +620,7 @@ main {
 .mypage__outer {
   margin: 0 auto;
   padding-top: 2rem;
-  width: 80%;
+  width: 90%;
 }
 
 .mypage__inner {
@@ -628,7 +628,7 @@ main {
 }
 
 .mypage__contents {
-  margin: 2rem 2rem 0 2rem;
+  margin: 2rem auto;
 }
 
 .mypage__contents h3 {

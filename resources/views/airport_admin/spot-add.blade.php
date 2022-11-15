@@ -10,7 +10,7 @@
   @if(session('success'))
     <p class="aa__notice">スポット{{session('added_spot')}}{{session('success')}}</p>
   @endif
-    <h2>スポット追加</h2>
+    <h2 class="aa_page-title">スポット追加</h2>
     <form method="post" action="{{route('airport_admin.add_spot')}}" >
     @csrf
       <div class="aa_add__inner">
@@ -30,7 +30,7 @@
   @elseif(session('changed_error'))
     <p class="aa__alert">{{session('changed_error')}}</p>
   @endif
-    <h2>スポット名変更</h2>
+    <h2 class="aa_page-title">スポット名変更</h2>
     <form method="post" action="{{route('airport_admin.change_spot')}}" >
     @csrf
       <div class="aa_add__inner">

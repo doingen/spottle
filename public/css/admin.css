@@ -57,6 +57,8 @@
 
 /* airport_adminフォルダCSS */
 
+/* mainのCSS */
+
 .aa__title {
   border: 1px solid #F0C080;
   background-color: #F0C080;
@@ -79,6 +81,13 @@
 
 .aa__notice {
   background-color: #eef4d2;
+}
+
+.aa_page-title {
+  display: inline-block;
+  padding-bottom: 0.6rem;
+  font-size: 1.2rem;
+  border-bottom: 2px dotted #008282;
 }
 
 .aa_main__wrapper {
@@ -116,6 +125,8 @@
 .aa_main__item i {
   margin-right: 0.8rem;
 }
+
+/* add-**のCSS */
 
 .aa_add__wrapper {
   display: flex;
@@ -199,3 +210,67 @@
   border: 1px solid gray;
   border-radius: 5px;
 }
+
+/* reservationのCSS */
+
+.aa_reservation__wrapper {
+  margin: 0 auto;
+  padding-top: 7rem;
+  width: 80%;
+}
+
+.aa_reservation__box {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 10px;
+}
+
+.aa_reservation__search {
+  display: flex;
+  align-items: middle;
+}
+
+.aa_reservation__search--inner {
+  margin-right: 2rem;
+}
+
+.aa_reservation__search--inner span {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 0.5rem;
+  font-weight: bold;
+}
+
+.aa_reservation__search--inner input,
+.aa_reservation__search--inner select {
+  padding: 0.1rem 0.8rem;
+}
+
+.aa_reservation__search button {
+  border: 2px solid gray;
+  border-radius: 5px;
+  background-color: #ecf0f0;
+  font-size: 0.8rem;
+}
+
+.aa_reservation__pagination {
+  padding-bottom: 1rem;
+}
+
+.aa_reservation__box table {
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.aa_reservation__box td{
+  padding: 0.5rem 0;
+}
+
+.aa_reservation__box th {
+  padding: 0.7rem 0;
+  background-color: #eef4d2;
+}
+

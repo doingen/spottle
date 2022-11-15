@@ -42,6 +42,12 @@ Route::middleware('guest:airport_admin')->group(function () {
 Route::get('/', [AirportAdminController::class, 'index'])
                 ->name('index');
 
+Route::get('/reservation', [AirportAdminController::class, 'show'])
+                ->name('show');
+
+Route::get('/reservation/search', [AirportAdminController::class, 'search'])
+                ->name('search');
+
 Route::get('add_aircraft', [AddAircraftController::class, 'index'])
                 ->name('add_aircraft');
 

@@ -10,9 +10,7 @@ class ReviewController extends Controller
 {
     public function show(Request $request){
 
-        $reservation = Reservation::where('id', 
-        
-        $request->reservation_id)
+        $reservation = Reservation::where('id', $request->reservation_id)
                                     ->with('aircraft', 'spot')
                                     ->get();
 
