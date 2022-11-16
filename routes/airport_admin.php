@@ -13,6 +13,7 @@ use App\Http\Controllers\Airport_admin\AirportAdminController;
 use App\Http\Controllers\Airport_admin\AddAircraftController;
 use App\Http\Controllers\Airport_admin\AddSpotController;
 use App\Http\Controllers\Airport_admin\AddInfoController;
+use App\Http\Controllers\Airport_admin\MailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:airport_admin')->group(function () {
@@ -84,6 +85,14 @@ Route::middleware('auth:airport_admin')->group(function () {
                     ->name('change_info');
 
     Route::post('change_info', [AddInfoController::class, 'update']);
+
+    Route::get('mail', [MailController::class, 'index'])
+                    ->name('mail');
+
+    Route::post('mail', [MailController::class, 'send']);
+    
+    Route::post('mail/confirm', [MailController::class, 'sendConfirm'])
+                    ->name('mail.confirm');
     
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');

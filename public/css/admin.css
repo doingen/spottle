@@ -77,9 +77,15 @@
   height: 100vh;
 }
 
+.aa__wrapper {
+  margin: 0 auto;
+  padding-top: 6.5rem;
+  width: 80%;
+}
+
 .aa__alert {
   margin: 0 auto 1rem auto;
-  padding: 1rem 2rem;
+  padding: .5rem 2rem;
   width: 70%;
   background-color: rgba(247, 96, 96, 0.3);
   border-radius: 10px;
@@ -105,17 +111,11 @@
   border-radius: 10px;
 }
 
-.aa_page-title {
+.aa__page-title {
   display: inline-block;
   padding-bottom: 0.6rem;
   font-size: 1.2rem;
   border-bottom: 2px dotted #008282;
-}
-
-.aa_main__wrapper {
-  margin: 0 auto;
-  padding-top: 7rem;
-  width: 80%;
 }
 
 .aa_main__outer {
@@ -154,13 +154,6 @@
   display: flex;
   justify-content: space-around;
   padding: 8rem 2rem 0 2rem;
-}
-
-.aa_add__wrapper h2 {
-  display: inline-block;
-  padding-bottom: 0.6rem;
-  font-size: 1.2rem;
-  border-bottom: 2px dotted #008282;
 }
 
 .aa_add__outer {
@@ -234,12 +227,6 @@
 }
 
 /* reservationのCSS */
-
-.aa_reservation__wrapper {
-  margin: 0 auto;
-  padding-top: 7rem;
-  width: 80%;
-}
 
 .aa_reservation__box {
   margin-top: 1rem;
@@ -317,4 +304,82 @@
 .auth__input .aa_auth__password-confirm {
   margin-top: 1rem;
   margin-left: 2.7rem;
+}
+
+
+/* mailのCSS */
+
+.aa_mail__outer {
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+.aa_mail__inner {
+  padding: 1rem 2rem 0 2rem;
+}
+
+.aa_mail__item {
+  padding-top: 1rem;
+}
+
+.aa_mail__item span {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  width: 3rem;
+  border-radius: 5px;
+  background-color: #eef4d2;
+  font-size: 0.85rem;
+}
+
+.aa_mail__item input, .aa_mail__item textarea {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.aa_mail__item textarea {
+  padding: .5rem;
+  width: 100%;
+}
+
+.aa_mail__item--to,
+.aa_mail__item--subject {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #008282;
+}
+
+.aa_mail__item p {
+  display: inline-block;
+}
+
+.aa_mail__item input {
+  width: 80%;
+}
+
+.aa_mail__inner button {
+  display: block;
+  margin: 1rem 0 0 auto;
+  padding: 0.3rem .8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #008282;
+  color: white;
+  box-shadow: 2px 2px 1px gray;
+}
+
+.aa_mail__outer--back {
+  margin-left: 2rem;
+  border-bottom: 1px solid;
+  vertical-align: baseline;
+  color: #008282;
+}
+
+.aa_mail__outer i {
+  margin-right: .5rem;
+}
+
+.aa_mail__item--confirm {
+  padding: .5rem;
 }

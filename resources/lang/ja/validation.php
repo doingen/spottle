@@ -169,7 +169,8 @@ return [
         'changed_name' => '名前',
         'changed_spot_id' => 'スポット',
         'changed_title' => 'タイトル',
-        'changed_text' => 'テキスト'
+        'changed_text' => 'テキスト',
+        'subject' => '件名'
     ],
 
 ];

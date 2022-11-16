@@ -2,8 +2,8 @@
 
 @section('contents')
 <title>予約確認</title>
-<div class="aa_reservation__wrapper">
-  <h2 class="aa_page-title">予約確認</h2>
+<div class="aa__wrapper">
+  <h2 class="aa__page-title">予約確認</h2>
   <form method="get" action="{{route('airport_admin.search')}}">
     @csrf
     <div class="aa_reservation__box aa_reservation__search">

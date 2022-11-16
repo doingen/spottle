@@ -13,7 +13,7 @@
   @if(session('success'))
     <p class="aa__alert aa__notice">{{session('added_aircraft')}}{{session('success')}}</p>
   @endif
-    <h2 class="aa_page-title">航空機追加</h2>
+    <h2 class="aa__page-title">航空機追加</h2>
     <form method="post" action="{{route('airport_admin.add_aircraft')}}" >
     @csrf
       <div class="aa_add__inner">
