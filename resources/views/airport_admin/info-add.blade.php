@@ -67,7 +67,7 @@
         <span>内容</span>
         <textarea name="changed_text" rows="10">
           @isset($selected_info) 
-            {{$selected_info->text}}"
+            {{$selected_info->text}}
           @endisset
         </textarea>
       </div>

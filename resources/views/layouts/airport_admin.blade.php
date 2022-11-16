@@ -20,6 +20,7 @@
     </a>
     <nav>
       @if(Auth::guard('airport_admin')->check())
+        <span class="admin__user">ログイン中：{{Auth::user()->name}}さん</span>
         <a href="{{route('airport_admin.logout')}}">ログアウト</a>
       @endif
     </nav>

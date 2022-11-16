@@ -46,46 +46,45 @@ Route::middleware('guest:airport_admin')->group(function () {
                 ->name('password.update');
 });
 
-Route::get('/', [AirportAdminController::class, 'index'])
-                ->name('index');
-
-Route::get('/reservation', [AirportAdminController::class, 'show'])
-                ->name('show');
-
-Route::get('/reservation/search', [AirportAdminController::class, 'search'])
-                ->name('search');
-
-Route::get('add_aircraft', [AddAircraftController::class, 'index'])
-                ->name('add_aircraft');
-
-Route::post('add_aircraft', [AddAircraftController::class, 'create']);
-
-Route::get('change_aircraft', [AddAircraftController::class, 'show'])
-                ->name('change_aircraft');
-
-Route::post('change_aircraft', [AddAircraftController::class, 'update']);
-
-Route::get('add_spot', [AddSpotController::class, 'index'])
-                ->name('add_spot');
-
-Route::post('add_spot', [AddSpotController::class, 'create']);
-
-Route::post('change_spot', [AddSpotController::class, 'update'])
-                ->name('change_spot');
-
-Route::get('add_info', [AddInfoController::class, 'index'])
-                ->name('add_info');
-
-Route::post('add_info', [AddInfoController::class, 'create']);
-
-Route::get('change_info', [AddInfoController::class, 'show'])
-                ->name('change_info');
-
-Route::post('change_info', [AddInfoController::class, 'update']);
 
 Route::middleware('auth:airport_admin')->group(function () {
-    
+    Route::get('/', [AirportAdminController::class, 'index'])
+                ->name('index');
 
+    Route::get('/reservation', [AirportAdminController::class, 'show'])
+                    ->name('show');
+
+    Route::get('/reservation/search', [AirportAdminController::class, 'search'])
+                    ->name('search');
+
+    Route::get('add_aircraft', [AddAircraftController::class, 'index'])
+                    ->name('add_aircraft');
+
+    Route::post('add_aircraft', [AddAircraftController::class, 'create']);
+
+    Route::get('change_aircraft', [AddAircraftController::class, 'show'])
+                    ->name('change_aircraft');
+
+    Route::post('change_aircraft', [AddAircraftController::class, 'update']);
+
+    Route::get('add_spot', [AddSpotController::class, 'index'])
+                    ->name('add_spot');
+
+    Route::post('add_spot', [AddSpotController::class, 'create']);
+
+    Route::post('change_spot', [AddSpotController::class, 'update'])
+                    ->name('change_spot');
+
+    Route::get('add_info', [AddInfoController::class, 'index'])
+                    ->name('add_info');
+
+    Route::post('add_info', [AddInfoController::class, 'create']);
+
+    Route::get('change_info', [AddInfoController::class, 'show'])
+                    ->name('change_info');
+
+    Route::post('change_info', [AddInfoController::class, 'update']);
+    
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 

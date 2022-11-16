@@ -20,6 +20,7 @@
     </a>
     <nav>
       @if(Auth::guard('admin')->check())
+        <span class="admin__user">ログイン中：{{Auth::user()->name}}さん</span>
         <a href="{{route('admin.logout')}}">ログアウト</a>
       @endif
     </nav>

@@ -8,7 +8,7 @@
     <p class="aa__alert">{{$message}}</p>
   @enderror
   @if(session('success'))
-    <p class="aa__notice">スポット{{session('added_spot')}}{{session('success')}}</p>
+    <p class="aa__alert aa__notice">スポット{{session('added_spot')}}{{session('success')}}</p>
   @endif
     <h2 class="aa_page-title">スポット追加</h2>
     <form method="post" action="{{route('airport_admin.add_spot')}}" >

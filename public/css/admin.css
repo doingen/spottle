@@ -65,6 +65,12 @@
   color: #333;
 }
 
+.admin__user {
+  display: inline-block;
+  color: white;
+  font-weight: 1.2rem;
+}
+
 .aa__main {
   margin-top: 0;
   background-color: #ecf0f0;

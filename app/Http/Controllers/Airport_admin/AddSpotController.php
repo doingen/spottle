@@ -26,7 +26,7 @@ class AddSpotController extends Controller
 
         unset($create["_token"]);
 
-        $create["airport_admin_id"] = 1;
+        $create["airport_admin_id"] = \Auth::user()->id;
 
         Spot::create($create);
 
@@ -56,7 +56,8 @@ class AddSpotController extends Controller
             'changed_name' => 'required|max:10'
         ]);
 
-        Spot::where('id', $id)->update(["name" => $name]);
+        Spot::where('id', $id)->update(["airport_admin_id" => \Auth::user()->id, 
+                                        "name" => $name]);
 
         return redirect('airport_admin/add_spot')->with('changed_success', '変更しました');
 

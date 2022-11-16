@@ -37,7 +37,7 @@ class AddAircraftController extends Controller
 
       unset($create["spot_id"]);
 
-      $create["airport_admin_id"] = 1;
+      $create["airport_admin_id"] = \Auth::user()->id;
 
       Aircraft::create($create)->spots()->attach($aircraft_spot);
 
@@ -58,23 +58,24 @@ class AddAircraftController extends Controller
       $selected = Aircraft::where('id', $a)->first();
       
       $selected_spot = Spot::whereHas('aircraft', function($query) use($a)  {
-        $query->where('aircraft_spot.aircraft_id', $a);
-        })->pluck('id')->toArray();
+                          $query->where('aircraft_spot.aircraft_id', $a);
+                        })->pluck('id')->toArray();
 
       return view('airport_admin.aircraft-add', compact('spots', 'aircraft', 'selected', 'selected_spot'));
     }
 
     public function update(ChangeAircraftRequest $request){
       
-      $update = $request->except(['_token']);
-      $changed_name = $request->only(['changed_name']);
+      // $update = $request->except(['_token']);
+      // dd($update);
 
-      $item = array_combine(["name", "spot_id", "aircraft_id"], $update);
-      $name = array_combine(["name"], $changed_name);
+      // $item = array_combine(["name", "spot_id", "aircraft_id"], $update);
         
-      Aircraft::where('id', $item["aircraft_id"])->update($name);
+      Aircraft::where('id', $request->aircraft_id)
+              ->update(["airport_admin_id" => \Auth::user()->id, 
+                        "name" => $request->changed_name]);
 
-      Aircraft::find($item["aircraft_id"])->spots()->sync($item["spot_id"]);
+      Aircraft::find($request->aircraft_id)->spots()->sync($request->changed_spot_id);
 
       return redirect('airport_admin/add_aircraft')->with('changed_success', '変更しました');
       

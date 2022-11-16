@@ -27,7 +27,7 @@ class AddInfoController extends Controller
         
         unset($create["_token"]);
 
-        $create["airport_admin_id"] = 1;
+        $create["airport_admin_id"] = \Auth::user()->id;
 
         Information::create($create);
 
@@ -53,15 +53,13 @@ class AddInfoController extends Controller
             'changed_text' => 'required'
         ]);
 
-        $id = $request->changed_info_id;
-        $title = $request->changed_title;
-        $text = $request->changed_text;
+        $update = [
+            'airport_admin_id' => \Auth::user()->id, 
+            'title' => $request->changed_title, 
+            'text' => $request->changed_text
+        ];
 
-        $data = $request->only(['changed_title', 'changed_text']);
-
-        $update = array_combine(['title', 'text'], $data);
-
-        Information::where('id', $id)->update($update);
+        Information::where('id', $request->changed_info_id)->update($update);
 
         return redirect('airport_admin/change_info')->with(['changed_success' => '変更完了しました']);
     }
