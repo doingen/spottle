@@ -83,6 +83,22 @@
   background-color: #eef4d2;
 }
 
+.aa__notice--login {
+  margin: 0 0 0 auto;
+  padding: 1rem 2rem;
+  width: 20%;
+  background-color: #eef4d2;
+  border-radius: 10px;
+}
+
+.aa__notice--logout {
+  margin: 0 auto 0.8rem auto;
+  padding: 1rem 2rem;
+  width: 30%;
+  background-color: #eef4d2;
+  border-radius: 10px;
+}
+
 .aa_page-title {
   display: inline-block;
   padding-bottom: 0.6rem;
@@ -274,3 +290,20 @@
   background-color: #eef4d2;
 }
 
+/* authのCSS */
+
+.aa_auth__wrapper {
+  padding-top: 9rem;
+}
+
+.aa_auth__notice {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  color: red;
+  font-size: 0.7rem;
+}
+
+.auth__input .aa_auth__password-confirm {
+  margin-top: 1rem;
+  margin-left: 2.7rem;
+}

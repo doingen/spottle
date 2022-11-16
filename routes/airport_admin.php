@@ -24,7 +24,14 @@ Route::middleware('guest:airport_admin')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store'])
+                ->middleware('first.login');
+
+    Route::get('login/set-password', [AuthenticatedSessionController::class, 'setPassword'])
+                ->name('set_password');
+
+    Route::post('update', [AuthenticatedSessionController::class, 'update'])
+                ->name('login.update');
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
@@ -95,6 +102,6 @@ Route::middleware('auth:airport_admin')->group(function () {
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });

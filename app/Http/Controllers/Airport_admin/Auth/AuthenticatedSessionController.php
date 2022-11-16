@@ -5,8 +5,13 @@ namespace App\Http\Controllers\Airport_admin\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\Models\Airport_admin;
+
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -18,6 +23,12 @@ class AuthenticatedSessionController extends Controller
     public function create()
     {
         return view('airport_admin.login');
+    }
+
+    public function setPassword(Request $request){  
+        
+        return view('airport_admin.change-password', ['user' => $request->user]);
+
     }
 
     /**
@@ -33,6 +44,24 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         return redirect()->intended('airport_admin')->with('result', 'ログインしました');
+    }
+
+    public function update(Request $request){
+
+        if($request->password == "spottle1120"){
+            return redirect()->back()
+                            ->with('error', '初期パスワードは再利用しないでください');
+        }
+
+        $request->validate([
+            'password' => ['required', 'confirmed', Rules\Password::min(8),'max:191']
+        ]);
+        
+        $update["password"] = Hash::make($request->password);
+
+        Airport_admin::where('id', $request->id)->update($update);
+
+        return redirect('airport_admin/login')->with('result', 'パスワードを変更完了しました');
     }
 
     /**

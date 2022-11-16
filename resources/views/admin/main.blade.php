@@ -28,7 +28,6 @@
             <i class="fa-solid fa-envelope"></i><input type="text" name="email" value="{{old('email')}}" placeholder="メールアドレス">
           </div>
         </div>  
-        <input type="hidden" name="password" value=1>
         <button class="auth__button register__button">登録</button>
       </form>
     </div>

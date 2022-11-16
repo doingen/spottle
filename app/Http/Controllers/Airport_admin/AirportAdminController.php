@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Airport_admin;
 use App\Models\Reservation;
 use App\Models\Spot;
+use Illuminate\Support\Facades\Auth;
 
 class AirportAdminController extends Controller
 {
@@ -19,16 +20,6 @@ class AirportAdminController extends Controller
     public function show(){
 
         $spots = Spot::all();
-
-        // $reservation = Reservation::where('end_at', '>', date("Y-m-d H:i:s"))
-        //                 ->orderBy('start_at', 'asc')
-        //                 ->with('aircraft', 'spot')
-        //                 ->get();
-
-        // $past = Reservation::where('end_at', '<=', date("Y-m-d H:i:s"))
-        //                     ->orderBy('end_at', 'desc')
-        //                     ->with('aircraft', 'spot')
-        //                     ->get();
 
         return view('airport_admin.reservation', compact('spots'));
     }

@@ -20,7 +20,7 @@
     </a>
     <nav>
       @if(Auth::guard('airport_admin')->check())
-        <a href="{{route('logout')}}">ログアウト</a>
+        <a href="{{route('airport_admin.logout')}}">ログアウト</a>
       @endif
     </nav>
   </header>

@@ -3,6 +3,9 @@
 @section('contents')
 <title>空港管理者ページ</title>
 <div class="aa_main__wrapper">
+  @if(session('result'))
+    <p class="aa__notice--login">{{session('result')}}</p>
+  @endif
   <h2>メニュー&#x1f34a;</h2>
   <div class="aa_main__outer">
     <a href="{{route('airport_admin.show')}}" class="aa_main__item">

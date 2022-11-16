@@ -63,7 +63,7 @@ class LoginRequest extends FormRequest
 
         if($this->is('admin/*')){
             $guard = 'admin';
-        }elseif($this->is('airport-admin/*')){
+        }elseif($this->is('airport_admin/*')){
             $guard = 'airport_admin';
         }else{
             $guard = 'web';
