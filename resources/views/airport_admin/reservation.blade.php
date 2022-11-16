@@ -44,7 +44,7 @@
         <th>使用航空機</th>
         <th>予約者</th>
         <th>電話番号</th>
-        <th>使用日時(開始～終了)</th>
+        <th>使用日時(JST)(開始～終了)</th>
       </tr>
       @foreach($result as $r)
       <tr>

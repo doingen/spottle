@@ -50,7 +50,7 @@ class AirportAdminController extends Controller
         }
         else{
             $result = Reservation::where('spot_id', $search["spot_id"])
-                                ->with('aircraft', 'spots', 'users')
+                                ->with('aircraft', 'spot', 'user')
                                 ->orderBy('start_at', 'asc')
                                 ->simplePaginate(7);
         }
