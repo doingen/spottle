@@ -469,6 +469,14 @@ main {
   color: white;
 }
 
+.thanks__notice {
+  margin: 0 auto 1rem auto;
+  padding: 1rem 2rem;
+  width: 30%;
+  background-color: #eef4d2;
+  border-radius: 10px;
+}
+
 
 /* infoのCSS */
 

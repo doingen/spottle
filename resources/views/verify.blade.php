@@ -2,6 +2,9 @@
 
 @section('contents')
 <div class="thanks__wrapper">
+@if(session('status'))
+  <p class="thanks__notice">{{session('status')}}</p>
+@endif
   <div class="thanks__contents">
     <form method="post" action="{{ route('verification.send') }}">
       @csrf
