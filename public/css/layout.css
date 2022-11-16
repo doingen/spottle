@@ -355,25 +355,26 @@ main {
   border-bottom: 0.4px solid #f38630;
 }
 
-.confirm__contents {
-  display: flex;
-  justify-content: center;
+.confirm__outer {
   margin: 2rem auto 3rem auto;
-  padding-top: 2rem;
+  padding: 2rem 0 0.1rem 0 ;
   width: 35%;
   text-align: left;
   background-color: #f2f6e1;
 }
 
-.confirm__contents p {
+.confirm__inner {
+  margin: 0 auto;
+  width: 57%;
+}
+
+.confirm__inner--item {
   margin-bottom: 2rem;
 }
 
-.confirm__contents--left {
-  margin-right: 5rem;
-}
-
-.confirm__contents--left p {
+.confirm__inner--item span {
+  display: inline-block;
+  margin-right: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: 2px solid #008282;
@@ -382,12 +383,17 @@ main {
   color: #008282;
 }
 
-.confirm__contents--right p{
-  padding: 0.55em 0;
+.confirm__inner--item p {
+  display: inline-block;
 }
 
-.reserve__confirm p:nth-child(3) {
-  margin-bottom: 0.2rem;
+.confirm__inner--time {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.confirm__inner--time p {
+  padding: 0.5rem 0;
 }
 
 .confirm__button--back {
@@ -687,6 +693,7 @@ main {
 }
 
 .mypage__reserve a {
+  margin-right: 1rem;
   border: 2px solid #008282;
   background-color: #008282;
   color: white;
@@ -700,8 +707,13 @@ main {
 
 
 /* reveiwのCSS */
+
+.review__wrapper {
+  padding-top: 2rem;
+}
+
 .review__outer {
-  margin: 4rem auto;
+  margin: 0 auto;
   width: 40%;
 }
 

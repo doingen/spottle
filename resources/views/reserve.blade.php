@@ -61,7 +61,7 @@
         <h3 class="reserve__search--title">変更後の時間をお選びください</h3><br>
         <p class="reserve__change">&#127818;は変更前の予約時間です</p>
       @else
-        <h3 class="reserve__search--title">◎から予約したい時間をお選びください</h3><br>
+        <h3 class="reserve__search--title">◎から予約したい時間(JST)をお選びください</h3><br>
       @endif
       @error('reserved')
         <p class="reserve__alert">{{$message}}</p>

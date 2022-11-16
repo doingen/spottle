@@ -72,6 +72,10 @@ Route::prefix('reserve')->middleware(['auth', 'verified'])->group(function() {
   Route::get('update', [ReserveController::class, 'updateConfirm'])->name('reserve.update_confirm');
 
   Route::post('update', [ReserveController::class, 'update'])->name('reserve.update');
+  
+  Route::get('delete', [ReserveController::class, 'deleteConfirm'])->name('reserve.delete');
+
+  Route::post('delete', [ReserveController::class, 'delete']);
 });
 
 Route::middleware(['auth', 'verified'])->group(function() {

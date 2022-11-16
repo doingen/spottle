@@ -4,16 +4,22 @@
 <title>予約内容確認</title>
 <x-confirm>
   <x-slot name="title">予約内容</x-slot>
-  <x-slot name="attribute">
-    <p>使用機材</p>
-    <p>駐機スポット</p>
-    <p>予約時間</p>
-  </x-slot>
   <x-slot name="contents">
-    <p>{{$reservation["aircraft_name"]}}</p>        
-    <p>{{$reservation["spot_name"]}}</p>
-    <p>開始：{{\App\Models\Reservation::dateReform($reservation["start_at"])}}</p>
-    <p>終了：{{\App\Models\Reservation::dateReform($reservation["end_at"])}}</p>
+    <div class="confirm__inner--item">
+      <span>使用機材</span>
+      <p>{{$reservation["aircraft_name"]}}</p> 
+    </div>
+    <div class="confirm__inner--item">
+      <span>スポット</span>
+      <p>{{$reservation["spot_name"]}}</p>
+    </div>
+    <div class="confirm__inner--item">
+      <span>予約時間</span>
+      <div class="confirm__inner--time">
+        <p>開始：{{\App\Models\Reservation::dateReform($reservation["start_at"])}}(JST)</p><br>
+        <p>終了：{{\App\Models\Reservation::dateReform($reservation["end_at"])}}(JST)</p>
+      </div>
+    </div>    
   </x-slot>
   <x-slot name="button">
     <a class="confirm__button--back" onclick="history.back(); return false;">戻る</a>

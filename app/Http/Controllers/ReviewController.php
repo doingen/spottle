@@ -26,6 +26,8 @@ class ReviewController extends Controller
 
         Spot_review::create($review);
 
+        $request->session()->regenerateToken();
+
         return view('thanks');
     }
 }

@@ -65,11 +65,6 @@ class AddAircraftController extends Controller
     }
 
     public function update(ChangeAircraftRequest $request){
-      
-      // $update = $request->except(['_token']);
-      // dd($update);
-
-      // $item = array_combine(["name", "spot_id", "aircraft_id"], $update);
         
       Aircraft::where('id', $request->aircraft_id)
               ->update(["airport_admin_id" => \Auth::user()->id, 

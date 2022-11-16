@@ -98,6 +98,8 @@ class ReserveController extends Controller
         
         Reservation::create($reservation);
 
+        $request->session()->regenerateToken();
+
         return view('thanks');
     }
 
@@ -151,8 +153,33 @@ class ReserveController extends Controller
         Reservation::where('id', $requests['update']['reservation_id']) 
                     ->update($update);
 
+        $request->session()->regenerateToken();
+
         return view('thanks');
 
+    }
+
+    public function deleteConfirm(Request $request){
+
+        $r = Reservation::find($request->reserve_id);
+
+        $name["aircraft_name"] = Aircraft::find($r->aircraft_id)->name;
+        
+        $name["spot_name"] = Spot::find($r->spot_id)->name;
+
+        return view('reserve_delete', compact('r', 'name'));
+
+    }
+
+    public function delete(Request $request){
+
+        $delete = $request->reservation;
+
+        Reservation::find($delete)->delete();
+
+        $request->session()->regenerateToken();
+
+        return view('thanks');
     }
 
 }

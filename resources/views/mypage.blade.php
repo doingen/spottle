@@ -17,8 +17,8 @@
               <th>予約番号</th>
               <th>スポット</th>
               <th>使用機材</th>
-              <th>開始</th>
-              <th>終了</th>
+              <th>開始(JST)</th>
+              <th>終了(JST)</th>
             </tr>
             @foreach($reserve as $reserve)
             <tr>
@@ -30,6 +30,7 @@
               <td class="mypage__reserve">
                 @if($reserve->start_at >= now())
                   <a href="{{route('reserve.show', ['reserve_id' => $reserve->id])}}">日時変更する</a>
+                  <a href="{{route('reserve.delete', ['reserve_id' => $reserve->id])}}">予約取り消し</a>
                 @endif
               </td>
             </tr>
@@ -49,8 +50,8 @@
               <th>予約番号</th>
               <th>スポット</th>
               <th>使用機材</th>
-              <th>開始</th>
-              <th>終了</th>
+              <th>開始(JST)</th>
+              <th>終了(JST)</th>
             </tr>
             @foreach($review as $review)
             <tr>
