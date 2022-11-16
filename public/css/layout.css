@@ -578,6 +578,10 @@ main {
   border: none;
 }
 
+.auth__input .auth__password-confirm {
+  margin: 1rem 0 0 2rem;
+}
+
 .auth__input p {
   margin-left: 2.2rem;
   font-size: 0.9rem;
