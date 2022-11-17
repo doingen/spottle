@@ -43,7 +43,7 @@ class ReservationReminder extends Command
      */
     public function handle()
     {
-        $url = ('http://127.0.0.1:8000/mypage');
+        $url = ('/mypage');
 
         $today = Carbon::today();
         $user_id = Reservation::wheredate('start_at', $today)->pluck('user_id')->toArray();
