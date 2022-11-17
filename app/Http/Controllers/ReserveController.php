@@ -124,7 +124,7 @@ class ReserveController extends Controller
 
         $reservation_model = new Reservation;
         
-        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $selected_s);
+        $reserved_date = $reservation_model->getReservedDate($this->start_hour, $this->end_hour, $this->open_days, $selected_s->id);
 
         $reserving = $reservation_model->getUserReservation($reservation);
 

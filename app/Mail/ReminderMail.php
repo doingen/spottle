@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AirportAdminMail extends Mailable
+class ReminderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,11 +16,10 @@ class AirportAdminMail extends Mailable
      *
      * @return void
      */
-    public function __construct($subject, $text)
+    public function __construct($todays_user, $url)
     {
-        $this->subject = $subject;
-        $this->text = $text;
-
+        $this->todays_user = $todays_user;
+        $this->url = $url;
     }
 
     /**
@@ -30,8 +29,8 @@ class AirportAdminMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->subject)
-                ->markdown('emails.mail')
-                ->with(['text' => $this->text]);
+        return $this->subject('【スポっとる】本日のスポット予約のご連絡')
+                ->markdown('emails.reminder')
+                ->with(['user' => $this->todays_user, 'url' => $this->url]);
     }
 }

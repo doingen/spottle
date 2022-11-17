@@ -67,7 +67,7 @@ class Reservation extends Model
 
         $reserved_date = [];
         
-        $reserved = Reservation::where('spot_id', $selected_s->id)->get();
+        $reserved = Reservation::where('spot_id', $selected_s)->get();
 
         foreach($time_array as $time){
             foreach($time as $time){
