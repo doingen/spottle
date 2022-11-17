@@ -50,13 +50,14 @@ class ReservationReminder extends Command
 
         $user = array_unique($user_id);
 
-        $today = [];
+        $today = collect();
         foreach($user as $user){
-            $today[] = User::where('id', $user)->get();
+            $result = User::where('id', $user)->get();
+            $today = $today->concat($result);
         }
 
         foreach($today as $todays_user){
-            return Mail::to($todays_user)->send(new ReminderMail($todays_user, $url));
-        } 
+            Mail::to($todays_user)->send(new ReminderMail($todays_user, $url));
+        }
     }
 }

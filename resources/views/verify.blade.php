@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('contents')
+<title>メール認証してください</title>
 <div class="thanks__wrapper">
 @if(session('status'))
   <p class="thanks__notice">{{session('status')}}</p>

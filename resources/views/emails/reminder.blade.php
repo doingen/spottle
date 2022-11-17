@@ -1,7 +1,7 @@
 @component('mail::message')
-@foreach($user as $user)
+
 {{$user->name}} 様
-@endforeach
+
 
 いつもご利用、誠にありがとうございます。
 

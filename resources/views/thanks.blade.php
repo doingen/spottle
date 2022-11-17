@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('contents')
+<title>完了画面</title>
 <div class="thanks__wrapper">
   <div class="thanks__contents">
     @if(Request::routeIs('reserve.create'))

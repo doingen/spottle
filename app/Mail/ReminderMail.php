@@ -18,7 +18,7 @@ class ReminderMail extends Mailable
      */
     public function __construct($todays_user, $url)
     {
-        $this->todays_user = $todays_user;
+        $this->user = $todays_user;
         $this->url = $url;
     }
 
@@ -31,6 +31,6 @@ class ReminderMail extends Mailable
     {
         return $this->subject('【スポっとる】本日のスポット予約のご連絡')
                 ->markdown('emails.reminder')
-                ->with(['user' => $this->todays_user, 'url' => $this->url]);
+                ->with(['user' => $this->user, 'url' => $this->url]);
     }
 }
