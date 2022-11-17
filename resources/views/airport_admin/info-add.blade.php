@@ -65,11 +65,7 @@
       </div>
       <div class="aa_add__inner aa_add__info">
         <span>内容</span>
-        <textarea name="changed_text" rows="10">
-          @isset($selected_info) 
-            {{$selected_info->text}}
-          @endisset
-        </textarea>
+        <textarea name="changed_text" rows="10">@isset($selected_info) {{$selected_info->text}} @endisset</textarea>
       </div>
       @isset($selected_info)
         <input type="hidden" name="changed_info_id" value="{{$selected_info->id}}">

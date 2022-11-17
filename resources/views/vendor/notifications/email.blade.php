@@ -43,7 +43,7 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "\":actionText\" ボタンが使えない場合は以下のURLをコピーしてブラウザURLに貼ってアクセスしてください\n",
+    "\":actionText\" ボタンが使えない場合は以下のURLをコピーしてブラウザURLに貼ってアクセスしてください。\n",
     [
         'actionText' => $actionText,
     ]

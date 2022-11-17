@@ -3,9 +3,6 @@
 @section('contents')
 <title>メール作成</title>
 <div class="aa__wrapper">
-  @if(session('success'))
-    <p class="aa__alert aa__notice">{{session('success')}}</p>
-  @endif
   @error('subject')
     <p class="aa__alert">{{$message}}</p>
   @enderror
@@ -23,10 +20,10 @@
         </div>
         <div class="aa_mail__item aa_mail__item--subject">
           <span>件名</span>
-          <input type="text" name="subject">
+          <input type="text" name="subject" value="{{old('subject')}}">
         </div>
         <div class="aa_mail__item aa_mail__item--contents">
-          <textarea name="text" rows="10" placeholder="テキスト"></textarea>
+          <textarea name="text" rows="10" placeholder="テキスト">{{old('text')}}</textarea>
         </div>
         <button>送信内容確認</button>
       </div>

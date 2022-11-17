@@ -36,13 +36,14 @@ class MailController extends Controller
         $text = $request->text;
 
         $user = User::whereNotNull('email_verified_at')->get();
-
         
         foreach($user as $user){
             Mail::to($user)->send(new AirportAdminMail($subject, $text));
         }
 
-        return redirect('airport_admin/mail')->with('success', 'メール送信完了しました');
+        $request->session()->regenerate();
+
+        return view('airport_admin.mail-thanks');
     }
 
 }

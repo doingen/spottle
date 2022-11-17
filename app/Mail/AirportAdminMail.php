@@ -31,7 +31,8 @@ class AirportAdminMail extends Mailable
     public function build()
     {
         return $this->subject($this->subject)
-                    ->view('airport_admin.mail')
-                    ->with(['text' => $this->text]);
+                ->view('airport_admin.mail')
+                ->markdown('emails.mail')
+                ->with(['text' => $this->text]);
     }
 }

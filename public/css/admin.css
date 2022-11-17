@@ -382,4 +382,5 @@
 
 .aa_mail__item--confirm {
   padding: .5rem;
+  white-space: pre-wrap;
 }
