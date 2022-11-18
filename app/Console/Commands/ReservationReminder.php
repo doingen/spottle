@@ -43,7 +43,7 @@ class ReservationReminder extends Command
      */
     public function handle()
     {
-        $url = ('/mypage');
+        $url = ('https://quiet-journey-11397.herokuapp.com/mypage');
 
         $today = Carbon::today();
         $user_id = Reservation::wheredate('start_at', $today)->pluck('user_id')->toArray();
