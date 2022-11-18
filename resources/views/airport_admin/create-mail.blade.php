@@ -9,6 +9,9 @@
   @error('text')
     <p class="aa__alert">{{$message}}</p>
   @enderror
+  @if(session('error'))
+    <p class="aa__alert">{{session('error')}}</p>
+  @endif
   <div class="aa_mail__outer">
     <form method="post" action="{{route('airport_admin.mail.confirm')}}">
       @csrf

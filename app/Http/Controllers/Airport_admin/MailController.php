@@ -23,11 +23,19 @@ class MailController extends Controller
             'subject' => 'required',
             'text' => 'required'
         ]);
-        
-        $user = User::whereNotNull('email_verified_at')->get();
 
-        if(User::all()->isEmpty()){
-            return redirect()->back()->with(['error', '送信先が存在しません']);
+        $users = User::all();
+        $verified = collect();
+
+        foreach($users as $user){
+            if($user->hasVerifiedEmail()){
+                $verified->push($user);
+            }
+        }
+
+        if($verified->isEmpty()){
+            return redirect('airport_admin/mail')->withInput()
+                                                ->with('error', '送信先が存在しません');
         }
 
         $mail = $request->all();
@@ -41,10 +49,13 @@ class MailController extends Controller
         $subject = $request->subject;
         $text = $request->text;
 
-        $user = User::whereNotNull('email_verified_at')->get();
-        
-        foreach($user as $user){
-            Mail::to($user->email)->send(new AirportAdminMail($subject, $text));
+        $users = User::all();
+        $verified = collect();
+
+        foreach($users as $user){
+            if($user->hasVerifiedEmail()){
+                Mail::to($user->email)->send(new AirportAdminMail($subject, $text));
+            }
         }
 
         $request->session()->regenerate();
