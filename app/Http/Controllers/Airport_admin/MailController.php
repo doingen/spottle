@@ -35,7 +35,7 @@ class MailController extends Controller
         $subject = $request->subject;
         $text = $request->text;
 
-        $user = User::whereNotNull('email_verified_at')->get();
+        $user = User::where('email_verified_at', '!=', null)->get();
         
         foreach($user as $user){
             Mail::to($user)->send(new AirportAdminMail($subject, $text));
