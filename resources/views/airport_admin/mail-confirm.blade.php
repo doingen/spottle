@@ -3,6 +3,9 @@
 @section('contents')
 <title>送信内容確認</title>
 <div class="aa__wrapper">
+@if(session('error'))
+  <p class="aa__alert">{{session('error')}}</p>
+@endif
   <div class="aa_mail__outer">
     <h2 class="aa__page-title">送信内容確認</h2>
     <a class="aa_mail__outer--back" onclick="history.back(); return false;"><i class="fa-solid fa-angles-left"></i>戻る</a>
