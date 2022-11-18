@@ -1,47 +1,25 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Tests\Feature;
 
-use Illuminate\Console\Command;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
 use Illuminate\Support\Facades\Mail;
-
 use App\Mail\ReminderMail;
 use App\Models\Reservation;
 use App\Models\User;
 use Carbon\Carbon;
 
-class ReservationReminder extends Command
+class SpottleTest extends TestCase
 {
     /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'mail:reminder';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'send an email to remind users of their reservation.';
-
-    /**
-     * Create a new command instance.
+     * A basic feature test example.
      *
      * @return void
      */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
+    public function test_reminder()
     {
         $url = ('https://quiet-journey-11397.herokuapp.com/mypage');
 
