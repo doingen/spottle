@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReserveController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
 
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -79,7 +79,7 @@ Route::prefix('reserve')->middleware(['auth', 'verified'])->group(function() {
 });
 
 Route::middleware(['auth', 'verified'])->group(function() {
-  Route::get('mypage', [UserController::class, 'index'])->name('user.index');
+  Route::get('mypage', [MypageController::class, 'index'])->name('mypage.index');
 
   Route::get('review', [ReviewController::class, 'show'])->name('review.show');
 

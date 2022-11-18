@@ -17,11 +17,11 @@
       <h1>スポっとる<i class="fa-regular fa-paper-plane fa-xs"></i></h1>
     </a>
     <nav>
-      @if(Request::routeIs('user.index'))
+      @if(Request::routeIs('mypage.index'))
         <a href="{{route('reserve.index')}}" class="header__reserve">予約する</a>
         <a href="{{route('logout')}}">ログアウト</a>
       @elseif(Auth::check())
-        <a href="{{route('user.index')}}">マイページ</a>
+        <a href="{{route('mypage.index')}}">マイページ</a>
         <a href="{{route('logout')}}">ログアウト</a>
       @else
         <a href="{{route('login.show')}}">ログイン</a>

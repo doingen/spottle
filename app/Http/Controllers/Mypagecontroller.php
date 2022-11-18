@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
-class Usercontroller extends Controller
+class Mypagecontroller extends Controller
 {
     public function index(){
 

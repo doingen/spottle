@@ -7,7 +7,7 @@
     @if(Request::routeIs('reserve.create'))
       <p>ご予約ありがとうございます</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
-      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
+      <a href="{{route('mypage.index')}}" class="thanks__contents--mypage">マイページ</a>
     @elseif(Request::routeIs('register.create'))
       <p>ご登録ありがとうございます。</p>
       <p>ご登録いただいたメールアドレスへ認証メールを送信しましたので、
@@ -20,15 +20,15 @@
     @elseif(Request::routeIs('reserve.update'))
       <p>予約変更が完了しました</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
-      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
+      <a href="{{route('mypage.index')}}" class="thanks__contents--mypage">マイページ</a>
     @elseif(Request::Is('reserve/delete'))
       <p>予約取り消しが完了しました</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
-      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
+      <a href="{{route('mypage.index')}}" class="thanks__contents--mypage">マイページ</a>
     @elseif(Request::routeIs('review.create'))
       <p>レビューを投稿しました</p><br>
       <a href="{{route('main.index')}}" class="thanks__contents--top">トップへ</a>
-      <a href="{{route('user.index')}}" class="thanks__contents--mypage">マイページ</a>
+      <a href="{{route('mypage.index')}}" class="thanks__contents--mypage">マイページ</a>
     @endif
   </div>
 </div>
