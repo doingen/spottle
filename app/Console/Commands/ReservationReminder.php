@@ -57,7 +57,7 @@ class ReservationReminder extends Command
         }
 
         foreach($today as $todays_user){
-            Mail::to($todays_user)->send(new ReminderMail($todays_user, $url));
+            Mail::to($todays_user->email)->send(new ReminderMail($todays_user, $url));
         }
     }
 }
