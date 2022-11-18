@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Information;
+use App\Models\Reservation;
 
 class MainController extends Controller
 {
@@ -19,5 +21,23 @@ class MainController extends Controller
 
         return view('info', ['info' => $info]);
 
+    }
+
+    public function mypage(){
+
+        $reserve = Reservation::where('user_id', Auth::id())
+                    ->where('end_at', '>', date("Y-m-d H:i:s"))
+                    ->orderBy('start_at', 'asc')
+                    ->with('aircraft', 'spot')
+                    ->get();
+
+        $review = Reservation::where('user_id', Auth::id())
+                    ->where('end_at', '<=', date("Y-m-d H:i:s"))
+                    ->orderBy('end_at', 'desc')
+                    ->with('aircraft', 'spot')
+                    ->take(3)
+                    ->get();
+
+        return view('mypage', compact('reserve', 'review'));
     }
 }
