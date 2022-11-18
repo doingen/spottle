@@ -24,6 +24,8 @@ class MailController extends Controller
             'text' => 'required'
         ]);
         
+        $user = User::whereNotNull('email_verified_at')->get();
+
         if(User::all()->isEmpty()){
             return redirect()->back()->with(['error', '送信先が存在しません']);
         }
@@ -39,7 +41,7 @@ class MailController extends Controller
         $subject = $request->subject;
         $text = $request->text;
 
-        $user = User::all();
+        $user = User::whereNotNull('email_verified_at')->get();
         
         foreach($user as $user){
             Mail::to($user->email)->send(new AirportAdminMail($subject, $text));
