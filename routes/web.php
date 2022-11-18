@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReserveController;
-use App\Http\Controllers\MypageController;
+use App\Http\Controllers\Auth\MypageController;
 use App\Http\Controllers\ReviewController;
 
 use App\Http\Controllers\Auth\VerifyEmailController;
