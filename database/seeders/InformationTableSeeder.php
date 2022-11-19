@@ -15,6 +15,14 @@ class InformationTableSeeder extends Seeder
      */
     public function run()
     {
-        Information::factory()->count(5)->create();
+        for($i=0; $i<=4; $i++){
+            $param = [
+            'airport_admin_id' => 0,
+            'title' => "テスト". $i+1,
+            'text' => "テストテキストです。"
+            ];
+            Information::create($param);
+        }
+        
     }
 }
