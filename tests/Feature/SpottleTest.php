@@ -14,30 +14,27 @@ use Carbon\Carbon;
 
 class SpottleTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_reminder()
+    public function test_before_reminder()
     {
-        $url = ('https://quiet-journey-11397.herokuapp.com/mypage');
+        Reservation::create([
+            'user_id'=>'1',
+            'spot_id'=>'2',
+            'aircraft_id'=>'3',
+            'tel'=>'01234556789',
+            'start_at'=>now()->addHour(),
+            'end_at'=>now()->addDay()
+            ]);
 
         $today = Carbon::today();
         $user_id = Reservation::wheredate('start_at', $today)->pluck('user_id')->toArray();
-
-        if($user_id){
-            $user = array_unique($user_id);
-
-            $today = collect();
-            foreach($user as $user){
-                $result = User::where('id', $user)->get();
-                $today = $today->concat($result);
-            }
-
-            foreach($today as $todays_user){
-                Mail::to($todays_user->email)->send(new ReminderMail($todays_user, $url));
-            }
-        }
+        
+        $this->assertNotnull($user_id);
     }
 }

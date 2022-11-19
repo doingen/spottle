@@ -4,7 +4,7 @@
 <title>スポっとる</title>
 <div class="main__outer">
   <div class="main__title-block">
-    <img src="{{asset('img/トップ背景.jpeg')}}">
+    <img src="{{asset('storage/images/トップ背景.jpeg')}}">
     <div class="main__title">
       <div class="main__title--item">
         <h2>松山空港</h2>
