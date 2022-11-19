@@ -17,19 +17,19 @@
         <p class="alert__notice login-error">{{$message}}</p>
       @enderror
         <div class="auth__item--inner">
+          @error('email')
+            <p class="alert__notice">{{$message}}</p>
+          @enderror
           <div class="auth__input"> 
             <i class="fa-solid fa-envelope"></i>
             <input type="text" name="email" value="{{old('email')}}" placeholder="メールアドレス">
-            @error('email')
-              <p class="alert__notice">{{$message}}</p>
-            @enderror
           </div>
+          @error('password')
+            <p class="alert__notice">{{$message}}</p>
+          @enderror
           <div class="auth__input">
             <i class="fa-solid fa-lock"></i>
             <input type="password" name="password" placeholder="パスワード">
-            @error('password')
-              <p class="alert__notice">{{$message}}</p>
-            @enderror
           </div>
           <div class="auth__bottom">
             <button class="auth__button">ログイン</button>

@@ -577,20 +577,17 @@ main {
 .auth__item--inner {
   margin: 0.5rem auto 2rem auto;
   width: 80%;
-  font-size: 1.6rem;
-}
-
-.auth__item form {
-  margin: 0 auto;
 }
 
 .auth__input {
-  margin-bottom: 1rem;
+  display: flex;
+  margin-bottom: 1.5rem;
 }
 
 .auth__input i {
   margin-right: 1.2rem;
   width: 1rem;
+  font-size: 1.5rem;
   color: #008282;
 }
 
@@ -603,11 +600,11 @@ main {
   border: none;
 }
 
-.auth__input .auth__password-confirm {
-  margin: 1rem 0 0 2rem;
+.auth__password-confirm {
+  margin-left: 2.2rem;
 }
 
-.auth__input p {
+.auth__input--notice {
   margin-left: 2.2rem;
   font-size: 0.9rem;
 }
@@ -640,6 +637,7 @@ main {
 }
 
 .alert__notice {
+  margin-left: 1.5rem;
   padding: 0.3em 1em;
   font-size: 0.9rem;
   color: red;

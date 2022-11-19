@@ -15,16 +15,16 @@
       <form method="post" action="{{route('admin.create')}}">
       @csrf
         <div class="auth__item--inner">
+          @error('name')
+            <p class="alert__notice">{{$message}}</p>
+          @enderror
           <div class="auth__input">
-            @error('name')
-              <p class="alert__notice">{{$message}}</p><br>
-            @enderror
             <i class="fa-solid fa-user"></i><input type="text" name="name" value="{{old('name')}}" placeholder="空港管理者名">
           </div>
-          <div class="auth__input">
-            @error('email')
-              <p class="alert__notice">{{$message}}</p><br>
-            @enderror  
+          @error('email')
+            <p class="alert__notice">{{$message}}</p>
+          @enderror 
+          <div class="auth__input"> 
             <i class="fa-solid fa-envelope"></i><input type="text" name="email" value="{{old('email')}}" placeholder="メールアドレス">
           </div>
         </div>  
