@@ -67,6 +67,7 @@
 
 .admin__user {
   display: inline-block;
+  padding-right: .5rem;
   color: white;
   font-weight: 1.2rem;
 }
@@ -79,8 +80,9 @@
 
 .aa__wrapper {
   margin: 0 auto;
-  padding-top: 6.5rem;
+  padding-top: 7.2rem;
   width: 80%;
+  background-color: #ecf0f0;
 }
 
 .aa__alert {
@@ -96,9 +98,12 @@
 }
 
 .aa__notice--login {
+  position: absolute;
+  top: 13%;
+  right: 8%;
   margin: 0 0 0 auto;
-  padding: 1rem 2rem;
-  width: 20%;
+  padding: 0.5rem 2rem;
+  width: 15%;
   background-color: #eef4d2;
   border-radius: 10px;
 }
@@ -122,8 +127,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  column-gap: 3rem;
-  row-gap: 3rem;
+  column-gap: 4%;
+  row-gap: 4%;
   margin-top: 2rem;
 }
 
@@ -153,7 +158,9 @@
 .aa_add__wrapper {
   display: flex;
   justify-content: space-around;
-  padding: 8rem 2rem 0 2rem;
+  gap: 1rem;
+  padding: 7.5rem 2rem 0 2rem;
+  background-color: #ecf0f0;
 }
 
 .aa_add__outer {
@@ -210,7 +217,7 @@
 }
 
 .aa_add__info textarea {
-  width: 80%;
+  width: 70%;
 }
 
 .aa_add__spot {
@@ -220,6 +227,7 @@
 .aa_add__inner .aa_change__button {
   display: inline-block;
   margin-left: 1rem;
+  padding: .2rem .5rem;
   font-size: 0.8rem;
   background-color: #ecf0f0;
   border: 1px solid gray;
@@ -228,12 +236,19 @@
 
 /* reservationのCSS */
 
+.aa_reservation__wrapper {
+  margin: 0 auto;
+  padding-top: 7.2rem;
+  width: 90%;
+}
+
 .aa_reservation__box {
   margin-top: 1rem;
   padding: 1rem 2rem;
   background-color: whitesmoke;
   border: none;
   border-radius: 10px;
+  font-size: .95rem;
 }
 
 .aa_reservation__search {
@@ -309,8 +324,15 @@
 
 /* mailのCSS */
 
+.aa_mail__wrapper {
+  padding: 7.5rem 0 1rem 0;
+  background-color: #ecf0f0;
+}
+
 .aa_mail__outer {
+  margin: 0 auto;
   padding: 2rem;
+  width: 80%;
   border-radius: 10px;
   background-color: whitesmoke;
 }

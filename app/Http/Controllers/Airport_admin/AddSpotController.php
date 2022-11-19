@@ -44,7 +44,7 @@ class AddSpotController extends Controller
         $spot = Spot::find($id)->name;
 
         if($spot == $name){
-            return redirect('airport_admin/add_spot')->with(['changed_error' => '変更されていません', 
+            return redirect('airport_admin/add_spot')->with(['changed_error' => '名前が変更されていません', 
                                                             'input' => $name]);
         }
         elseif(Spot::all()->pluck('name')->contains($name)){

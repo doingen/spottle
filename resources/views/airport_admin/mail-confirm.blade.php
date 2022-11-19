@@ -2,7 +2,7 @@
 
 @section('contents')
 <title>送信内容確認</title>
-<div class="aa__wrapper">
+<div class="aa_mail__wrapper">
 @if(session('error'))
   <p class="aa__alert">{{session('error')}}</p>
 @endif

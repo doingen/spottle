@@ -2,7 +2,7 @@
 
 @section('contents')
 <title>メール作成</title>
-<div class="aa__wrapper">
+<div class="aa_mail__wrapper">
   @error('subject')
     <p class="aa__alert">{{$message}}</p>
   @enderror

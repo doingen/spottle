@@ -2,18 +2,19 @@
 
 @section('contents')
 <title>予約確認</title>
-<div class="aa__wrapper">
+<div class="aa_reservation__wrapper">
   <h2 class="aa__page-title">予約確認</h2>
   <form method="get" action="{{route('airport_admin.search')}}">
     @csrf
     <div class="aa_reservation__box aa_reservation__search">
       <div class="aa_reservation__search--inner">
-        <span>日時</span>
+        <span>使用日時</span>
         <input type="date" name="date" @isset($date) value="{{$date}}" @endisset>
       </div>
       <div class="aa_reservation__search--inner">
         <span>スポット</span>
         <select name="spot_id">
+          <option value=""></option>
         @foreach ($spots as $spot)
           <option value="{{$spot->id}}" 
             @isset($selected_spot) 

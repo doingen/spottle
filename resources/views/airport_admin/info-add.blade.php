@@ -45,7 +45,7 @@
     <form method="get" action="{{route('airport_admin.change_info')}}" >
       @csrf
       <div class="aa_add__inner aa_add__info">
-        <span>変更インフォメーション</span>
+        <span>変更するタイトル</span>
         <select name="changed_info_id">
           @foreach($info as $info)
             <option value="{{$info->id}}" 
