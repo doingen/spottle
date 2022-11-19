@@ -30,6 +30,9 @@
         </div>
         <div class="review__inner--item">
           <p>コメント<i class="fa-regular fa-pen-to-square"></i></p>
+          @error('comment')
+            <p class="alert__notice">{{$message}}</p>
+          @enderror
           <textarea name="comment" cols="50" rows="5" maxlength="190"></textarea>
           <p><i class="fa-solid fa-circle-exclamation"></i>レビューは、1つの予約に対して1回のみ投稿可能です。</p>
           <p><i class="fa-solid fa-circle-exclamation"></i>一度投稿したレビューは変更できませんので、投稿前に内容をよく確認してください。</p>

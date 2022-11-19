@@ -20,6 +20,10 @@ class ReviewController extends Controller
 
     public function create(Request $request){
 
+        $request->validate([
+            'comment' => ['required']
+        ]);
+
         $review = $request->all();
         
         unset($review['_token']);

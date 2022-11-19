@@ -56,19 +56,23 @@
     @endisset
     @isset($reserved_date)
     <div class="reserve__time-input">
-      <span class="reserve__step">Step 3</span>
-      @if(Request::is('reserve/show'))
-        <h3 class="reserve__search--title">変更後の時間をお選びください</h3><br>
-        <p class="reserve__change">&#127818;は変更前の予約時間です</p>
-      @else
-        <h3 class="reserve__search--title">◎から予約したい時間(JST)をお選びください</h3><br>
-      @endif
-      @error('reserved')
-        <p class="reserve__alert">{{$message}}</p>
-      @enderror
-      @error('date')
-        <p class="reserve__alert">{{$message}}</p>
-      @enderror
+      <div class="reserve__time-input--item">
+        <span class="reserve__step">Step 3</span>
+        <div class="reserve__time-input--text">
+          @if(Request::is('reserve/show'))
+            <h3 class="reserve__search--title">変更後の時間をお選びください</h3>
+            <p class="reserve__change">&#127818;は変更前の予約時間です</p>
+          @else
+            <h3 class="reserve__search--title">◎から予約したい時間(JST)をお選びください</h3>
+          @endif
+          @error('reserved')
+            <p class="reserve__alert">{{$message}}</p>
+          @enderror
+          @error('date')
+            <p class="reserve__alert">{{$message}}</p>
+          @enderror
+        </div>
+      </div>
       <div class="reserve__search--box">
         @if(Request::is('reserve/show'))
           <form method="get" action="{{route('reserve.update_confirm')}}" class="step3">
@@ -76,55 +80,59 @@
           <form method="get" action="{{route('reserve.confirm')}}" class="step3">
         @endif
           @csrf
-          <div class="reserve__start-time">
+          <div class="reserve__date">
             <span>開始：</span>
-            <select name="start_year">
-              <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
-              @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
-                <option value="{{$calendar_row[$last_key]->year}}" @if($calendar_row[$last_key]->year == old('start_year')) selected @endif>{{$calendar_row[$last_key]->year}}</option>
-              @endif
-            </select>
-            <select name="start_date">
-              @for($i=0; $i<=$open_days-1; $i++)
-                <option value="{{$calendar_row[$i]->format('m-d')}}" @if($calendar_row[$i]->format('m-d') == old('start_date')) selected @endif>{{$calendar_row[$i]->format('m/d')}}</option>
-              @endfor
-            </select>
-            <select name="start_hour">
-              @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
-                <option value="{{$calendar_row[$i]->hour}}" @if($calendar_row[$i]->hour == old('start_hour')) selected @endif>{{$calendar_row[$i]->hour}}</option>
-              @endfor
-            </select>
-            <select name="start_minutes">
-              <option value="00" @if(00 == old('start_minutes')) selected @endif>00</option>
-              <option value="15" @if(15 == old('start_minutes')) selected @endif>15</option>
-              <option value="30" @if(30 == old('start_minutes')) selected @endif>30</option>
-              <option value="45" @if(45 == old('start_minutes')) selected @endif>45</option>
-            </select>
+            <div class="reserve__date--item">
+              <select name="start_year">
+                <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
+                @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
+                  <option value="{{$calendar_row[$last_key]->year}}" @if($calendar_row[$last_key]->year == old('start_year')) selected @endif>{{$calendar_row[$last_key]->year}}</option>
+                @endif
+              </select>
+              <select name="start_date">
+                @for($i=0; $i<=$open_days-1; $i++)
+                  <option value="{{$calendar_row[$i]->format('m-d')}}" @if($calendar_row[$i]->format('m-d') == old('start_date')) selected @endif>{{$calendar_row[$i]->format('m/d')}}</option>
+                @endfor
+              </select>
+              <select name="start_hour">
+                @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
+                  <option value="{{$calendar_row[$i]->hour}}" @if($calendar_row[$i]->hour == old('start_hour')) selected @endif>{{$calendar_row[$i]->hour}}</option>
+                @endfor
+              </select>
+              <select name="start_minutes">
+                <option value="00" @if(00 == old('start_minutes')) selected @endif>00</option>
+                <option value="15" @if(15 == old('start_minutes')) selected @endif>15</option>
+                <option value="30" @if(30 == old('start_minutes')) selected @endif>30</option>
+                <option value="45" @if(45 == old('start_minutes')) selected @endif>45</option>
+              </select>
+            </div>
           </div>
-          <div class="reserve__end-time">
+          <div class="reserve__date">
             <span>終了：</span>
-            <select name="end_year">
-              <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
-              @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
-                <option value="{{$calendar_row[$last_key]->year}}" @if($calendar_row[$last_key]->year == old('end_year')) selected @endif>{{$calendar_row[$last_key]->year}}</option>
-              @endif
-            </select>
-            <select name="end_date">
-              @for($i=0; $i<=$open_days-1; $i++)
-                <option value="{{$calendar_row[$i]->format('m-d')}}" @if($calendar_row[$i]->format('m-d') == old('end_date')) selected @endif>{{$calendar_row[$i]->format('m/d')}}</option>
-              @endfor
-            </select>
-            <select name="end_hour">
-              @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
-                <option value="{{$calendar_row[$i]->hour}}" @if($calendar_row[$i]->hour == old('end_hour')) selected @endif>{{$calendar_row[$i]->hour}}</option>
-              @endfor
-            </select>
-            <select name="end_minutes">
-              <option value="00" @if(00 == old('end_minutes')) selected @endif>00</option>
-              <option value="15" @if(15 == old('end_minutes')) selected @endif>15</option>
-              <option value="30" @if(30 == old('end_minutes')) selected @endif>30</option>
-              <option value="45" @if(45 == old('end_minutes')) selected @endif>45</option>
-            </select>
+            <div class="reserve__date--item">
+              <select name="end_year">
+                <option value="{{$calendar_row[0]->year}}">{{$calendar_row[0]->year}}</option>
+                @if($calendar_row[0]->year != $calendar_row[$last_key]->year)
+                  <option value="{{$calendar_row[$last_key]->year}}" @if($calendar_row[$last_key]->year == old('end_year')) selected @endif>{{$calendar_row[$last_key]->year}}</option>
+                @endif
+              </select>
+              <select name="end_date">
+                @for($i=0; $i<=$open_days-1; $i++)
+                  <option value="{{$calendar_row[$i]->format('m-d')}}" @if($calendar_row[$i]->format('m-d') == old('end_date')) selected @endif>{{$calendar_row[$i]->format('m/d')}}</option>
+                @endfor
+              </select>
+              <select name="end_hour">
+                @for($i=0; $i<=$last_key; $i=$i+$open_days*4)
+                  <option value="{{$calendar_row[$i]->hour}}" @if($calendar_row[$i]->hour == old('end_hour')) selected @endif>{{$calendar_row[$i]->hour}}</option>
+                @endfor
+              </select>
+              <select name="end_minutes">
+                <option value="00" @if(00 == old('end_minutes')) selected @endif>00</option>
+                <option value="15" @if(15 == old('end_minutes')) selected @endif>15</option>
+                <option value="30" @if(30 == old('end_minutes')) selected @endif>30</option>
+                <option value="45" @if(45 == old('end_minutes')) selected @endif>45</option>
+              </select>
+            </div>
           </div>
           @if(Request::is('reserve/show'))
             <input type="hidden" name="aircraft_id" value="{{$selected_a->id}}">

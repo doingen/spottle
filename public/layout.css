@@ -91,19 +91,15 @@ main {
 }
 
 .main__title-block {
-  position: relative;
   margin-right: 50px;
   width: 45%;
 }
 
-.main__title-block img {
-  width: 100%;
-}
-
 .main__title {
-  position: absolute;
-  top: 35%;
-  left: 2rem;
+  padding:30% 0 5% 5%;
+  background-image: url('storage/images/トップ背景.jpg');
+  height: 40vh;
+  background-size: cover;
 }
 
 .main__title--item {
@@ -161,9 +157,13 @@ main {
   margin-top: 1.3rem;
 }
 
+.main__info--item {
+  margin: 0 auto;
+  width: 95%;
+}
+
 .main__info--item span {
   display: inline-block;
-  vertical-align: top;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   background-color: #f38630;
@@ -171,12 +171,12 @@ main {
   font-size: 0.9rem;
 }
 
-.main__info--item p {
+.main__info--subject p {
   display: inline-block;
   margin-left: 0.7rem;
   margin-bottom: 2.7rem;
-  padding: 0.3rem 0;
-  width: 60%;
+  padding: 0.8rem 0 0.3rem 0.3rem;
+  width: 80%;
   border-bottom: 1px solid #F0C080;
 }
 
@@ -190,12 +190,13 @@ main {
 .reserve__wrapper {
   display: flex;
   justify-content: space-around;
-  padding-top: 2rem;
-  height: 85vh;
+  padding-top: 2%;
+  height: 82vh;
+  font-size: 0.9rem;
 }
 
 .reserve__block {
-  margin-left: 5rem;
+  margin-left: 5%;
   width: 30%;
 }
 
@@ -213,16 +214,14 @@ main {
 }
 
 .reserve__block button{
-  padding: 0.4rem 1rem;
+  vertical-align: middle;
+  padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 5px;
   background-color: #f38630;
   color: white;
   font-size: 0.9rem;
-}
-
-.reserve__alert {
-  margin-left: 6rem;
+  box-shadow: 2px 2px 1px lightgray;
 }
 
 .reserve__step {
@@ -237,10 +236,11 @@ main {
 .reserve__search--title {
   display: inline-block;
   margin-left: 1rem;
+  padding-bottom: 1rem;
 }
 
 .reserve__change {
-  margin-left: 6rem;
+  margin-left: 1rem;
   margin-bottom: 1rem;
   text-decoration: underline;
   text-decoration-color:#f38630;
@@ -252,7 +252,7 @@ main {
 
 .reserve__alert {
   display: inline-block;
-  margin: 0 0 0.9rem 6rem;
+  margin: 0 0 0.9rem 1rem;
   padding: 0.4rem 1rem;
   border-radius: 3px;
   background-color: rgb(247, 195, 195);
@@ -265,15 +265,32 @@ main {
 }
 
 .reserve__reserved--notice {
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 1rem 0;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   background-color: #eef4d2;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.2rem;
 }
 
-.reserve__start-time, .reserve__end-time {
+.reserve__time-input {
+  padding-bottom: 2rem;
+}
+
+.reserve__time-input--item {
+  display: flex;
+  align-items: start;
+  margin-bottom: 0.2rem;
+}
+
+.reserve__time-input--text {
+  margin-top: 0.5rem;
+  width: 70%;
+}
+
+.reserve__date {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
@@ -285,8 +302,8 @@ main {
 
 .reserve__button {
   display: block;
-  width: 22rem;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  margin-bottom: 2rem;
+  width: 80%;
 }
 
 .reserve__calendar {
@@ -345,7 +362,7 @@ main {
 
 .confirm__wrapper {
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 3%;
 }
 
 .confirm__wrapper h2 {
@@ -356,16 +373,16 @@ main {
 }
 
 .confirm__outer {
-  margin: 2rem auto 3rem auto;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
   padding: 2rem 0 0.1rem 0 ;
-  width: 35%;
-  text-align: left;
+  width: 50%;
   background-color: #f2f6e1;
 }
 
 .confirm__inner {
-  margin: 0 auto;
-  width: 57%;
+  text-align: left;
 }
 
 .confirm__inner--item {
@@ -531,12 +548,12 @@ main {
 /* register,loginのCSS */
 
 .auth__wrapper {
-  padding-top: 7rem;
+  padding-top: 5%;
 }
 
 .auth__box {
   margin: 0 auto;
-  width: 35%;
+  width: 40%;
   border: 1px solid lightgray;
   border-radius: 5px;
   box-shadow: 2px 2px 7px gray;
@@ -572,14 +589,13 @@ main {
 }
 
 .auth__input i {
-  margin-right: 0.5rem;
+  margin-right: 1.2rem;
   width: 1rem;
   color: #008282;
 }
 
 .auth__input input {
   padding: 0.3rem;
-  margin-left: 0.7rem;
   width: 85%;
   border-bottom: 1px solid gray;
   background-color: #eef4d2;
@@ -597,6 +613,7 @@ main {
 }
 
 .auth__button {
+  margin-top: 0.5rem;
   margin-right: 1rem;
   padding: 0.4rem 1rem;
   border: none;
@@ -643,6 +660,7 @@ main {
 
 .mypage__inner {
   margin: 0 auto;
+  width: 95%;
 }
 
 .mypage__contents {
@@ -670,7 +688,7 @@ main {
 
 .mypage__contents--inner th, 
 .mypage__contents--inner td {
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
 }
 
 .mypage__contents--inner th {
@@ -705,11 +723,19 @@ main {
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
+.mypage__reserve {
+  display: flex;
+}
+
 .mypage__reserve a {
-  margin-right: 1rem;
   border: 2px solid #008282;
   background-color: #008282;
   color: white;
+  letter-spacing: .2rem;
+}
+
+.mypage__reserve a:first-of-type {
+  margin-right: 1rem;
 }
 
 .mypage__review a {
@@ -731,7 +757,7 @@ main {
 }
 
 .review__inner {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
   padding: 1rem 2rem;
   border: 0.3px solid rgb(171, 170, 170);
   border-radius: 10px;

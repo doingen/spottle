@@ -29,8 +29,8 @@
               <td>{{$reserve->dateReform($reserve->end_at)}}</td>
               <td class="mypage__reserve">
                 @if($reserve->start_at >= now())
-                  <a href="{{route('reserve.show', ['reserve_id' => $reserve->id])}}">日時変更する</a>
-                  <a href="{{route('reserve.delete', ['reserve_id' => $reserve->id])}}">予約取り消し</a>
+                    <a href="{{route('reserve.show', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-pencil"></i>変更</a>
+                    <a href="{{route('reserve.delete', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-xmark"></i>取消</a>
                 @endif
               </td>
             </tr>
@@ -62,7 +62,7 @@
               <td>{{$review->dateReform($review->end_at)}}</td>
               <td class="mypage__review">
                 @if($review->reviewedOrNot($review->id))
-                  <a href="{{route('review.show', ['reservation_id' => $review->id])}}">レビュー作成</a>
+                  <a href="{{route('review.show', ['reservation_id' => $review->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
                 @endif
               </td>
             </tr>

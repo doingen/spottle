@@ -170,7 +170,8 @@ return [
         'changed_spot_id' => 'スポット',
         'changed_title' => 'タイトル',
         'changed_text' => 'テキスト',
-        'subject' => '件名'
+        'subject' => '件名',
+        'comment' => 'コメント'
     ],
 
 ];

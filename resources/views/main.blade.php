@@ -4,7 +4,6 @@
 <title>スポっとる</title>
 <div class="main__outer">
   <div class="main__title-block">
-    <img src="{{asset('storage/images/トップ背景.jpg')}}">
     <div class="main__title">
       <div class="main__title--item">
         <h2>松山空港</h2>
@@ -25,8 +24,10 @@
       <div class="main__info--item">
         <span>{{$date}}</span>
         <a href="{{route('info.show', ['info_id' => $info->id])}}">
-          <p>{{$info->title}}</p>
-          <i class="fas fa-arrow-right"></i>
+          <div class="main__info--subject">
+            <p>{{$info->title}}</p>
+            <i class="fas fa-arrow-right"></i>
+          </div>
         </a>
       </div>
       @endforeach
