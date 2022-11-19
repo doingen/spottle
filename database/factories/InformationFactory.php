@@ -14,8 +14,12 @@ class InformationFactory extends Factory
      */
     public function definition()
     {
+        $title = "テスト". $this->faker->word();
+
         return [
-            'airport_admin_id'
+            'airport_admin_id' => $this->faker->numberBetween(1,10),
+            'title' => $title,
+            'text' => $this->faker->realText(rand(100,400))
         ];
     }
 }
