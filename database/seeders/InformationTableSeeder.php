@@ -19,7 +19,9 @@ class InformationTableSeeder extends Seeder
             $param = [
             'airport_admin_id' => 0,
             'title' => "テスト". $i+1,
-            'text' => "テストテキストです。"
+            'text' => "テストテキストです。",
+            "created_at" => now()->addMinute($i),
+            "updated_at" => now()->addMinute($i)
             ];
             Information::create($param);
         }
