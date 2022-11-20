@@ -22,7 +22,7 @@
             <input type="password" name="password" placeholder="パスワード">
           </div>
           <div class="auth__input">
-            <input type="password" name="password_confirmation" class="aa_auth__password-confirm" placeholder="再度パスワードを入力してください">
+            <input type="password" name="password_confirmation" class="aa_auth__password-confirm" placeholder="再度パスワード入力">
           </div>
           <input type="hidden" name="id" value="{{$user}}"}}>
           <p class="aa_auth__notice">※初期パスワードと同じパスワードを使用しないでください</p>

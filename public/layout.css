@@ -39,6 +39,7 @@ header {
   left: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1.1em 3em 1.1em 2em;
   width: 100%;
   box-sizing: border-box;
@@ -567,12 +568,12 @@ main {
 
 .thanks__wrapper {
   text-align: center;
-  padding-top: 6rem;
+  padding-top: 6em;
 }
 
 .thanks__contents {
   margin: 0 auto;
-  padding: 3.5rem 7rem;
+  padding: 3.5em 7em;
   width: 32rem;
   border-radius: 5px;
   background-color: #eef7ee;

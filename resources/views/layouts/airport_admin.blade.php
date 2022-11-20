@@ -21,10 +21,12 @@
     <nav>
       @if(Auth::guard('airport_admin')->check())
         <span class="admin__user">ログイン中：{{Auth::user()->name}}さん</span>
-        @if(!Request::routeIs('airport_admin.show'))
-          <a href="{{route('airport_admin.show')}}">予約確認</a>
-        @endif
-        <a href="{{route('airport_admin.logout')}}">ログアウト</a>
+        <div class="aa__nav--button">
+          @if(!Request::routeIs('airport_admin.show'))
+            <a href="{{route('airport_admin.show')}}">予約確認</a>
+          @endif
+          <a href="{{route('airport_admin.logout')}}">ログアウト</a>
+        </div>
       @endif
     </nav>
   </header>
