@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Airport_admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
 use App\Models\Airport_admin;
 
 use Illuminate\Http\Request;

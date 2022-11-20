@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Aircraft;
 use App\Models\Spot;
 
-
 class ChangeAircraftRequest extends FormRequest
 {
     /**

@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Airport_admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Airport_admin;
 use App\Models\Reservation;
 use App\Models\Spot;
-use Illuminate\Support\Facades\Auth;
 
 class AirportAdminController extends Controller
 {

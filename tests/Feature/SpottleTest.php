@@ -6,10 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ReminderMail;
 use App\Models\Reservation;
-use App\Models\User;
 use Carbon\Carbon;
 
 class SpottleTest extends TestCase
