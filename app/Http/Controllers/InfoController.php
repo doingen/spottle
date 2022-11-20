@@ -15,7 +15,6 @@ class InfoController extends Controller
         foreach($latest as $id){
             $latest = $id;
         }
-
         return view('info', ['info' => $info, 'latest' => $latest]);
     }
 }
