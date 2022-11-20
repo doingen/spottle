@@ -66,18 +66,20 @@ class ReserveRequest extends FormRequest
                                 ->get();
 
                 $reserved_b = Reservation::where('spot_id', $this->input('spot_id'))
-                                        ->where('start_at', ">", $this->input('end_at'))
+                                        ->where('start_at', ">=", $this->input('end_at'))
                                         ->get();
-        
+                
                 $diff = $r->diff($reserved_a)->diff($reserved_b);
-                
+
                 if($diff->isNotEmpty()){
-                
-                foreach($diff as $diff){
-                    $user_reserved = $diff->id;
-                }
-                    if($this->input('reservation_id') != $user_reserved){
-                        $validator->errors()->add('reserved', 'すでに予約された日時が含まれています');
+                    foreach($diff as $diff){
+                        $user_reserved = $diff->id;
+                        if($this->input('reservation_id') != $user_reserved){
+                            $validator->errors()->add('reserved', 'すでに予約された日時が含まれています');
+                        }
+                        elseif($this->input('start_at') == $diff->start_at && $this->input('end_at') == $diff->end_at){
+                            $validator->errors()->add('reserved', '元の予約日時から変更されていません');
+                        }
                     }
                 }
             }

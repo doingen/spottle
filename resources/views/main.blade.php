@@ -3,12 +3,12 @@
 @section('contents')
 <title>スポっとる</title>
 <div class="main__outer">
-  <div class="main__title-block">
-    <div class="main__title">
-      <div class="main__title--item">
-        <h2>松山空港</h2>
-        <p>小型機スポット<br>予約サイト</p>
-      </div>
+  <div class="main__title">
+    <div class="main__title--item">
+      <h2>松山空港</h2>
+      <p>小型機スポット<br>予約サイト</p>
+    </div>
+    <div class="main__title--item">
       <a href="{{route('reserve.index')}}">予約する</a>
       <p class="main__title--notice">&#127818;要会員登録&#127818;</p>
     </div>

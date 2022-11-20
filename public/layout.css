@@ -28,9 +28,9 @@ button:hover {
 
 .page-title {
   display: inline-block;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5em;
   border-bottom: 0.4px solid #F0C080;
-  font-size: 1.5rem;
+  font-size: 1.4em;
 }
 
 header {
@@ -39,7 +39,7 @@ header {
   left: 0;
   display: flex;
   justify-content: space-between;
-  padding: 1.1rem 3rem 1.1rem 2rem;
+  padding: 1.1em 3em 1.1em 2em;
   width: 100%;
   box-sizing: border-box;
   background-color: #008282;
@@ -66,8 +66,8 @@ nav {
 
 nav a {
   display: inline-block;
-  margin: 0 .75rem;
-  padding: 0.5rem 1rem;
+  margin: 0 .75em;
+  padding: 0.5em 1em;
   border-radius: 20px;
   background-color: #eef4d2;
   color: #008282;
@@ -77,6 +77,24 @@ nav a {
   border: 1px solid white;
   background-color: #f38630;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  body, div, p, span, select, input, th, td {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  header {
+    padding: 0.7em 0.8em 0.7em 1.5em;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
 }
 
 main {
@@ -90,15 +108,11 @@ main {
   padding-top: 3rem
 }
 
-.main__title-block {
-  margin-right: 50px;
-  width: 45%;
-}
-
 .main__title {
-  padding:30% 0 5% 5%;
+  margin-right: 50px;
+  padding: 15% 0 10% 5%;
+  width: 45%;
   background-image: url('storage/images/トップ背景.jpg');
-  height: 40vh;
   background-size: cover;
 }
 
@@ -111,12 +125,12 @@ main {
 
 .main__title--item h2 {
   margin-bottom: 1rem;
-  font-size: 3.5rem;
+  font-size: 3.5em;
   color: #008282;
 }
 
 .main__title--item p {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: bold;
   line-height: 1.8rem;
   color: #008282;
@@ -124,19 +138,23 @@ main {
 
 .main__title a {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1em;
   padding: 0.8rem 2rem;
   background-color: #f38630;
   border-radius: 2rem;
   box-shadow: 5px 5px 2px gray;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   text-shadow: none;
 }
 
-.main__title--notice {
+.main__title--item .main__title--notice {
   margin-top: 0.7rem;
   margin-left: 1rem;
+  font-size: 1em;
+  color: black;
+  font-weight: normal;
+  text-shadow: none;
 }
 
 .main__info {
@@ -149,12 +167,12 @@ main {
   display: inline-block;
   margin: 1.5rem 0 1.2rem 0.5rem;
   border-bottom: 2px dotted #008282;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color: #008282;
 }
 
 .main__info--contents {
-  margin-top: 1.3rem;
+  margin-top: 1.3em;
 }
 
 .main__info--item {
@@ -168,13 +186,13 @@ main {
   border-radius: 20px;
   background-color: #f38630;
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .main__info--subject p {
   display: inline-block;
   margin-left: 0.7rem;
-  margin-bottom: 2.7rem;
+  margin-bottom: 2.7em;
   padding: 0.8rem 0 0.3rem 0.3rem;
   width: 80%;
   border-bottom: 1px solid #F0C080;
@@ -184,12 +202,46 @@ main {
   color: #F0C080;
 }
 
+@media screen and (max-width: 768px) {
+  .main__outer {
+    display: block;
+    padding-top: 1rem;
+  }
+  
+  .main__title {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .main__info {
+    margin: 2em auto;
+    width: 80%;
+  }
+
+  .main__info--title {
+    margin: 1em .7em;
+  }
+
+  .main__info--contents {
+    margin: 0;
+  }
+
+  .main__info--subject p {
+    margin-bottom: 1.2em;
+  }
+
+}
+
 
 /* reserveのCSS */
 
 .reserve__wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding-top: 2%;
   height: 82vh;
   font-size: 0.9rem;
@@ -197,7 +249,8 @@ main {
 
 .reserve__block {
   margin-left: 5%;
-  width: 30%;
+  margin-right: 5%;
+  width: 38%;
 }
 
 .reserve__first-search,
@@ -208,19 +261,19 @@ main {
 
 .reserve__input {
   padding: 0.2rem 0.5rem;
-  width: 70%;
+  width: 50%;
   box-sizing: border-box;
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 
 .reserve__block button{
   vertical-align: middle;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3em 1em;
   border: none;
   border-radius: 5px;
   background-color: #f38630;
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.95em;
   box-shadow: 2px 2px 1px lightgray;
 }
 
@@ -252,12 +305,12 @@ main {
 
 .reserve__alert {
   display: inline-block;
-  margin: 0 0 0.9rem 1rem;
-  padding: 0.4rem 1rem;
+  margin: 0 0 0.9em 1em;
+  padding: 0.4em 1em;
   border-radius: 3px;
   background-color: rgb(247, 195, 195);
   color: red;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .reserve__reserved {
@@ -265,12 +318,13 @@ main {
 }
 
 .reserve__reserved--notice {
-  margin: 1rem 0 1rem 0;
-  padding: 0.5rem 1rem;
+  margin: 1em 0 1em 0;
+  padding: 0.5em 1em;
+  width: 70%;
   border-radius: 5px;
   background-color: #eef4d2;
-  font-size: 0.9rem;
-  line-height: 1.2rem;
+  font-size: 0.9em;
+  line-height: 1.2em;
 }
 
 .reserve__time-input {
@@ -297,13 +351,14 @@ main {
 .reserve__time-input select{
   padding: 0.2rem 0.5rem;
   box-sizing: border-box;
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 
-.reserve__button {
+.reserve__block .reserve__button {
   display: block;
   margin-bottom: 2rem;
-  width: 80%;
+  padding: 0.4em 1em;
+  width: 60%;
 }
 
 .reserve__calendar {
@@ -357,6 +412,69 @@ main {
   background-color: rgb(236, 234, 234);
 }
 
+@media screen and (max-width: 768px) {
+  .reserve__search--box {
+    margin-left: 0;
+  }
+
+  .reserve__block {
+    margin-left: 8%;
+    width: 95%;
+  }
+
+  .reserve__input {
+    padding: 0.2rem 0.5rem;
+    width: 70%;
+    box-sizing: border-box;
+    font-size: 0.9em;
+  }
+
+  .reserve__step {
+    padding: 0.3em 0.5em;
+  }
+
+  .reserve__block .reserve__button {
+    display: block;
+    margin-left: 15%;
+    margin-bottom: 2em;
+    padding: 0.4em 1em;
+    width: 60%;
+  }
+
+  .reserve__reserved {
+    margin-left: 30%
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .reserve__wrapper {
+    display: block;
+  }
+
+  .reserve__block {
+    margin: 0;
+    padding-left: 10%;
+    width: 90%;
+  }
+
+  .reserve__calendar {
+    margin: 0 auto;
+    width: 93%;
+  }
+
+  .reserve__time-input {
+    padding-bottom: 0;
+  }
+
+  .reserve__calendar {
+    padding-bottom: 2em;
+  }
+
+  .reserve__calendar--table {
+    height: 50vh;
+  }
+}
+
 
 /* confirmのCSS */
 
@@ -391,8 +509,8 @@ main {
 
 .confirm__inner--item span {
   display: inline-block;
-  margin-right: 1rem;
-  padding: 0.5rem 1rem;
+  margin-right: 1em;
+  padding: 0.5em 1em;
   border-radius: 5px;
   border: 2px solid #008282;
   box-sizing: border-box;
@@ -425,13 +543,23 @@ main {
 }
 
 .confirm__button--reserve button {
-  padding: 0.4rem 1rem;
+  padding: 0.4em 1em;
   border: none;
   border-radius: 5px;
   background-color: #f38630;
-  font-size: 1rem;
+  font-size: 1em;
   color: white;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+@media screen and (max-width: 768px) {
+  .confirm__wrapper h2 {
+    font-size: 1.2em;
+  }
+
+  .confirm__outer {
+    width: 85%;
+  }
 }
 
 
@@ -452,19 +580,19 @@ main {
 
 .thanks__contents p {
   display: inline-block;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
   border-bottom: 0.4px solid #008282;
-  font-size: 1.1rem;
-  line-height: 1.6rem;
+  font-size: 1.1em;
+  line-height: 1.6em;
 }
 
 .thanks__contents a, .thanks__contents button {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.8rem 1rem;
+  padding: 0.8em 1em;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
@@ -494,28 +622,35 @@ main {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .thanks__contents {
+    padding: 3em;
+    width: 80%;
+  }
+}
+
 
 /* infoのCSS */
 
 .info__wrapper {
-  padding: 3rem 4rem 0 3rem;
+  padding: 1.5em 4em 0 3em;
 }
 
 .info__title h2 {
   display: inline-block;
-  padding-bottom: 1.3rem;
+  padding-bottom: .8em;
   border-bottom: 0.4px solid #F0C080;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .info__title span {
   display: inline-block;
-  margin-bottom: 0.5rem;
-  padding: 0.3rem 0.8rem;
+  margin-bottom: 1.2em;
+  padding: 0.3em 0.8em;
   border-radius: 20px;
   background-color: #F0C080;
   color: rgb(69, 69, 69);
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .info__contents {
@@ -529,8 +664,8 @@ main {
 
 .info__button a {
   display: inline-block;
-  margin: 1rem 1rem;
-  padding: 0.5rem 1rem;
+  margin: 1em 1em;
+  padding: 0.5em 1em;
   border-radius: 20px;
   color: white;
 }
@@ -560,39 +695,40 @@ main {
 }
 
 .auth__title {
-  padding: 0.8rem 0.8rem;
+  padding: 0.8em 0.8em;
   border: none;
   border-radius: 5px 5px 0 0;
-  font-size: 1.1rem;
+  font-size: 1.1em;
 }
 
 .auth__title h2 {
   display: inline-block;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  padding-bottom: 0.5rem;
+  margin-top: 1em;
+  margin-left: 1em;
+  padding-bottom: 0.5em;
   border-bottom: 0.4px solid #008282;
 }
 
 .auth__item--inner {
-  margin: 0.5rem auto 2rem auto;
+  margin: 0.5em auto 2em auto;
   width: 80%;
 }
 
 .auth__input {
   display: flex;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5em;
 }
 
 .auth__input i {
-  margin-right: 1.2rem;
-  width: 1rem;
-  font-size: 1.5rem;
+  margin-right: 1.1em;
+  padding-top: 0.2em;
+  width: 1em;
+  font-size: 1.4rem;
   color: #008282;
 }
 
 .auth__input input {
-  padding: 0.3rem;
+  padding: 0.3em;
   width: 85%;
   border-bottom: 1px solid gray;
   background-color: #eef4d2;
@@ -601,29 +737,29 @@ main {
 }
 
 .auth__password-confirm {
-  margin-left: 2.2rem;
+  margin-left: 2.9rem;
 }
 
 .auth__input--notice {
-  margin-left: 2.2rem;
-  font-size: 0.9rem;
+  margin-left: 2.5rem;
+  font-size: 0.9em;
 }
 
 .auth__button {
-  margin-top: 0.5rem;
-  margin-right: 1rem;
-  padding: 0.4rem 1rem;
+  margin-top: 0.5em;
+  margin-right: 1em;
+  padding: 0.4em 1em;
   border: none;
   border-radius: 20px;
   background-color: #008282;
   color: white;
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 
 .register__button {
   display: block;
-  margin: 0 15% 1.8rem auto;
-  padding: 0.4rem 1.5rem;
+  margin: 0 15% 1.8em auto;
+  padding: 0.4em 1.5em;
 }
 
 .auth__bottom {
@@ -631,15 +767,15 @@ main {
 }
 
 .auth__bottom a {
-  margin-right: 2rem;
-  font-size: 0.9rem;
+  margin-right: 2em;
+  font-size: 0.9em;
   color: rgb(110, 109, 109);
 }
 
 .alert__notice {
-  margin-left: 1.5rem;
+  margin-left: 2.3em;
   padding: 0.3em 1em;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: red;
 }
 
@@ -647,34 +783,50 @@ main {
   margin-left: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+  .auth__box {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .auth__input i {
+    margin-right: .7em;
+  }
+
+  .auth__input input {
+    font-size: 0.7rem;
+  }
+}
+
 
 /* mypageのCSS */
 
 .mypage__outer {
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 2%;
   width: 90%;
 }
 
 .mypage__inner {
   margin: 0 auto;
-  width: 95%;
+  width: 98%;
 }
 
 .mypage__contents {
-  margin: 2rem auto;
+  margin: 2em auto;
 }
 
 .mypage__contents h3 {
   display: inline-block;
-  padding-bottom: 0.2rem;
-  font-size: 1.2rem;
+  padding-bottom: 0.2em;
+  font-size: 1.2em;
   font-weight: bold;
   border-bottom: 2px dotted #008282;
 }
 
 .mypage__contents--inner {
-  margin: 1rem 0 0 2rem;
+  margin: 1em 0 0 0.5em;
 }
 
 .mypage__contents--inner table {
@@ -686,7 +838,7 @@ main {
 
 .mypage__contents--inner th, 
 .mypage__contents--inner td {
-  padding: 1rem 2rem;
+  padding: 1em 1em;
 }
 
 .mypage__contents--inner th {
@@ -710,30 +862,19 @@ main {
 
 .mypage__contents--inner td:last-child {
   border: none;
-  background-color: white;
-  text-align: left;
 }
 
 .mypage__reserve a, .mypage__review a{
-  padding: 0.3rem 1rem;
+  padding: 0.3em 1em;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-
-.mypage__reserve {
-  display: flex;
 }
 
 .mypage__reserve a {
   border: 2px solid #008282;
   background-color: #008282;
   color: white;
-  letter-spacing: .2rem;
-}
-
-.mypage__reserve a:first-of-type {
-  margin-right: 1rem;
 }
 
 .mypage__review a {
@@ -742,11 +883,26 @@ main {
   color: #008282;
 }
 
+@media screen and (max-width: 768px) {
+  .mypage__contents--inner th,
+  .mypage__contents--inner td {
+    font-size: 0.7em;
+  }
+
+  .mypage__reserve a,
+  .mypage__review a {
+    padding: 0 1em;
+    border-radius: 20px;
+    font-size: 0.5em;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  }
+}
+
 
 /* reveiwのCSS */
 
 .review__wrapper {
-  padding-top: 2rem;
+  padding-top: 2em;
 }
 
 .review__outer {
@@ -755,8 +911,8 @@ main {
 }
 
 .review__inner {
-  margin: 1.5rem 0;
-  padding: 1rem 2rem;
+  margin: 1.5em 0;
+  padding: 1em 2em;
   border: 0.3px solid rgb(171, 170, 170);
   border-radius: 10px;
   background-color: #eef4d2;
@@ -764,7 +920,7 @@ main {
 }
 
 .review__inner--item {
-  margin-top: 2rem;
+  margin-top: 2em;
 }
 
 .review__inner--item i {
@@ -772,21 +928,21 @@ main {
 }
 
 .review__inner--item p {
-  padding: 0.5rem 0;
+  padding: 0.5em 0;
 }
 
 .review__info {
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
+  padding: 1em;
   border-radius: 10px;
   background-color: whitesmoke;
 }
 
 .review__info span {
   display: inline-block;
-  margin: 0.5rem 0;
-  font-size: 0.8rem;
+  margin: 0.5em 0;
+  font-size: 0.8em;
   text-decoration: underline;
   text-decoration-color: #F0C080;
 }
@@ -802,7 +958,7 @@ main {
 }
 
 .review__inner select {
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 
 .review__inner textarea {
@@ -812,10 +968,22 @@ main {
 
 .review__inner button {
   display: block;
-  margin: 2rem 0 0 auto;
-  padding: 0.3rem 1rem;
+  margin: 2em 0 0 auto;
+  padding: 0.3em 1em;
   border: 2px solid #F0C080;
   border-radius: 5px;
   background-color: #eef7ee;
-  font-size: 1rem;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 1100px) {
+  .review__outer {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .review__outer {
+    width: 90%;
+  }
 }

@@ -116,14 +116,16 @@ class Reservation extends Model
 
         $period = CarbonPeriod::create($reservation->start_at, $reservation->end_at)
                                 ->minute(15)->toArray();
-        
+                                
+        array_pop($period);
+
         $reserving = [];
         
         foreach($period as $period){
             $r = $period->format('Y-m-d H:i:s');
             $reserving[] = $r;
         }
-        
+
         return $reserving;
     }
 

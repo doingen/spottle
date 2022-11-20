@@ -13,12 +13,23 @@
           <p class="mypage__nothing">予約情報はありません</p>
         @else
           <table>
+            <colgroup>
+              <col style="width: 6%;">
+              <col style="width: 8%;">
+              <col style="width: 15%;">
+              <col style="width: 15%;">
+              <col style="width: 15%;">
+              <col style="width: 4%;">
+              <col style="width: 4%;">
+            </colgroup>
             <tr>
               <th>予約番号</th>
               <th>スポット</th>
               <th>使用機材</th>
               <th>開始(JST)</th>
               <th>終了(JST)</th>
+              <th>変更</th>
+              <th>取消</th>
             </tr>
             @foreach($reserve as $reserve)
             <tr>
@@ -29,8 +40,12 @@
               <td>{{$reserve->dateReform($reserve->end_at)}}</td>
               <td class="mypage__reserve">
                 @if($reserve->start_at >= now())
-                    <a href="{{route('reserve.show', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-pencil"></i>変更</a>
-                    <a href="{{route('reserve.delete', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-xmark"></i>取消</a>
+                    <a href="{{route('reserve.show', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-pencil"></i></a>
+                @endif
+              </td>
+              <td class="mypage__reserve">
+                @if($reserve->start_at >= now())
+                  <a href="{{route('reserve.delete', ['reserve_id' => $reserve->id])}}"><i class="fa-solid fa-xmark"></i></a>
                 @endif
               </td>
             </tr>
@@ -46,12 +61,21 @@
           <p class="mypage__nothing">利用履歴はありません</p>
         @else
           <table>
+            <colgroup>
+              <col style="width: 5%;">
+              <col style="width: 8%;">
+              <col style="width: 10%;">
+              <col style="width: 15%;">
+              <col style="width: 15%;">
+              <col style="width: 5%;">
+            </colgroup>
             <tr>
               <th>予約番号</th>
               <th>スポット</th>
               <th>使用機材</th>
               <th>開始(JST)</th>
               <th>終了(JST)</th>
+              <th>レビュー</th>
             </tr>
             @foreach($review as $review)
             <tr>
@@ -63,6 +87,8 @@
               <td class="mypage__review">
                 @if($review->reviewedOrNot($review->id))
                   <a href="{{route('review.show', ['reservation_id' => $review->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
+                @else
+                  <p>済</p>
                 @endif
               </td>
             </tr>

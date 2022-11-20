@@ -37,7 +37,7 @@
             <i class="fa-solid fa-lock"></i><input type="password" name="password" placeholder="パスワード">
           </div>
           <div class="auth__input">
-            <input type="password" name="password_confirmation" class="auth__password-confirm" placeholder="再度パスワードを入力してください">
+            <input type="password" name="password_confirmation" class="auth__password-confirm" placeholder="再度パスワード入力">
           </div>
         </div>  
         <button class="auth__button register__button">登録</button>
