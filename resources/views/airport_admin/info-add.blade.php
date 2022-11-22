@@ -41,7 +41,7 @@
   @if(session('changed_error'))
     <p class="aa__alert aa__notice">{{session('changed_error')}}</p>
   @endif
-    <h2 class="aa_page-title">インフォメーション追加</h2>
+    <h2 class="aa__page-title">インフォメーション変更</h2>
     <form method="get" action="{{route('airport_admin.change_info')}}" >
       @csrf
       <div class="aa_add__inner aa_add__info">
