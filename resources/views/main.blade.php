@@ -5,8 +5,7 @@
 <div class="main__outer">
   <div class="main__title">
     <div class="main__title--item">
-      <h2>松山空港</h2>
-      <p>小型機スポット<br>予約サイト</p>
+      <h2>小型機スポット<br>予約サイト</h2>
     </div>
     <div class="main__title--item">
       <a href="{{route('reserve.index')}}">予約する</a>

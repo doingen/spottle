@@ -1,5 +1,5 @@
-* {
-  font-family: 'Sawarabi Gothic', sans-serif;
+body, header, main {
+  font-family: 'BIZ UDPGothic', sans-serif;
 }
 
 h2, h3, span, p, th, td{
@@ -115,19 +115,14 @@ main {
   width: 45%;
   background-image: url('storage/images/トップ背景.jpg');
   background-size: cover;
-}
-
-.main__title--item {
-  text-shadow: 3px 3px 0 #FFF, -1px -1px 0 #FFF,
-      -1px 1px 0 #FFF, 1px -1px 0 #FFF,
-      0px 1px 0 #FFF, 0-1px 0 #FFF,
-      -1px 0 0 #FFF, 1px 0 0 #FFF;
+  font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 .main__title--item h2 {
   margin-bottom: 1rem;
   font-size: 3.5em;
   color: #008282;
+  font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 .main__title--item p {
@@ -135,6 +130,7 @@ main {
   font-weight: bold;
   line-height: 1.8rem;
   color: #008282;
+  font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 .main__title a {
@@ -167,7 +163,6 @@ main {
 .main__info--title {
   display: inline-block;
   margin: 1.5rem 0 1.2rem 0.5rem;
-  border-bottom: 2px dotted #008282;
   font-size: 1.2em;
   color: #008282;
 }

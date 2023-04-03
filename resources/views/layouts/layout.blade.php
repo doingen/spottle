@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{asset('layout.css')}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/99288424cc.js" crossorigin="anonymous"></script>
 </head>
 <body>
